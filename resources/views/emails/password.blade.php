@@ -1,0 +1,1 @@
+Click <a href="http://www./password/reset/{!! $token !!}">here</a> to reset your password.

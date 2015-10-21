@@ -1,0 +1,117 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Applications;
+use App\Company;
+use App\Settings;
+use App\Events\EmailRefereeOne;
+use App\Events\EmailRefereeTwo;
+use App\Http\Requests\CreateNewApplicationRequest;
+use App\References;
+use Illuminate\Http\Request;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+
+class ApplicationSubmissionController extends Controller
+{
+
+    /**
+     * Show application form for new submissions
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $segment = \Request::url();
+        $search = ['http://', 'https://', '.madesimpleltd', '.co.uk', '/application'];
+        $replace = ['','','','',''];
+        $output = str_replace($search, $replace, $segment);
+        $company = Company::where('url', $output)->first();
+        $fields = Settings::where('company_id', '=', $company->id)->get();
+
+        return view('applications.submission', compact('company', 'fields'));
+    }
+
+    /**
+     * Store new application form submission
+     *
+     * @param \Illuminate\Http\CreateNewApplicationRequest $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(CreateNewApplicationRequest $request)
+    {
+        // Create New Application
+        $application = Applications::create($request->only(['first_name' , 'middle_name' , 'surname', 'address_line1', 'address_line2', 'city', 'postcode', 'telephone', 'visa_valid_to', 'mobile', 'email',
+                       'ni_number', 'driver', 'endorsements', 'vehicle_access', 'right_to_work', 'evidence_right_to_work', 'comments', 'education', 'employer_name', 'job_title', 'employer_start_date',
+                       'employer_end_date', 'employer_responsibilities', 'employer_name2', 'job_title2', 'employer_start_date2', 'employer_end_date2', 'employer_responsibilities2', 'health_info',
+                       'criminal_convictions', 'convictions_comments', 'next_of_kin_name', 'next_of_kin_address', 'next_of_kin_telephone', 'next_of_kin_mobile', 'next_of_kin_relationship', 'created_at', 'updated_at',
+                       'contactable', 'accept_data_protection', 'company_id', 'employer_name3', 'job_title3', 'employer_start_date3', 'employer_end_date3', 'employer_responsibilities3', 'signed_by','code'
+        ]));
+        // Create New Reference
+        $ref = new References;
+        $ref->company_id = $request->input('company_id');
+        $ref->applications_id = $application->id;
+        $ref->references_id = $request->input('reference_id');
+        $ref->referee_name = $request->input('referee_name');
+        $ref->referee_company = $request->input('referee_company');
+        $ref->referee_email = $request->input('referee_email');
+        $ref->referee_relationship = $request->input('referee_relationship');
+        $ref->referee_start_date = $request->input('referee_start_date');
+        $ref->referee_end_date = $request->input('referee_end_date');
+        $ref->referee_current_employer = $request->input('referee_current_employer');
+        $ref->referee_contact = $request->input('referee_contact');
+        $ref->referee_name2 = $request->input('referee_name2');
+        $ref->referee_company2 = $request->input('referee_company2');
+        $ref->referee_email2 = $request->input('referee_email2');
+        $ref->referee_relationship2 = $request->input('referee_relationship2');
+        $ref->referee_start_date2 = $request->input('referee_start_date2');
+        $ref->referee_end_date2 = $request->input('referee_end_date2');
+        $ref->referee_current_employer2 = $request->input('referee_current_employer2');
+        $ref->referee_contact2 = $request->input('referee_contact2');
+        $ref->save();
+
+        $application->reference_id = $ref->id;
+        $application->company_id = $ref->company_id;
+        $application->update();
+
+        // Check if referee is contactable then
+        $referee = $ref;
+
+        if ($ref->referee_contact == 'Yes' && $ref->completed == 0){
+            // Fire Event to send email to referee 1
+            event(new EmailRefereeOne($referee, $application));
+        }
+        if ($ref->referee_contact2 == 'Yes' && $ref->completed == 0){
+            // Fire Event to send email to referee 2
+            event(new EmailRefereeTwo($referee, $application));
+        }
+        flash()->success('Success', 'Thank you! Your submission has been successful and your referees emailed.');
+        return back();
+    }
+
+    public function reference()
+    {
+        $segment = \Request::url();
+        $search = ['http://', 'https://', '.madesimpleltd', '.co.uk', '/reference', '/'.\Request::segment(2)];
+        $replace = ['','','','','',''];
+        $output = str_replace($search, $replace, $segment);
+        $company = Company::where('url', $output)->first();
+        $code = \Request::segment(2);
+        $user = Applications::where('code', $code)->first();
+        $settings = Settings::where('company_id', '=', $company->id)->where('references_id', '!=', 0)->get();
+
+        return view('references.index', compact('company', 'user', 'settings'));
+    }
+
+    public function postReference($code)
+    {
+        // Update the database to completed
+
+    }
+
+
+
+
+
+}
