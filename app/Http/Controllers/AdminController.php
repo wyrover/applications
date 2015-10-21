@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+use App\ReferenceFields;
+use App\Settings;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -45,6 +47,11 @@ class AdminController extends Controller
         $settings = new Settings;
         $settings->company_id = $company->id;
         $settings->save();
+
+        $refs = new ReferenceFields;
+        $refs->settings_id = $settings->id;
+        $refs->company_id = $company->id;
+        $refs->save();
 
         flash()->success('Success', 'Account successfully created');
         return back();
