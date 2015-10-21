@@ -33,7 +33,7 @@ class ApplicationSubmissionController extends Controller
             $fields = Settings::where('company_id', '=', $company->id)->get();
             return view('applications.submission', compact('company', 'fields'));
         }
-        else {
+        if (App::environment('production')) {
             $segment = \Request::url();
             $search = ['http://', 'https://', '.applications', '.app', '/application'];
             $replace = ['', '', '', '', ''];
@@ -115,7 +115,7 @@ class ApplicationSubmissionController extends Controller
 
             return view('references.index', compact('company', 'user', 'settings'));
         }
-        else {
+        if (App::environment('production')) {
             $segment = \Request::url();
             $search = ['http://', 'https://', '.applications', '.app', '/reference', '/'.\Request::segment(2)];
             $replace = ['','','','','',''];
