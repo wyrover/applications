@@ -1,4 +1,4 @@
-@if (count($fields))
+
 <div class="panel panel-default">
   <div class="panel-heading">Other Information</div>
   <div class="panel-body">
@@ -208,4 +208,3 @@
       </div>
   </div>
 </div>
-@endif
