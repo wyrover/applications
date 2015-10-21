@@ -6,7 +6,7 @@ get('/', function () {
 });
 
 /* Domain Routes */
-Route::group(['domain' => '{account}.madesimple.co.uk'], function () {
+Route::group(['domain' => '{account}.applications.app'], function () {
 
     /* Submission of a application */
     get('application', 'ApplicationSubmissionController@create');
@@ -14,9 +14,6 @@ Route::group(['domain' => '{account}.madesimple.co.uk'], function () {
 
     get('reference/{code}', 'ApplicationSubmissionController@reference');
     post('reference/{code}', 'ApplicationSubmissionController@postReference');
-
-    // Dashboard
-    get('dashboard', 'DashboardController@index');
 
     Route::group(['middleware' => 'auth'], function () {
 
@@ -45,6 +42,8 @@ Route::group(['domain' => '{account}.madesimple.co.uk'], function () {
     });
     // Admin
     // Accounts
+    // Dashboard
+    get('dashboard', 'DashboardController@index');
     get('admin/account/create', 'AdminController@create');
     post('admin/account', 'AdminController@store');
     get('admin/account/{id}/edit', 'AdminController@edit');
