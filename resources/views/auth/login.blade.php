@@ -71,7 +71,6 @@
                     $output = str_replace($search, $replace, $segment);
                     $company = \App\Company::where('url', $output)->first();
                 }
-
                 ?>
                 @if (! empty($company->logo))
                     <img src="/uploads/{{ $company->logo }}" width="100" style="display: flex; justify-content: center; align-items: center;margin: 0px 0px 30px 80px;  ">
