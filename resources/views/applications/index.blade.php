@@ -7,6 +7,7 @@
 @endsection
 @section('content')
 @if(count($applications))
+
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
