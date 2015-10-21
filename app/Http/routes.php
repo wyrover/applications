@@ -15,9 +15,11 @@ Route::group(['domain' => '{account}.madesimple.co.uk'], function () {
     get('reference/{code}', 'ApplicationSubmissionController@reference');
     post('reference/{code}', 'ApplicationSubmissionController@postReference');
 
+    // Dashboard
+    get('dashboard', 'DashboardController@index');
+
     Route::group(['middleware' => 'auth'], function () {
-        // Dashboard
-        get('dashboard', 'DashboardController@index');
+
 
         // Application Routes
         Route::any('applications/export/application/{id}', 'ApplicationsController@exportApplication');
