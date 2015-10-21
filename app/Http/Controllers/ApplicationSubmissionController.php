@@ -104,14 +104,4 @@ class ApplicationSubmissionController extends Controller
         return view('references.index', compact('company', 'user', 'settings'));
     }
 
-    public function postReference($code)
-    {
-        // Update the database to completed
-
-    }
-
-
-
-
-
 }
