@@ -44,6 +44,9 @@ class AdminController extends Controller
         $user->company_id = $company->id;
         $user->update();
 
+        $company->user_id = $user->id;
+        $company->update();
+
         $settings = new Settings;
         $settings->company_id = $company->id;
         $settings->save();
