@@ -1,5 +1,5 @@
 <hr />
-@if(isset($ref))
+
 <h4>Reference Settings</h4>
 {!! Form::model($ref, ['method' => 'PUT', 'url' => ['settings/refs', $ref->id], 'class' => 'form-horizontal']) !!}
 
@@ -136,5 +136,3 @@
     </div>
 </div>
 {!! Form::close() !!}
-
-@endif
