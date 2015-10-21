@@ -35,7 +35,7 @@ class ApplicationSubmissionController extends Controller
         }
         if (App::environment('production')) {
             $segment = \Request::url();
-            $search = ['http://', 'https://', '.applications', '.app', '/application'];
+            $search = ['http://', 'https://', '.madesimpleltd', '.co.uk', '/application'];
             $replace = ['', '', '', '', ''];
             $output = str_replace($search, $replace, $segment);
             $company = Company::where('url', $output)->first();
@@ -117,7 +117,7 @@ class ApplicationSubmissionController extends Controller
         }
         if (App::environment('production')) {
             $segment = \Request::url();
-            $search = ['http://', 'https://', '.applications', '.app', '/reference', '/'.\Request::segment(2)];
+            $search = ['http://', 'https://', '.madesimpleltd', '..co.uk', '/reference', '/'.\Request::segment(2)];
             $replace = ['','','','','',''];
             $output = str_replace($search, $replace, $segment);
             $company = Company::where('url', $output)->first();
