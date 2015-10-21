@@ -12,6 +12,7 @@ use App\References;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\App;
 
 class ApplicationSubmissionController extends Controller
 {
@@ -23,14 +24,24 @@ class ApplicationSubmissionController extends Controller
      */
     public function create()
     {
-        $segment = \Request::url();
-        $search = ['http://', 'https://', '.madesimpleltd', '.co.uk', '/application'];
-        $replace = ['','','','',''];
-        $output = str_replace($search, $replace, $segment);
-        $company = Company::where('url', $output)->first();
-        $fields = Settings::where('company_id', '=', $company->id)->get();
-
-        return view('applications.submission', compact('company', 'fields'));
+        if (App::environment('local')) {
+            $segment = \Request::url();
+            $search = ['http://', 'https://', '.applications', '.app', '/application'];
+            $replace = ['', '', '', '', ''];
+            $output = str_replace($search, $replace, $segment);
+            $company = Company::where('url', $output)->first();
+            $fields = Settings::where('company_id', '=', $company->id)->get();
+            return view('applications.submission', compact('company', 'fields'));
+        }
+        else {
+            $segment = \Request::url();
+            $search = ['http://', 'https://', '.applications', '.app', '/application'];
+            $replace = ['', '', '', '', ''];
+            $output = str_replace($search, $replace, $segment);
+            $company = Company::where('url', $output)->first();
+            $fields = Settings::where('company_id', '=', $company->id)->get();
+            return view('applications.submission', compact('company', 'fields'));
+        }
     }
 
     /**
@@ -92,16 +103,40 @@ class ApplicationSubmissionController extends Controller
 
     public function reference()
     {
-        $segment = \Request::url();
-        $search = ['http://', 'https://', '.madesimpleltd', '.co.uk', '/reference', '/'.\Request::segment(2)];
-        $replace = ['','','','','',''];
-        $output = str_replace($search, $replace, $segment);
-        $company = Company::where('url', $output)->first();
-        $code = \Request::segment(2);
-        $user = Applications::where('code', $code)->first();
-        $settings = Settings::where('company_id', '=', $company->id)->where('references_id', '!=', 0)->get();
+        if (App::environment('local')) {
+            $segment = \Request::url();
+            $search = ['http://', 'https://', '.applications', '.app', '/reference', '/' . \Request::segment(2)];
+            $replace = ['', '', '', '', '', ''];
+            $output = str_replace($search, $replace, $segment);
+            $company = Company::where('url', $output)->first();
+            $code = \Request::segment(2);
+            $user = Applications::where('code', $code)->first();
+            $settings = Settings::where('company_id', '=', $company->id)->where('references_id', '!=', 0)->get();
 
-        return view('references.index', compact('company', 'user', 'settings'));
+            return view('references.index', compact('company', 'user', 'settings'));
+        }
+        else {
+            $segment = \Request::url();
+            $search = ['http://', 'https://', '.applications', '.app', '/reference', '/'.\Request::segment(2)];
+            $replace = ['','','','','',''];
+            $output = str_replace($search, $replace, $segment);
+            $company = Company::where('url', $output)->first();
+            $code = \Request::segment(2);
+            $user = Applications::where('code', $code)->first();
+            $settings = Settings::where('company_id', '=', $company->id)->where('references_id', '!=', 0)->get();
+
+            return view('references.index', compact('company', 'user', 'settings'));
+        }
     }
+
+    public function postReference($code)
+    {
+        // Update the database to completed
+
+    }
+
+
+
+
 
 }
