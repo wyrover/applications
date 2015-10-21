@@ -1,6 +1,8 @@
 <?php
 
-/* Redirect to login route on / */
+use Illuminate\Support\Facades\App;
+
+/* Redirect to login */
 get('/', function () {
     return view('auth/login');
 });
