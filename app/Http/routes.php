@@ -4,6 +4,7 @@
 get('/', function () {
     return view('auth/login');
 });
+
 if (App::environment('local')) {
     /* Domain Routes */
     Route::group(['domain' => '{account}.applications.app'], function () {
@@ -69,7 +70,8 @@ if (App::environment('local')) {
     get('password/reset/{token}', 'Auth\PasswordController@getReset');
     post('password/reset', 'Auth\PasswordController@postReset');
 }
-else {
+// LIVE ENV
+if (App::environment('production')) {
     /* Domain Routes */
     Route::group(['domain' => '{account}.madesimpleltd.co.uk'], function () {
 
