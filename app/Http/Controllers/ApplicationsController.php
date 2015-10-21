@@ -21,7 +21,7 @@ class ApplicationsController extends Controller
      */
     public function index()
     {
-        $applications = Applications::paginate(config('custom.per_page'));
+        $applications = Applications::where('company_id', Auth::user()->company_id)->paginate(config('custom.per_page'));
         return view('applications.index', compact('applications'));
     }
 
