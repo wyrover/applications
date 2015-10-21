@@ -56,7 +56,28 @@
     <div class="row">
         <div class="col-md-12">
             <div class="form-login">
-                <h4>Login</h4>
+                <?php
+                if (App::environment('local')) {
+                    $segment = \Request::url();
+                    $search = ['http://', 'https://', '.applications', '.app', '/' . \Request::segment(1)];
+                    $replace = ['', '', '', '', ''];
+                    $output = str_replace($search, $replace, $segment);
+                    $company = \App\Company::where('url', $output)->first();
+                }
+                if (App::environment('production')) {
+                    $segment = \Request::url();
+                    $search = ['http://', 'https://', '.madesimpleltd', '.co.uk', '/' . \Request::segment(1)];
+                    $replace = ['', '', '', '', ''];
+                    $output = str_replace($search, $replace, $segment);
+                    $company = \App\Company::where('url', $output)->first();
+                }
+
+                ?>
+                @if (! empty($company->logo))
+                    <img src="/uploads/{{ $company->logo }}" width="100" style="display: flex; justify-content: center; align-items: center;margin: 0px 0px 30px 80px;  ">
+                @else
+                    <h4>Login</h4>
+                @endif
                 @if (count($errors) > 0)
                     <div class="alert alert-danger">
                         <strong>Whoops!</strong> There were some problems with your input.<br><br>
