@@ -54,7 +54,7 @@ class AdminController extends Controller
      * Edit account form
      * @param $id
      */
-    public function edit($id, Request $request)
+    public function edit(Request $request)
     {
         $user = User::where('id', '=', $request->segment(3))->first();
         return view('admin.editAccount', compact('user'));
@@ -64,7 +64,7 @@ class AdminController extends Controller
      * Update account form
      * @param $id
      */
-    public function update($id, Request $request)
+    public function update(Request $request)
     {
         $user = User::where('id', '=', $request->segment(4))->first();
 
