@@ -42,8 +42,7 @@ Route::group(['domain' => '{account}.applications.app'], function () {
     });
     // Admin
     // Accounts
-    // Dashboard
-    get('dashboard', 'DashboardController@index');
+
     get('admin/account/create', 'AdminController@create');
     post('admin/account', 'AdminController@store');
     get('admin/account/{id}/edit', 'AdminController@edit');
@@ -54,7 +53,8 @@ Route::group(['domain' => '{account}.applications.app'], function () {
     post('support', 'SupportController@send');
 
 });
-
+// Dashboard
+get('dashboard', 'DashboardController@index');
 // Authentication routes...
 get('auth/login', 'Auth\AuthController@getLogin');
 get('login', 'Auth\AuthController@getLogin');
