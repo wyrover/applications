@@ -41,6 +41,7 @@
         <hr />
 
         <label>Company Info</label>
+
         <div class="form-group">
             <div class="col-sm-2">Company Name</div>
             <div class="col-lg-5">
