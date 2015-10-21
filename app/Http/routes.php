@@ -6,7 +6,7 @@ get('/', function () {
 });
 
 /* Domain Routes */
-Route::group(['domain' => '{account}.applications.app'], function () {
+Route::group(['domain' => '{account}.madesimpleltd.co.uk'], function () {
 
     /* Submission of a application */
     get('application', 'ApplicationSubmissionController@create');
