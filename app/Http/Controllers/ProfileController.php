@@ -22,6 +22,7 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
         $company = Company::where('user_id', Auth::user()->id)->first();
+        dd($company);
         return view('profile.form', compact('user', 'company'));
     }
 
