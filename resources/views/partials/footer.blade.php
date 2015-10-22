@@ -1,9 +1,9 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-xs-6 col-md-4">&copy; {!! date('Y') !!}</div>
+            <div class="col-xs-6 col-md-4">&copy; {!! date('Y') !!} - MadeSimple Ltd</div>
             <div class="col-xs-6 col-md-4"></div>
-            <div class="col-xs-6 col-md-4 text-right"><button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal">Support</button></div>
+            <div class="col-xs-6 col-md-4 text-right"><span style="font-size: 15px;">Tel: 0116 3440302</span>&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;<button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal">Support</button></div>
         </div>
     </div>
 </footer>
