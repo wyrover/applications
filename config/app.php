@@ -148,6 +148,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        Spatie\Backup\BackupServiceProvider::class,
 
     ],
 
