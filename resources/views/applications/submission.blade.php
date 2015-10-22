@@ -629,7 +629,7 @@
 
                 </div>
             </div>
-            <button class="btn btn-success" type="submit">Submit</button><br /><br />
+            <button class="btn btn-success btn-lg" type="submit">Submit</button><br /><br />
         {!! Form::close() !!}
     </div>
 </div>

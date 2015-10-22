@@ -123,8 +123,8 @@
           </div>
 
         <div class="panel-footer">
-            <button type="submit" class="btn btn-lg btn-success">Submit Reference</button>
-            <button type="reset" class="btn btn-lg btn-default">Reset</button>
+            <button type="submit" class="btn btn-lg btn-success btn-lg">Submit Reference</button>
+            <button type="reset" class="btn btn-lg btn-default btn-lg">Reset</button>
 
             <div class="pull-right">
                 <button class="btn btn-lg btn-danger">Cancel</button>

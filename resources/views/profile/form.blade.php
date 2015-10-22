@@ -108,7 +108,7 @@
 
         <div class="form-group">
           <div class="col-lg-3">
-             <button class="btn btn-success">Update Profile</button>
+             <button class="btn btn-success btn-lg">Update Profile</button>
           </div>
         </div>
 

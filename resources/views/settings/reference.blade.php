@@ -132,7 +132,7 @@
 </table>
 <div class="form-group">
     <div class="col-lg-3">
-        <button class="btn btn-success">Submit</button>
+        <button class="btn btn-success btn-lg">Submit</button>
     </div>
 </div>
 {!! Form::close() !!}
