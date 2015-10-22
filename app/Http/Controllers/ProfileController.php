@@ -21,7 +21,7 @@ class ProfileController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $company = Company::where('user_id', $user->id)->first();
+        $company = Company::where('user_id', Auth::user()->id)->first();
         return view('profile.form', compact('user', 'company'));
     }
 
