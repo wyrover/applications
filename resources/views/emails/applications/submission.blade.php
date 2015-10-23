@@ -59,7 +59,7 @@
                         <h5>Hi, {!! $refereeName !!} </h5>
                         <p>You have been selected by {!! $worker !!} to provide a reference in conjunction with an application recently submitted for a position with {!! $company !!}.</p>
                         <p>{!! $worker !!} would appreciate your promptness in completing the reference form, in order to do so, click the Submit Reference button below</p>
-                        <a href="" class="btn btn-lg btn-primary">Submit Reference</a>
+                        <a href="{!! url('/application/' . $refID . '/submitReference') !!}" class="btn btn-lg btn-primary">Submit Reference</a>
                     </td>
                     <td width="20">&nbsp;</td>
                 </tr>

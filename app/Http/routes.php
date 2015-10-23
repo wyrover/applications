@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\App;
 
 /* Redirect to login */
 get('/', function () {
+    //dd(url('/application/submitReference'));
     return view('auth/login');
 });
 
@@ -113,6 +114,11 @@ if (App::environment('production')) {
             Route::any('settings/refs/{id}', 'SettingsController@updateRefs');
             post('settings', 'SettingsController@update');
             resource('settings', 'SettingsController');
+
+            // Notes
+            get('applications/{id}/notes', 'NotesController@index');
+            Route::any('applications/notes/create', 'NotesController@store');
+            get('applications/notes/{id}/delete', 'NotesController@delete');
         });
         // Admin
         // Accounts
