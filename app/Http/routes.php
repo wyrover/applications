@@ -42,6 +42,11 @@ if (App::environment('local')) {
             Route::any('settings/refs/{id}', 'SettingsController@updateRefs');
             post('settings', 'SettingsController@update');
             resource('settings', 'SettingsController');
+
+            // Notes
+            get('applications/{id}/notes', 'NotesController@index');
+            Route::any('applications/notes/create', 'NotesController@store');
+            get('applications/notes/{id}/delete', 'NotesController@delete');
         });
         // Admin
         // Accounts
