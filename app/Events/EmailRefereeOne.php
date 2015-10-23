@@ -38,6 +38,4 @@ class EmailRefereeOne extends Event
     {
         return [];
     }
-
-
 }

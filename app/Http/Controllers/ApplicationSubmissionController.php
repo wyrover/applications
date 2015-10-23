@@ -96,11 +96,37 @@ class ApplicationSubmissionController extends Controller
 
         if ($ref->referee_contact == 'Yes' && $ref->completed == 0){
             // Fire Event to send email to referee 1
-            event(new EmailRefereeOne($referee, $application));
+            //event(new EmailRefereeOne($referee, $application));
+            $data = array(
+                'worker'  => ucwords($application->first_name) .' '. ucwords($application->surname),
+                'company' => $ref->company->name,
+                'email'   => $ref->referee_email,
+                'refereeName' => $ref->referee_name
+            );
+            // Send the email
+            Mail::send('emails/applications/submission', $data, function( $message ) use ($data)
+            {
+                $message->to($data['email'])
+                    ->from(config('custom.noreplyemail'), 'Made Simple')
+                    ->subject('Reference Request');
+            });
         }
         if ($ref->referee_contact2 == 'Yes' && $ref->completed == 0){
             // Fire Event to send email to referee 2
-            event(new EmailRefereeTwo($referee, $application));
+            //event(new EmailRefereeTwo($referee, $application));
+            $data = array(
+                'worker'  => ucwords($application->first_name) .' '. ucwords($application->surname),
+                'company' => $ref->company->name,
+                'email'   => $ref->referee_email,
+                'refereeName' => $ref->referee_name
+            );
+            // Send the email
+            Mail::send('emails/applications/submission', $data, function( $message ) use ($data)
+            {
+                $message->to($data['email'])
+                    ->from(config('custom.noreplyemail'), 'Made Simple')
+                    ->subject('Reference Request');
+            });
         }
         flash()->success('Success', 'Thank you! Your submission has been successful and your referees emailed.');
         return back();
