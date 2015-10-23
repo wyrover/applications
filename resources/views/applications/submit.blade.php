@@ -28,7 +28,7 @@
 
 <div class="container content">
     <div class="col-lg-12 col-md-6 col-sm-4 col-xs-4">
-        {!! Form::open(['url' => 'application/'. $applicant->id .'/submitReference', 'class' => 'form-horizontal']) !!}
+        {!! Form::open(['url' => 'application/'. $applicant->code .'/submitReference', 'class' => 'form-horizontal']) !!}
         <input type="hidden" value="" name="">
         <div class="panel panel-default">
             <div class="panel-heading">Applicant Details</div>
