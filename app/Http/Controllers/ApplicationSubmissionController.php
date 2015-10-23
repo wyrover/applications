@@ -86,6 +86,11 @@ class ApplicationSubmissionController extends Controller
         $application->company_id = $ref->company_id;
         $application->update();
 
+        $settings = new Settings;
+        $settings->company_id = $ref->company_id;
+        $settings->application_id = $application->id;
+        $settings->save();
+
         // Check if referee is contactable then
         $referee = $ref;
 

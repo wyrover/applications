@@ -70,7 +70,9 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
         <td align="left">
+            @if(! empty($profile->company()->first()->logo))
             <img src="uploads/{!! $profile->company()->first()->logo !!}" width="190">
+            @endif
         </td>
         <td align="left" class="address">
             {!! $profile->company()->first()->address1 !!}<br />
