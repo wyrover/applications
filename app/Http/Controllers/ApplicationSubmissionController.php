@@ -164,9 +164,9 @@ class ApplicationSubmissionController extends Controller
         return true;
     }
 
-    public function postReference($code)
+    public function postReference(Request $request)
     {
-        return $code;
+        return $request->segment(2);
     }
 
 
