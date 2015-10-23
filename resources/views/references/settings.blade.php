@@ -1,6 +1,21 @@
 <div class="col-md-6">
 @foreach($settings as $field)
-    <div class="form-group">
+
+    <input type="hidden" name="id" value="{!! $field->id !!}">
+    <input type="hidden" name="company_id" value="{!! $field->company_id !!}">
+
+    <input type="hidden" name="label" value="{!! $field->label !!}">
+    <input type="hidden" name="label2" value="{!! $field->label2 !!}">
+    <input type="hidden" name="label3" value="{!! $field->label3 !!}">
+    <input type="hidden" name="label4" value="{!! $field->label4 !!}">
+    <input type="hidden" name="label5" value="{!! $field->label5 !!}">
+    <input type="hidden" name="label6" value="{!! $field->label6 !!}">
+    <input type="hidden" name="label7" value="{!! $field->label7 !!}">
+    <input type="hidden" name="label8" value="{!! $field->label8 !!}">
+    <input type="hidden" name="label9" value="{!! $field->label9 !!}">
+    <input type="hidden" name="label10" value="{!! $field->label10 !!}">
+
+        <div class="form-group">
         <div class="col-sm-4">{!! $field->label !!}</div>
         <div class="col-lg-7">
             @if ($field->type == 'input')

@@ -14,6 +14,7 @@ if (App::environment('local')) {
 
         /* Reference Submission */
         get('application/{refID}/submitReference', 'ApplicationSubmissionController@postReference');
+        post('application/{refID}/submitReference', 'ApplicationSubmissionController@refereeSubmitted');
 
         /* Submission of a application */
         get('application', 'ApplicationSubmissionController@create');

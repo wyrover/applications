@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Applications;
 use App\Company;
+use App\Fields;
 use App\ReferenceFields;
 use App\Settings;
 use App\Events\EmailRefereeOne;
@@ -169,9 +170,37 @@ class ApplicationSubmissionController extends Controller
     {
         $code = $request->segment(2);
         $applicant = Applications::where('code', $code)->first();
-        $settings = ReferenceFields::where('company_id', $applicant->company_id)->get();
-//        dd($applicant->company_id);
+        $settings = Settings::where('company_id', $applicant->company_id)->get();
+
         return view('applications.submit', compact('code', 'applicant', 'settings'));
+    }
+
+    public function refereeSubmitted(Request $request)
+    {
+        $code = $request->segment(2);
+
+        $ref = new References;
+        $ref->referee_name = $request->input('name');
+        $ref->referee_start_date = $request->input('applicant_started');
+        $ref->referee_end_date = $request->input('date_left');
+        $ref->referee_email = $request->input('email_address');
+        $ref->leaving = $request->input('reason_for_leaving');
+        $ref->save();
+
+        $fields = Fields::create($request->except('_token','name','phone','position','email_address','applicant_started','date_left','reason_for_leaving'));
+        $settings = Settings::create($request->only('label','label2','label3','label4','label5','label6','label7','label8','label9','label10','company_id'));
+
+        $settings->fields_id = $fields->id;
+        $settings->update();
+
+        $fields->settings_id = $settings->id;
+        $fields->update();
+
+        $ref->settings_id = $settings->id;
+        $ref->update();
+
+        flash()->success('Success', 'Thank you for submission');
+        return redirect('/');
     }
 
 

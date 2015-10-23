@@ -103,6 +103,12 @@
         </div>
     </div>
 </div>
+<!-- javascript/jQuery -->
+<script src="/js/jquery-1.11.1.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/sweetalert.min.js"></script>
+<script src="/js/moment/moment.js"></script>
 
+@include('flash')
 </body>
 </html>

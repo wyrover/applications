@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Fields extends Model
 {
+
+    public $guarded = ['id'];
     /*
      * DB Table
      */
@@ -14,6 +16,6 @@ class Fields extends Model
     /*
      * Timestamps set to false not used
      */
-    protected $timestamps = false;
+    public $timestamps = false;
 
 }
