@@ -49,6 +49,7 @@
     </tbody>
 
 </table>
+    {!! $applications->render() !!}
 @else
     <p>No records</p>
 @endif
