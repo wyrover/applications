@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Applications;
 use App\Company;
+use App\ReferenceFields;
 use App\Settings;
 use App\Events\EmailRefereeOne;
 use App\Events\EmailRefereeTwo;
@@ -166,7 +167,11 @@ class ApplicationSubmissionController extends Controller
 
     public function postReference(Request $request)
     {
-        return $request->segment(2);
+        $code = $request->segment(2);
+        $applicant = Applications::where('code', $code)->first();
+        $settings = ReferenceFields::where('company_id', $applicant->company_id)->get();
+//        dd($applicant->company_id);
+        return view('applications.submit', compact('code', 'applicant', 'settings'));
     }
 
 

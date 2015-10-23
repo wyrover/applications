@@ -29,12 +29,12 @@
             <td>{!! $item->city !!}</td>
             <td><a href="/applications/export/application/{!! $item->id !!}" class="btn btn-sm btn-default"  data-toggle="tooltip" data-placement="top" title="Download Application"><i class="fa fa-download"></i> Download</a></td>
             <td>
-                @if ($item->reference()->first()->referee_contact == 'No')
+                @if ($item->reference()->first()->completed == 0)
                     <button class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Awaiting response from referee"><i class="fa fa-clock-o"></i></button>
                 @else
                     <a href="/applications/export/exportReferee/{!! $item->id !!}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>
                 @endif
-                @if ($item->reference()->first()->referee_contact2 == 'No')
+                @if ($item->reference()->first()->completed == 0)
                     <button class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Awaiting response from referee"><i class="fa fa-clock-o"></i></button>
                 @else
                     <a href="/applications/export/exportReferee/{!! $item->id !!}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>
