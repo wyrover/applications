@@ -54,7 +54,7 @@
                         </div>
 
                         <div class="form-group {{ $errors->has('surname') ? 'has-error' : '' }}">
-                            <div class="col-sm-4">Surame</div>
+                            <div class="col-sm-4">Surname</div>
                             <div class="col-lg-7">
                                 <input type="text" name="surname" class="form-control" value="{!! old('surname') !!}">
                                 {!! $errors->first('surname', '<span class="help-block">:message</span>') !!}
@@ -368,7 +368,7 @@
                         <div class="col-lg-4">
                             <select name="health_info" class="form-control">
                                 <option value="Yes">Yes</option>
-                                <option value="No">No</option>
+                                <option value="No" selected>No</option>
                             </select>
                         </div>
                     </div>
@@ -384,7 +384,7 @@
                             <div class="col-lg-7">
                                 <select name="criminal_convictions" class="form-control">
                                     <option value="Yes">Yes</option>
-                                    <option value="No">No</option>
+                                    <option value="No" selected>No</option>
                                 </select>
                             </div>
                         </div>
