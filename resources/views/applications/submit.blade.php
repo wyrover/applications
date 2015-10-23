@@ -115,11 +115,11 @@
                         </div>
 
                     </div>
+                    <hr />
+                    @if (! empty($settings))
+                        @include('references.settings')
+                    @endif
                 </div>
-                <hr />
-                @if (! empty($settings))
-                    @include('references.settings')
-                @endif
             </div>
 
             <div class="panel-footer">
