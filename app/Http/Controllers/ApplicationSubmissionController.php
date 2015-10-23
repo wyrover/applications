@@ -102,7 +102,8 @@ class ApplicationSubmissionController extends Controller
                 'worker'  => ucwords($application->first_name) .' '. ucwords($application->surname),
                 'company' => $ref->company->name,
                 'email'   => $ref->referee_email,
-                'refereeName' => $ref->referee_name
+                'refereeName' => $ref->referee_name,
+                'code' => $application->code
             );
             // Send the email
             Mail::send('emails/applications/submission', $data, function( $message ) use ($data)
@@ -119,7 +120,8 @@ class ApplicationSubmissionController extends Controller
                 'worker'  => ucwords($application->first_name) .' '. ucwords($application->surname),
                 'company' => $ref->company->name,
                 'email'   => $ref->referee_email,
-                'refereeName' => $ref->referee_name
+                'refereeName' => $ref->referee_name,
+                'code'    => $application->code
             );
             // Send the email
             Mail::send('emails/applications/submission', $data, function( $message ) use ($data)
@@ -159,12 +161,12 @@ class ApplicationSubmissionController extends Controller
 
             return view('references.index', compact('company', 'user', 'settings'));
         }
+        return true;
     }
 
     public function postReference($code)
     {
-        // Update the database to completed
-
+        return $code;
     }
 
 

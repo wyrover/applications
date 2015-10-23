@@ -83,6 +83,10 @@ if (App::environment('production')) {
     /* Domain Routes */
     Route::group(['domain' => '{account}.madesimpleltd.co.uk'], function () {
 
+        /* Reference Submission */
+        get('application/{refID}/submitReference', 'ApplicationSubmissionController@postReference');
+
+
         /* Submission of a application */
         get('application', 'ApplicationSubmissionController@create');
         post('application', 'ApplicationSubmissionController@store');
