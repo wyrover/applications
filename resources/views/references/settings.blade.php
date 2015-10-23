@@ -1,4 +1,4 @@
-<div class="col-md-6">
+<div class="col-md-6" style="min-height: 200px; height: auto!important;">
 @foreach($settings as $field)
 
     <input type="hidden" name="id" value="{!! $field->id !!}">
