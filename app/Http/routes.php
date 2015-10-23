@@ -13,8 +13,8 @@ if (App::environment('local')) {
     Route::group(['domain' => '{account}.applications.app'], function () {
 
         /* Reference Submission */
-        get('application/{refID}/submitReference', 'ApplicationSubmissionController@postReference');
-        post('application/{refID}/submitReference', 'ApplicationSubmissionController@refereeSubmitted');
+        get('application/{code}/submitReference', 'ApplicationSubmissionController@postReference');
+        post('application/{code}/submitReference', 'ApplicationSubmissionController@refereeSubmitted');
 
         /* Submission of a application */
         get('application', 'ApplicationSubmissionController@create');
