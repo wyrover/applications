@@ -11,13 +11,12 @@ use Illuminate\Support\Facades\Mail;
 
 class EmailRefereeOneListener implements ShouldQueue
 {
-    use InteractsWithQueue;
 
-    private $referee;
+    public $referee;
     /**
      * @var Applications
      */
-    private $user;
+    public $user;
 
     /**
      * Create the event listener.
@@ -45,6 +44,8 @@ class EmailRefereeOneListener implements ShouldQueue
             'email'   => $event->referee->referee_email,
             'refereeName' => $event->referee->referee_name
         );
+        \Log::info('Email sent to :' . $data['email']);
+
         // Send the email
         Mail::send('emails/applications/submission', $data, function( $message ) use ($data)
         {

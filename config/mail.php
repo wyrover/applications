@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'noreply@madesimple.co.uk', 'name' => 'Some Name'],
+    'from' => ['address' => 'noreply@madesimpleltd.co.uk', 'name' => 'Made Simple'],
 
     /*
     |--------------------------------------------------------------------------

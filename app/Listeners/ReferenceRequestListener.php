@@ -14,8 +14,6 @@ use Illuminate\Support\Facades\Mail;
 class ReferenceRequestListener implements ShouldQueue
 {
 
-    use InteractsWithQueue;
-
     /**
      * @var user
      */

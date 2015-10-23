@@ -11,13 +11,11 @@ use Illuminate\Support\Facades\Mail;
 
 class EmailRefereeTwoListener implements ShouldQueue
 {
-    use InteractsWithQueue;
-
-    private $referee;
+    public $referee;
     /**
      * @var Applications
      */
-    private $user;
+    public $user;
 
     /**
      * Create the event listener.
