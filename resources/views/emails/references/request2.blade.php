@@ -62,6 +62,7 @@
 
                             {!! $worker !!} would appreciate your promptness in completing the reference form, in order to do so,
                             click the Submit Reference button below.</p>
+                        <a href="{!! url('/application/' . $code . '/submitReference') !!}" class="btn btn-lg btn-primary">Submit Reference</a>
                     </td>
                     <td width="20">&nbsp;</td>
                 </tr>
