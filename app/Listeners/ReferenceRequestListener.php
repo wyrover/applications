@@ -46,6 +46,14 @@ class ReferenceRequestListener implements ShouldQueue
         // Handle Email Notification
         $companyId = Auth::user()->company_id;
         $cn = \App\Company::where('id', '=', $companyId)->first();
+        // Create record in applications table
+        $application = $this->createNewApplication($event);
+
+        // Create record in references table
+        $referee = $this->createNewReference($event, $application);
+
+        // Update Applications table with new reference ID
+        $this->updateApplication($referee, $application);
 
         if (! empty($event->user['email']) && $event->user['contact'] == 'Yes') {
 
@@ -54,7 +62,7 @@ class ReferenceRequestListener implements ShouldQueue
                 'name' => $event->user['name'],
                 'worker' => $event->user['first_name'] . ' ' . $event->user['surname'],
                 'company' => $cn->name,
-                'code' => $event->user['code']
+                'code' => $application->code
             );
             // Send the email
             Mail::send('emails/references/request', $data, function ($message) use ($data) {
@@ -80,15 +88,6 @@ class ReferenceRequestListener implements ShouldQueue
                     ->subject('You have been selected to provide a reference');
             });
         }
-
-        // Create record in applications table
-        $application = $this->createNewApplication($event);
-
-        // Create record in references table
-        $referee = $this->createNewReference($event, $application);
-
-        // Update Applications table with new reference ID
-        $this->updateApplication($referee, $application);
 
     }
 
