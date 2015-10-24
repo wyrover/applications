@@ -20,7 +20,7 @@ class ReferencesController extends Controller
      */
     public function index()
     {
-        $refs = Applications::where('company_id', Auth::user()->company_id)->paginate(config('custom.per_page'));
+        $refs = References::where('company_id', Auth::user()->company_id)->paginate(config('custom.per_page'));
         return view('references.list', compact('refs'));
     }
 
@@ -46,7 +46,7 @@ class ReferencesController extends Controller
     public function destroy(Request $request)
     {
         $id = $request->segment(2);
-        Applications::find($id)->delete();
+        References::find($id)->delete();
         flash()->success('Success', 'Record successfully deleted');
         return back();
 

@@ -26,16 +26,16 @@
         <tbody>
         @foreach($refs as $ref)
             <tr>
-                <td>{!! date('d/m/y', strtotime($ref->created_at)) !!}</td>
-                <td>{!! $ref->first_name !!}&nbsp;{!! $ref->surname !!}</td>
-                <td>{!! $ref->city !!}</td>
+                <td>{!! date('d/m/y', strtotime($ref->application()->first()->created_at)) !!}</td>
+                <td>{!! $ref->application()->first()->first_name !!}&nbsp;{!! $ref->application()->first()->surname !!}</td>
+                <td>{!! $ref->application()->first()->city !!}</td>
                 <td>
-                    @if ($ref->reference()->first()->referee_contact == 'No')
+                    @if ($ref->completed == 0)
                         <button class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Awaiting response from referee"><i class="fa fa-clock-o"></i></button>
                     @else
                         <a href="/applications/export/exportReferee/{!! $ref->id !!}" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>
                     @endif
-                    @if ($ref->reference()->first()->referee_contact2 == 'No')
+                    @if ($ref->completed == 0)
                         <button class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Awaiting response from referee"><i class="fa fa-clock-o"></i></button>
                     @else
                         <a href="/applications/export/exportReferee/{!! $ref->id !!}" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>

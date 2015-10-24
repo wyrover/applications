@@ -56,9 +56,9 @@ class ReferenceRequestListener implements ShouldQueue
                 'company' => $cn->name
             );
             // Send the email
-            Mail::later(5, 'emails/references/request', $data, function ($message) use ($data) {
+            Mail::send('emails/references/request', $data, function ($message) use ($data) {
                 $message->to($data['email'])
-                    ->from('noreply@madesimple.co.uk')
+                    ->from('noreply@madesimpleltd.co.uk')
                     ->subject('You have been selected to provide a reference');
             });
         }
@@ -72,9 +72,9 @@ class ReferenceRequestListener implements ShouldQueue
                 'company' => $cn->name
             );
             // Send the email
-            Mail::later(5, 'emails/references/request2', $data, function ($message) use ($data) {
+            Mail::send('emails/references/request2', $data, function ($message) use ($data) {
                 $message->to($data['email'])
-                    ->from('noreply@madesimple.co.uk')
+                    ->from('noreply@madesimpleltd.co.uk')
                     ->subject('You have been selected to provide a reference');
             });
         }
