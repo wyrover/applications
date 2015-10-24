@@ -64,7 +64,7 @@
                             <div class="col-sm-2">Company Name</div>
                             <div class="col-lg-7">
                                 <input type="text" name="company_name" class="form-control" value="{!! old('') !!}">
-                                <div class="help-block">This will also serve as the custom domain.<br /><code>companyname.example.com</code></div>
+                                <div class="help-block">This will also serve as the custom domain.<br /><code>companyname.madesimpleltd.co.uk</code></div>
                             </div>
                         </div>
 

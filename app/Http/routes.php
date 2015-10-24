@@ -2,15 +2,16 @@
 
 use Illuminate\Support\Facades\App;
 
-/* Redirect to login */
-get('/', function () {
-    //dd(url('/application/submitReference'));
-    return view('auth/login');
-});
 
 if (App::environment('local')) {
     /* Domain Routes */
     Route::group(['domain' => '{account}.applications.app'], function () {
+
+        /* Redirect to login */
+        get('/', function () {
+            //dd(url('/application/submitReference'));
+            return view('auth/login');
+        });
 
         /* Reference Submission */
         get('application/{code}/submitReference', 'ApplicationSubmissionController@postReference');
@@ -86,6 +87,12 @@ if (App::environment('local')) {
 if (App::environment('production')) {
     /* Domain Routes */
     Route::group(['domain' => '{account}.madesimpleltd.co.uk'], function () {
+
+        /* Redirect to login */
+        get('/', function () {
+            //dd(url('/application/submitReference'));
+            return view('auth/login');
+        });
 
         /* Reference Submission */
         get('application/{refID}/submitReference', 'ApplicationSubmissionController@postReference');
