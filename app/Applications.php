@@ -30,6 +30,6 @@ class Applications extends Model
      */
     public function reference()
     {
-        return $this->hasMany('App\References');
+        return $this->hasMany('App\References', 'applications_id');
     }
 }
