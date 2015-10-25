@@ -13,7 +13,7 @@
         </button>
     </div>
     @if (count($notes))
-        <a href="goBack()" class="btn btn-primary">Go back</a><br /><br />
+        <a href="{!! goBack() !!}" class="btn btn-primary">Go back</a><br /><br />
         <table class="table table-striped">
             <thead>
                 <tr>
