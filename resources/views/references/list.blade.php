@@ -28,7 +28,6 @@
             <tr>
                 <td>{!! date('d/m/y', strtotime($ref->application()->first()->created_at)) !!}</td>
                 <td>{!! $ref->application()->first()->first_name !!}&nbsp;{!! $ref->application()->first()->surname !!}</td>
-                {{--<td>{!! $ref->application()->first()->city !!}</td>--}}
                 <td>
                     @if ($ref->completed == 0)
                         <button class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Awaiting response from referee"><i class="fa fa-clock-o"></i></button>
