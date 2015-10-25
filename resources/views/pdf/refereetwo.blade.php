@@ -134,7 +134,7 @@
             Can we contact this reference?: @if(! empty($ref->referee_contact2)) <strong>{!! $ref->referee_contact2!!}</strong> @else <span class="no-answer">No answer given</span> @endif
         </td>
     </tr>
-   
+
 </table>
 <br />
 <hr />
