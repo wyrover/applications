@@ -95,7 +95,8 @@ if (App::environment('production')) {
         });
 
         /* Reference Submission */
-        get('application/{refID}/submitReference', 'ApplicationSubmissionController@postReference');
+        get('application/{code}/submitReference', 'ApplicationSubmissionController@postReference');
+        post('application/{code}/submitReference', 'ApplicationSubmissionController@refereeSubmitted');
 
 
         /* Submission of a application */
