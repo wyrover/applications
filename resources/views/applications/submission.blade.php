@@ -27,6 +27,7 @@
 </div>
 
 <div class="container content">
+    <div class="row">
     <div class="col-lg-11 col-md-10 col-sm-11 col-xs-12">
          <p>Please fill out this application as accurately as possible make sure to fill as many boxes as you can</p>
         {!! Form::open(['url' => 'application', 'class' => 'form-horizontal']) !!}
@@ -631,6 +632,7 @@
             </div>
             <button class="btn btn-success btn-lg" type="submit">Submit</button><br /><br />
         {!! Form::close() !!}
+    </div>
     </div>
 </div>
 
