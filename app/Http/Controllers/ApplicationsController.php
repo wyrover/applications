@@ -22,9 +22,7 @@ class ApplicationsController extends Controller
     public function index()
     {
         $applications = Applications::where('company_id', Auth::user()->company_id)->paginate(10);
-
-        $refs = References::where('company_id', Auth::user()->company_id)->get();
-        return view('applications.index', compact('applications','refs'));
+        return view('applications.index', compact('applications'));
     }
 
     /**
