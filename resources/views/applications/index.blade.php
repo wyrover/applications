@@ -17,6 +17,7 @@
             <th>Application</th>
             <th>References</th>
             <th>Action</th>
+            <th></th>
         </tr>
     </thead>
 
@@ -42,11 +43,12 @@
             </td>
             <td>
                 <a href="/applications/{!! $item->id !!}/notes" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Notes"><i class="fa fa-edit"></i> Notes</a>
-                {!! Form::open(['url' => '/applications/delete', 'class' => 'form-horizontal']) !!}
+            </td>
+            <td>
+                {!! Form::open(['url' => '/applications/delete']) !!}
                           <input type="hidden" name="id" value="{!! $item->id !!}">
                           <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to remove this?')"><i class="fa fa-trash-o"></i> Delete</button>
                 {!! Form::close() !!}
-                {{--<a href="/applications/{!! $item->id !!}/delete" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to remove this?')"><i class="fa fa-trash-o"></i> Delete</a>--}}
             </td>
         </tr>
     @endforeach
