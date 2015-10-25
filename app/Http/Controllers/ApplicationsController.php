@@ -22,8 +22,8 @@ class ApplicationsController extends Controller
     public function index()
     {
         $applications = Applications::where('company_id', Auth::user()->company_id)->paginate(config('custom.per_page'));
-        $refs = References::where('company_id', Auth::user()->company_id)->get();
-        return view('applications.index', compact('applications','refs'));
+        //$refs = References::where('company_id', Auth::user()->company_id)->get();
+        return view('applications.index', compact('applications'));
     }
 
     /**
