@@ -32,6 +32,7 @@ if (App::environment('local')) {
             Route::any('applications/export/application/{id}', 'ApplicationsController@exportApplication');
             get('applications/export/{id}/profile', 'ApplicationsController@exportProfile');
             get('applications/export/exportReferee/{id}', 'ApplicationsController@exportReferee');
+            get('applications/export/exportRefereeTwo/{id}', 'ApplicationsController@exportRefereeTwo');
             resource('applications', 'ApplicationsController');
 
             // References Routes
