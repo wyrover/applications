@@ -177,14 +177,15 @@ class ApplicationSubmissionController extends Controller
 
     public function refereeSubmitted(Request $request)
     {
-        $code = $request->segment(2);
-
+//        $code = $request->segment(2);
+        dd($request->all());
         $ref = new References;
         $ref->referee_name = $request->input('name');
         $ref->referee_start_date = $request->input('applicant_started');
         $ref->referee_end_date = $request->input('date_left');
         $ref->referee_email = $request->input('email_address');
         $ref->leaving = $request->input('reason_for_leaving');
+        $ref->completed = 'Yes';
         $ref->save();
 
         $fields = Fields::create($request->except('_token','name','phone','position','email_address','applicant_started','date_left','reason_for_leaving'));
