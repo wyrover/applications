@@ -27,7 +27,7 @@
 </div>
 
 <div class="container content">
-    <div class="col-lg-11 col-md-10 col-sm-9 col-xs-9">
+    <div class="col-lg-11 col-md-10 col-sm-11 col-xs-7">
          <p>Please fill out this application as accurately as possible make sure to fill as many boxes as you can</p>
         {!! Form::open(['url' => 'application', 'class' => 'form-horizontal']) !!}
 
