@@ -70,4 +70,15 @@ class ApplicationsController extends Controller
         return $pdf->download($pdfFilename);
     }
 
+
+    public function delete(Request $request)
+    {
+        $id = $request->input('id');
+        $apps = Applications::where('id', '=' , $id)->first();
+        $apps->delete();
+        flash()->success('Success', "Application successfully removed");
+        return redirect('/applications');
+
+    }
+
 }

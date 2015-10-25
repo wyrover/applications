@@ -47,6 +47,7 @@ class ReferencesController extends Controller
     {
         $id = $request->segment(2);
         References::find($id)->delete();
+        Applications::where('reference_id', $id)->delete();
         flash()->success('Success', 'Record successfully deleted');
         return back();
 
