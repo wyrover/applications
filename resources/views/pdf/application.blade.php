@@ -145,6 +145,8 @@
             <h3>Work Experience</h3>
             Job Title: <strong>{!! $ref->application->job_title !!}</strong><br />
             Start Date: @if (! empty($ref->application->employer_start_date)) <strong>{!! $ref->application->employer_start_date !!}</strong> @else <span class="no-answer">No answer given</span> @endif
+            End Date: @if (! empty($ref->application->employer_end_date)) <strong>{!! $ref->application->employer_end_date !!}</strong> @else <span class="no-answer">No answer given</span> @endif
+
         </td>
         <td>
             <h4>Work Experience 1</h4>
@@ -156,6 +158,7 @@
         <td>
             Job Title: <strong>{!! $ref->application->job_title2 !!}</strong><br />
             Start Date: @if (! empty($ref->application->employer_start_date2)) <strong>{!! $ref->application->employer_start_date2 !!}</strong> @else <span class="no-answer">No answer given</span> @endif
+            End Date: @if (! empty($ref->application->employer_end_date2)) <strong>{!! $ref->application->employer_end_date2 !!}</strong> @else <span class="no-answer">No answer given</span> @endif
 
         </td>
         <td>
@@ -167,6 +170,7 @@
         <td>
             Job Title: <strong>{!! $ref->application->job_title3 !!}</strong><br />
             Start Date: @if (! empty($ref->application->employer_start_date3)) <strong>{!! $ref->application->employer_start_date3 !!}</strong> @else <span class="no-answer">No answer given</span> @endif
+            End Date: @if (! empty($ref->application->employer_end_date3)) <strong>{!! $ref->application->employer_end_date3 !!}</strong> @else <span class="no-answer">No answer given</span> @endif
 
         </td>
         <td>
@@ -189,6 +193,36 @@
             essential for the role you seek?: <strong>{!! nl2br($ref->application->health_info) !!}</strong>
         </td>
         <td></td>
+    </tr>
+</table>
+
+<br />
+<hr />
+<br />
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td align="left">
+            <h3>Transportation</h3>
+            Are you a driver? <strong>{!! $ref->application->driver !!}</strong>
+        </td>
+        <td>Do you have any endorsements? <strong>{!! $ref->application->endorsements !!}</strong></td>
+        <td>Vehicle Access: <strong>{!! $ref->application->vehicle_access !!}</strong></td>
+    </tr>
+</table>
+
+<br />
+<hr />
+<br />
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td align="left">
+            <h3>Right to Work</h3>
+            Do you have the right to work in the UK? <strong>{!! $ref->application->right_to_work !!}</strong>
+        </td>
+        <td>Please explain evidence to show you have the right to work in the UK <strong>{!! $ref->application->evidence_right_to_work !!}</strong></td>
+
     </tr>
 </table>
 
@@ -251,7 +285,7 @@
             Name: @if(! empty($ref->referee_name)) <strong>{!! $ref->referee_name !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
             Company Name: @if(! empty($ref->referee_company )) <strong>{!! $ref->referee_company !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
             Email Address: @if(! empty($ref->referee_email )) <strong>{!! $ref->referee_email !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
-
+            Start Date: @if(! empty($ref->referee_start_date )) <strong>{!! $ref->referee_start_date !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
         </td>
         <td>
             <h4>First Referee</h4>
@@ -265,6 +299,8 @@
             Name: @if(! empty($ref->referee_name2)) <strong>{!! $ref->referee_name2 !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
             Company Name: @if(! empty($ref->referee_company2)) <strong>{!! $ref->referee_company2 !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
             Email Address: @if(! empty($ref->referee_email2 )) <strong>{!! $ref->referee_email2 !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
+            Start Date: @if(! empty($ref->referee_start_date2 )) <strong>{!! $ref->referee_start_date2 !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
+
         </td>
         <td><br />
             <h4>Second Referee</h4>
