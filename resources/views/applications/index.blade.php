@@ -22,7 +22,7 @@
 
     <tbody>
     @foreach($applications as $item)
-        {!! dd($item) !!}
+        {!! dd($item->references()) !!}
         <tr>
             <td>{!! $item->created_at->toFormattedDateString() !!}</td>
             <td>{!! $item->first_name !!}&nbsp;{!! $item->surname !!}</td>
