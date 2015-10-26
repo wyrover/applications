@@ -28,15 +28,15 @@ class ApplicationSubmissionController extends Controller
      */
     public function create()
     {
-        if (App::environment('local')) {
-            $segment = \Request::url();
-            $search = ['http://', 'https://', '.applications', '.app', '/application'];
-            $replace = ['', '', '', '', ''];
-            $output = str_replace($search, $replace, $segment);
-            $company = Company::where('url', $output)->first();
-            $fields = Settings::where('company_id', '=', $company->id)->get();
-            return view('applications.submission', compact('company', 'fields'));
-        }
+//        if (App::environment('local')) {
+//            $segment = \Request::url();
+//            $search = ['http://', 'https://', '.applications', '.app', '/application'];
+//            $replace = ['', '', '', '', ''];
+//            $output = str_replace($search, $replace, $segment);
+//            $company = Company::where('url', $output)->first();
+//            $fields = Settings::where('company_id', '=', $company->id)->get();
+//            return view('applications.submission', compact('company', 'fields'));
+//        }
         if (App::environment('production')) {
             $segment = \Request::url();
             $search = ['http://', 'https://', '.madesimpleltd', '.co.uk', '/application'];
