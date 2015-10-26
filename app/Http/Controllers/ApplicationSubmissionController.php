@@ -200,7 +200,7 @@ class ApplicationSubmissionController extends Controller
         $fields->update();
 
 
-//        if (App::environment('local')) {
+        if (App::environment('local')) {
             $segment = \Request::url();
             $search = ['http://', 'https://', '.applications', '.app', \Request::segment(1), \Request::segment(2), \Request::segment(3)];
             $replace = ['', '', '', '', '', '', ''];
@@ -209,17 +209,17 @@ class ApplicationSubmissionController extends Controller
             dd($company);
             $ref->settings_id = $settings->id;
             $ref->update();
-       // }
-//        if (App::environment('production')) {
-//            $segment = \Request::url();
-//            $search = ['http://', 'https://', '.madesimpleltd', '.co.uk', '/reference', '/' . \Request::segment(2)];
-//            $replace = ['', '', '', '', '', ''];
-//            $output = str_replace($search, $replace, $segment);
-//            $company = Company::where('url', $output)->first();
-//
-//            $ref->settings_id = $settings->id;
-//            $ref->update();
-//        }
+        }
+        if (App::environment('production')) {
+            $segment = \Request::url();
+            $search = ['http://', 'https://', '.madesimpleltd', '.co.uk', \Request::segment(1), \Request::segment(2), \Request::segment(3)];
+            $replace = ['', '', '', '', '', '', ''];
+            $output = str_replace($search, $replace, $segment);
+            $company = Company::where('url', $output)->first();
+
+            $ref->settings_id = $settings->id;
+            $ref->update();
+        }
 
 
 //        flash()->success('Success', 'Thank you for submission');
