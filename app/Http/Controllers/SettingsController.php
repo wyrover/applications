@@ -19,7 +19,7 @@ class SettingsController extends Controller
     public function index()
     {
         $setting = Settings::where('company_id', '=', Auth::user()->company_id)->where('applications_id', '=', 1)->where('references_id','=', 0)->first();
-        $ref = Settings::where('company_id', '=', Auth::user()->company_id)->where('references_id','=',1)->where('applications_id','=', 0)->first();
+        //$ref = Settings::where('company_id', '=', Auth::user()->company_id)->where('references_id','=',1)->where('applications_id','=', 0)->first();
         dd($setting);
         return view('settings.index', compact('setting', 'ref'));
     }
