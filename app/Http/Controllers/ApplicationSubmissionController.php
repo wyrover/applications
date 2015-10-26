@@ -200,7 +200,7 @@ class ApplicationSubmissionController extends Controller
         $fields->update();
 
 
-        if (App::environment('local')) {
+//        if (App::environment('local')) {
             $segment = \Request::url();
             $search = ['http://', 'https://', '.applications', '.app', '/reference', '/' . \Request::segment(2)];
             $replace = ['', '', '', '', '', ''];
@@ -209,21 +209,21 @@ class ApplicationSubmissionController extends Controller
             dd($company);
             $ref->settings_id = $settings->id;
             $ref->update();
-        }
-        if (App::environment('production')) {
-            $segment = \Request::url();
-            $search = ['http://', 'https://', '.madesimpleltd', '.co.uk', '/reference', '/' . \Request::segment(2)];
-            $replace = ['', '', '', '', '', ''];
-            $output = str_replace($search, $replace, $segment);
-            $company = Company::where('url', $output)->first();
+       // }
+//        if (App::environment('production')) {
+//            $segment = \Request::url();
+//            $search = ['http://', 'https://', '.madesimpleltd', '.co.uk', '/reference', '/' . \Request::segment(2)];
+//            $replace = ['', '', '', '', '', ''];
+//            $output = str_replace($search, $replace, $segment);
+//            $company = Company::where('url', $output)->first();
+//
+//            $ref->settings_id = $settings->id;
+//            $ref->update();
+//        }
 
-            $ref->settings_id = $settings->id;
-            $ref->update();
-        }
 
-
-        flash()->success('Success', 'Thank you for submission');
-        return redirect('/');
+//        flash()->success('Success', 'Thank you for submission');
+//        return redirect('/');
     }
 
 
