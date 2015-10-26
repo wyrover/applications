@@ -177,7 +177,7 @@ class ApplicationSubmissionController extends Controller
 
     public function refereeSubmitted(Request $request)
     {
-//        $code = $request->segment(2);
+        $code = $request->segment(2);
         //dd($request->all());
         $ref = new References;
         $ref->referee_name = $request->input('name');
@@ -199,29 +199,30 @@ class ApplicationSubmissionController extends Controller
         $fields->settings_id = $settings->id;
         $fields->update();
 
-        $apps = Applications::create($request->only('first_name', 'middle_name', 'surname'));
-        $apps->reference_id = $ref->id;
-        $apps->update();
+        $apps = Applications::where('code', $code)->first();
+        dd($apps);
+//        $apps->reference_id = $ref->id;
+//        $apps->update();
 
-        if (App::environment('production')) {
-            $segment = \Request::url();
-            $search = ['http://', 'https://', '.madesimpleltd', '.co.uk/', \Request::segment(1) .'/', \Request::segment(2).'/', \Request::segment(3)];
-            $replace = ['', '', '', '', '', '', ''];
-            $output = str_replace($search, $replace, $segment);
-            $company = Company::where('url', $output)->first();
+//        if (App::environment('production')) {
+//            $segment = \Request::url();
+//            $search = ['http://', 'https://', '.madesimpleltd', '.co.uk/', \Request::segment(1) .'/', \Request::segment(2).'/', \Request::segment(3)];
+//            $replace = ['', '', '', '', '', '', ''];
+//            $output = str_replace($search, $replace, $segment);
+//            $company = Company::where('url', $output)->first();
+//
+//            $ref->settings_id = $settings->id;
+//            $ref->company_id = $company->id;
+//            //$ref->applications_id = $apps->id;
+//            $ref->update();
+//
+//            $apps->company_id = $company->id;
+//            $apps->update();
+//        }
 
-            $ref->settings_id = $settings->id;
-            $ref->company_id = $company->id;
-            $ref->applications_id = $apps->id;
-            $ref->update();
 
-            $apps->company_id = $company->id;
-            $apps->update();
-        }
-
-
-        flash()->success('Success', 'Thank you for submission');
-        return redirect('/');
+//        flash()->success('Success', 'Thank you for submission');
+//        return redirect('/');
     }
 
 
