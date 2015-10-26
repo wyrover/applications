@@ -141,23 +141,23 @@
 
 <!-- Additonal Info -->
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-    @foreach($custom as $c)
-        <tr>
-            <td>
-                <h3>Additional Information</h3>
-                @if (! empty($settings->label) && $c->answer) {!! $settings->label !!}: <strong>{!! $c->answer !!}</strong><br />@endif
-                @if (! empty($settings->label2) && $c->answer2) {!! $settings->label2 !!}: <strong>{!! $c->answer2 !!}</strong><br />@endif
-                @if (! empty($settings->label3) && $c->answer3) {!! $settings->label3 !!}: <strong>{!! $c->answer3 !!}</strong><br />@endif
-                @if (! empty($settings->label4) && $c->answer4) {!! $settings->label4 !!}: <strong>{!! $c->answer4 !!}</strong><br />@endif
-                @if (! empty($settings->label5) && $c->answer5) {!! $settings->label5 !!}: <strong>{!! $c->answer5 !!}</strong><br />@endif
-                @if (! empty($settings->label6) && $c->answer6) {!! $settings->label6 !!}: <strong>{!! $c->answer6 !!}</strong><br />@endif
-                @if (! empty($settings->label7) && $c->answer7) {!! $settings->label7 !!}: <strong>{!! $c->answer7 !!}</strong><br />@endif
-                @if (! empty($settings->label8) && $c->answer8) {!! $settings->label8 !!}: <strong>{!! $c->answer8 !!}</strong><br />@endif
-                @if (! empty($settings->label9) && $c->answer9) {!! $settings->label9 !!}: <strong>{!! $c->answer9 !!}</strong><br />@endif
-                @if (! empty($settings->label10) && $c->answer10) {!! $settings->label10 !!}: <strong>{!! $c->answer10 !!}</strong><br />@endif
-            </td>
-        </tr>
-    @endforeach
+    {{--@foreach($custom as $c)--}}
+        {{--<tr>--}}
+            {{--<td>--}}
+                {{--<h3>Additional Information</h3>--}}
+                {{--@if (! empty($settings->label) && $c->answer) {!! $settings->label !!}: <strong>{!! $c->answer !!}</strong><br />@endif--}}
+                {{--@if (! empty($settings->label2) && $c->answer2) {!! $settings->label2 !!}: <strong>{!! $c->answer2 !!}</strong><br />@endif--}}
+                {{--@if (! empty($settings->label3) && $c->answer3) {!! $settings->label3 !!}: <strong>{!! $c->answer3 !!}</strong><br />@endif--}}
+                {{--@if (! empty($settings->label4) && $c->answer4) {!! $settings->label4 !!}: <strong>{!! $c->answer4 !!}</strong><br />@endif--}}
+                {{--@if (! empty($settings->label5) && $c->answer5) {!! $settings->label5 !!}: <strong>{!! $c->answer5 !!}</strong><br />@endif--}}
+                {{--@if (! empty($settings->label6) && $c->answer6) {!! $settings->label6 !!}: <strong>{!! $c->answer6 !!}</strong><br />@endif--}}
+                {{--@if (! empty($settings->label7) && $c->answer7) {!! $settings->label7 !!}: <strong>{!! $c->answer7 !!}</strong><br />@endif--}}
+                {{--@if (! empty($settings->label8) && $c->answer8) {!! $settings->label8 !!}: <strong>{!! $c->answer8 !!}</strong><br />@endif--}}
+                {{--@if (! empty($settings->label9) && $c->answer9) {!! $settings->label9 !!}: <strong>{!! $c->answer9 !!}</strong><br />@endif--}}
+                {{--@if (! empty($settings->label10) && $c->answer10) {!! $settings->label10 !!}: <strong>{!! $c->answer10 !!}</strong><br />@endif--}}
+            {{--</td>--}}
+        {{--</tr>--}}
+    {{--@endforeach--}}
 </table>
 
 </body>
