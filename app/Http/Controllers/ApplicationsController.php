@@ -43,7 +43,8 @@ class ApplicationsController extends Controller
         return $pdf->download($pdfFilename);
     }
 
-    /** Export profile PDF
+    /**
+     * Export profile PDF
      *
      * @param Request $request
      * @return mixed
