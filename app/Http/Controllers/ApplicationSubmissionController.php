@@ -206,7 +206,7 @@ class ApplicationSubmissionController extends Controller
             $replace = ['', '', '', '', '', '', ''];
             $output = str_replace($search, $replace, $segment);
             $company = Company::where('url', $output)->first();
-            dd($company);
+
             $ref->settings_id = $settings->id;
             $ref->update();
         }
@@ -216,7 +216,7 @@ class ApplicationSubmissionController extends Controller
             $replace = ['', '', '', '', '', '', ''];
             $output = str_replace($search, $replace, $segment);
             $company = Company::where('url', $output)->first();
-
+            dd($company);
             $ref->settings_id = $settings->id;
             $ref->update();
         }
