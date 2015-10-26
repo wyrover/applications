@@ -198,7 +198,7 @@ class ApplicationSubmissionController extends Controller
 
         $fields->settings_id = $settings->id;
         $fields->update();
-        
+
         if (App::environment('production')) {
             $segment = \Request::url();
             $search = ['http://', 'https://', '.madesimpleltd', '.co.uk/', \Request::segment(1) .'/', \Request::segment(2).'/', \Request::segment(3)];
@@ -210,10 +210,9 @@ class ApplicationSubmissionController extends Controller
             $ref->company_id = $company->id;
             $ref->update();
         }
-
-
-//        flash()->success('Success', 'Thank you for submission');
-//        return redirect('/');
+        
+        flash()->success('Success', 'Thank you for submission');
+        return redirect('/');
     }
 
 
