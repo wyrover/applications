@@ -1,8 +1,7 @@
-
 <div class="panel panel-default">
   <div class="panel-heading">Other Information</div>
   <div class="panel-body">
-      <div class="col-md-6">
+      <div class="col-md-6" style="min-height: 200px!important; height: auto!important;">
         @foreach($fields as $field)
             <div class="form-group">
                 <div class="col-sm-4">{!! $field->label !!}</div>
