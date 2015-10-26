@@ -62,7 +62,7 @@ class ApplicationsController extends Controller
     {
         $profile = Applications::where('id', $request->segment(4))->first();
         $ref = References::where('applications_id', '=', $request->segment(4))->first();
-        $settings = Settings::where('company_id', '=', $ref->company_id)->where('application_id', '=', 1)->first();
+        $settings = Settings::where('company_id', '=', $ref->company_id)->first();
         $custom = ReferenceFields::where('id', $settings->id)->get();
         $pdf = PDF::loadView('pdf.referee', compact('profile', 'ref', 'settings','custom'));
         $name = $profile->first_name . '-' . $profile->surname . '-references-';
