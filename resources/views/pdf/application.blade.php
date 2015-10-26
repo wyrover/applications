@@ -206,6 +206,8 @@
             <h3>Transportation</h3>
             Are you a driver? <strong>{!! $ref->application->driver !!}</strong>
         </td>
+    </tr>
+    <tr>
         <td>Do you have any endorsements? <strong>{!! $ref->application->endorsements !!}</strong></td>
         <td>Vehicle Access: <strong>{!! $ref->application->vehicle_access !!}</strong></td>
     </tr>
@@ -221,8 +223,9 @@
             <h3>Right to Work</h3>
             Do you have the right to work in the UK? <strong>{!! $ref->application->right_to_work !!}</strong>
         </td>
+    </tr>
+    <tr>
         <td>Please explain evidence to show you have the right to work in the UK <strong>{!! $ref->application->evidence_right_to_work !!}</strong></td>
-
     </tr>
 </table>
 

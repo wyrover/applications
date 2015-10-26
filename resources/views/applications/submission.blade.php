@@ -406,21 +406,12 @@
               <div class="panel-heading">How can we contact you?</div>
               <div class="panel-body">
                   <div class="form-group">
-                      <div class="col-sm-4">By SMS Text Message</div>
-                      <div class="col-lg-2">
-                          <input type="checkbox" name="sms">
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <div class="col-sm-4">By Email</div>
-                      <div class="col-lg-2">
-                          <input type="checkbox" name="email">
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <div class="col-sm-4">By Telephone</div>
-                      <div class="col-lg-2">
-                          <input type="checkbox" name="telephone">
+                      <div class="col-lg-7">
+                          <select name="contactable" class="form-control">
+                              <option value="sms">SMS Text Message</option>
+                              <option value="email">Email</option>
+                              <option value="phone">Telephone</option>
+                          </select>
                       </div>
                   </div>
               </div>
