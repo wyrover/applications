@@ -206,13 +206,12 @@ class ApplicationSubmissionController extends Controller
             $replace = ['', '', '', '', '', '', ''];
             $output = str_replace($search, $replace, $segment);
             $company = Company::where('url', $output)->first();
-
             $ref->settings_id = $settings->id;
             $ref->update();
         }
         if (App::environment('production')) {
             $segment = \Request::url();
-            $search = ['http://', 'https://', '.madesimpleltd', '.co.uk', \Request::segment(1), \Request::segment(2), \Request::segment(3)];
+            $search = ['http://', 'https://', '.madesimpleltd', '.co.uk/', \Request::segment(1) .'/', \Request::segment(2).'/', \Request::segment(3)];
             $replace = ['', '', '', '', '', '', ''];
             $output = str_replace($search, $replace, $segment);
             $company = Company::where('url', $output)->first();
