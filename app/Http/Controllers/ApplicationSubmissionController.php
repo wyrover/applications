@@ -198,25 +198,16 @@ class ApplicationSubmissionController extends Controller
 
         $fields->settings_id = $settings->id;
         $fields->update();
-
-
-        if (App::environment('local')) {
-            $segment = \Request::url();
-            $search = ['http://', 'https://', '.applications', '.app', \Request::segment(1), \Request::segment(2), \Request::segment(3)];
-            $replace = ['', '', '', '', '', '', ''];
-            $output = str_replace($search, $replace, $segment);
-            $company = Company::where('url', $output)->first();
-            $ref->settings_id = $settings->id;
-            $ref->update();
-        }
+        
         if (App::environment('production')) {
             $segment = \Request::url();
             $search = ['http://', 'https://', '.madesimpleltd', '.co.uk/', \Request::segment(1) .'/', \Request::segment(2).'/', \Request::segment(3)];
             $replace = ['', '', '', '', '', '', ''];
             $output = str_replace($search, $replace, $segment);
             $company = Company::where('url', $output)->first();
-            dd($company);
+
             $ref->settings_id = $settings->id;
+            $ref->company_id = $company->id;
             $ref->update();
         }
 
