@@ -96,20 +96,20 @@
     <tr>
         <td align="left">
             <h3>Personal Details</h3>
-            First Name: <strong>{!! $ref->application->first_name !!}</strong><br />
-            @if (! empty($ref->application->middle_name)) Middle Names: <strong>{!! $ref->application->middle_name !!}</strong> <br />@endif
-            Surname: <strong>{!! $ref->application->surname !!}</strong><br />
-            Address Line 1: <strong>{!! $ref->application->address_line1 !!}</strong><br />
-            Address Line 2: <strong>{!! $ref->application->address_line2 !!}</strong><br />
-            City: <strong>{!! $ref->application->city !!}</strong><br />
-            Postcode: <strong>{!! $ref->application->postcode !!}</strong><br />
+            First Name: <strong>{!! $profile->first_name !!}</strong><br />
+            @if (! empty($profile->middle_name)) Middle Names: <strong>{!! $profile->middle_name !!}</strong> <br />@endif
+            Surname: <strong>{!! $profile->surname !!}</strong><br />
+            Address Line 1: <strong>{!! $profile->address_line1 !!}</strong><br />
+            Address Line 2: <strong>{!! $profile->address_line2 !!}</strong><br />
+            City: <strong>{!! $profile->city !!}</strong><br />
+            Postcode: <strong>{!! $profile->postcode !!}</strong><br />
 
         </td>
         <td>
-            Telephone: <strong>{!! $ref->application->telephone !!}</strong><br />
-            Mobile: <strong>{!! $ref->application->mobile !!}</strong><br />
-            Email: <strong>{!! $ref->application->email !!}</strong><br />
-            National Insurance Number: <strong>{!! $ref->application->ni_number !!}</strong><br />
+            Telephone: <strong>{!! $profile->telephone !!}</strong><br />
+            Mobile: <strong>{!! $profile->mobile !!}</strong><br />
+            Email: <strong>{!! $profile->email !!}</strong><br />
+            National Insurance Number: <strong>{!! $profile->ni_number !!}</strong><br />
         </td>
     </tr>
 </table>
