@@ -200,7 +200,7 @@ class ApplicationSubmissionController extends Controller
         $fields->update();
 
         $company = Company::where('url', $request->segment(1))->first();
-        dd($company);
+        dd($request->segment(1));
         $ref->settings_id = $settings->id;
         //$ref->company_id = ;
         $ref->update();
