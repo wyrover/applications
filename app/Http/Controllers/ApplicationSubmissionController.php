@@ -202,7 +202,7 @@ class ApplicationSubmissionController extends Controller
 
 //        if (App::environment('local')) {
             $segment = \Request::url();
-            $search = ['http://', 'https://', '.applications', '.app', '/reference', '/' . \Request::segment(2)];
+            $search = ['http://', 'https://', '.applications', '.app', '/application', '/{code}/submitReference'];
             $replace = ['', '', '', '', '', ''];
             $output = str_replace($search, $replace, $segment);
             $company = Company::where('url', $output)->first();
