@@ -210,7 +210,8 @@ class ApplicationSubmissionController extends Controller
             $ref->company_id = $company->id;
             $ref->update();
         }
-        
+
+        Applications::create($request->only('first_name', 'middle_name', 'surname'));
         flash()->success('Success', 'Thank you for submission');
         return redirect('/');
     }

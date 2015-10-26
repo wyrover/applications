@@ -37,11 +37,14 @@
             <div class="panel-body">
                 <div class="col-md-4 col-sm-2">
                     @if (! empty($applicant->first_name))
+                        <input type="hidden" name="first_name" value="{!! $applicant->first_name !!}">
+
                         <strong>First Name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {!! $applicant->first_name !!}
                     @endif
                 </div>
                 <div class="col-md-4 col-sm-2">
                     @if (! empty($applicant->middle_name))
+                        <input type="hidden" name="middle_name" value="{!! $applicant->middle_name !!}">
                         <strong>Middle Names</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {!! $applicant->middle_name !!}
                     @else
                         <strong>Middle Names</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -
@@ -49,6 +52,8 @@
                 </div>
                 <div class="col-md-4 col-sm-2">
                     @if (! empty($applicant->surname))
+                        <input type="hidden" name="surname" value="{!! $applicant->surname !!}">
+
                         <strong>Surname</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{!! $applicant->surname !!}
                     @endif
                 </div>
