@@ -169,8 +169,7 @@ class ApplicationSubmissionController extends Controller
 
     public function postReference(Request $request)
     {
-        $code = $request->segment(2);
-        $applicant = Applications::where('code', $code)->first();
+        $applicant = Applications::where('code', $request->segment(2))->first();
         $settings = Settings::where('company_id', $applicant->company_id)->get();
 
         return view('applications.submit', compact('code', 'applicant', 'settings'));
