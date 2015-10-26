@@ -50,7 +50,7 @@ class ApplicationsController extends Controller
      */
     public function exportProfile(Request $request)
     {
-        $profile = Applications::where('id', $request->segment(3))->first();
+        $profile = Applications::where('id', $request->segment(4))->first();
         $pdf = PDF::loadView('pdf.profile', compact('profile'));
         $name = $profile->first_name . '-' . $profile->surname . '-profile-';
         $pdfFilename = urlencode(strtolower($name . '-' . date('d-m-Y') . '.pdf'));
