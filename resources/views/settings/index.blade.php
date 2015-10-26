@@ -145,6 +145,6 @@
     </div>
 {!! Form::close() !!}
 
-    {{--@include('settings.reference')--}}
+    @include('settings.reference')
 
 @endsection
