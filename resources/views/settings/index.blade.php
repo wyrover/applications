@@ -12,7 +12,7 @@
 {!! Form::model($setting, ['method' => 'PUT', 'url' => ['settings', $setting->id], 'class' => 'form-horizontal']) !!}
 
     <input type="hidden" name="company_id" value="{!! Auth::user()->company_id !!}">
-    <input type="hidden" name="application_id" value="{!! $setting->id !!}">
+    <input type="hidden" name="application_id" value="1">
 
     <table class="table table-striped table-bordered">
         <thead>

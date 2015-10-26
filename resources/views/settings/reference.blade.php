@@ -4,7 +4,7 @@
 {!! Form::model($ref, ['method' => 'PUT', 'url' => ['settings/refs', $ref->id], 'class' => 'form-horizontal']) !!}
 
 <input type="hidden" name="company_id" value="{!! Auth::user()->company_id !!}">
-<input type="hidden" name="reference_id" value="{!! $ref->id !!}">
+<input type="hidden" name="reference_id" value="0">
 
 <table class="table table-striped table-bordered">
     <thead>
