@@ -60,7 +60,7 @@ class ApplicationsController extends Controller
 
     public function exportReferee(Request $request)
     {
-        $profile = Applications::where('id', $request->segment(4))->first();
+        $profile = Applications::where('reference_id', $request->segment(4))->first();
         $ref = References::where('applications_id', '=', $request->segment(4))->first();
         $settings = Settings::where('company_id', '=', Auth::user()->company_id)->first();
         $custom = ReferenceFields::where('id', $settings->id)->get();
