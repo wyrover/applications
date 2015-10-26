@@ -406,7 +406,7 @@
               <div class="panel-heading">How can we contact you?</div>
               <div class="panel-body">
                   <div class="form-group">
-                      <div class="col-lg-7">
+                      <div class="col-lg-5">
                           <select name="contactable" class="form-control">
                               <option value="sms">SMS Text Message</option>
                               <option value="email">Email</option>
