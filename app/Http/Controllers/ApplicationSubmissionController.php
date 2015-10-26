@@ -199,7 +199,10 @@ class ApplicationSubmissionController extends Controller
         $fields->settings_id = $settings->id;
         $fields->update();
 
+        $company = Company::where('url', $request->segment(1))->first();
+        dd($company);
         $ref->settings_id = $settings->id;
+        $ref->company_id = ;
         $ref->update();
 
         flash()->success('Success', 'Thank you for submission');
