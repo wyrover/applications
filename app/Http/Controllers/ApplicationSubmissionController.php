@@ -214,6 +214,9 @@ class ApplicationSubmissionController extends Controller
             $ref->company_id = $company->id;
             $ref->applications_id = $apps->id;
             $ref->update();
+
+            $apps->company_id = $company->id;
+            $apps->update();
         }
 
 
