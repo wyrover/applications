@@ -79,7 +79,7 @@ class ReferenceRequestListener implements ShouldQueue
                 'name' => $event->user['name2'],
                 'worker' => $event->user['first_name'] . ' ' . $event->user['surname'],
                 'company' => $cn->name,
-                'code' => $event->user['code']
+                'code' => $application->code
             );
             // Send the email
             Mail::send('emails/references/request2', $data, function ($message) use ($data) {

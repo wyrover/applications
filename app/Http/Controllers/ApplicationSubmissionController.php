@@ -189,12 +189,11 @@ class ApplicationSubmissionController extends Controller
         $ref->save();
 
         $fields = Fields::create($request->except('_token','name','phone','position','email_address','applicant_started','date_left','reason_for_leaving'));
-        if ($settings) {
-            $settings = Settings::create($request->only('label', 'label2', 'label3', 'label4', 'label5', 'label6', 'label7', 'label8', 'label9', 'label10', 'company_id'));
+        $settings = Settings::create($request->only('label', 'label2', 'label3', 'label4', 'label5', 'label6', 'label7', 'label8', 'label9', 'label10', 'company_id'));
 
-            $settings->fields_id = $fields->id;
-            $settings->update();
-        }
+        $settings->fields_id = $fields->id;
+        $settings->update();
+
 
         $fields->settings_id = $settings->id;
         $fields->update();
