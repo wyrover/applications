@@ -40,6 +40,6 @@ class References extends Model
      */
     public function application()
     {
-        return $this->hasOne('App\Applications', 'applications_id', 'id');
+        return $this->hasOne('App\Applications', 'id');
     }
 }
