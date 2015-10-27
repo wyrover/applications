@@ -23,8 +23,8 @@ class ApplicationsController extends Controller
     public function index()
     {
         $applications = Applications::where('company_id', Auth::user()->company_id)->paginate(10);
-        dd($applications);
-        $ref = References::where('applications_id', $applications->id)->first();
+        
+        $ref = References::where('applications_id', $applications->reference_id)->first();
         return view('applications.index', compact('applications','ref'));
     }
 
