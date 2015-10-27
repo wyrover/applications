@@ -33,12 +33,12 @@
                 @if ($item->reference()->first()->completed == 'No' && ! empty($item->reference()->first()->referee_email))
                     <button class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Awaiting response from referee"><i class="fa fa-clock-o"></i></button>
                 @else
-                    <a href="/applications/export/exportReferee/{!! $item->id !!}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>
+                    <a href="/applications/export/exportReferee/{!! $ref->id !!}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>
                 @endif
                 @if ($item->reference()->first()->completedtwo == 'No' && ! empty($item->reference()->first()->referee_email2))
                     <button class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Awaiting response from referee"><i class="fa fa-clock-o"></i></button>
                 @else
-                    <a href="/applications/export/exportRefereeTwo/{!! $item->id !!}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>
+                    <a href="/applications/export/exportRefereeTwo/{!! $ref->id !!}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>
                 @endif
             </td>
             <td>
