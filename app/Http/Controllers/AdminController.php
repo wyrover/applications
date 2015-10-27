@@ -49,6 +49,7 @@ class AdminController extends Controller
 
         $settings = new Settings;
         $settings->application_id = 1;
+        $settings->references_id = 0;
         $settings->company_id = $company->id;
         $settings->save();
 
@@ -57,10 +58,11 @@ class AdminController extends Controller
         $refs->company_id = $company->id;
         $refs->save();
 
-        $settings = new Settings;
-        $settings->references_id = 1;
-        $settings->company_id = $company->id;
-        $settings->save();
+        $options = new Settings;
+        $options->references_id = 1;
+        $options->application_id = 0;
+        $options->company_id = $company->id;
+        $options->save();
 
         flash()->success('Success', 'Account successfully created');
         return back();
