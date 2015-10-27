@@ -66,7 +66,7 @@ class ApplicationsController extends Controller
         $settings = Settings::where('company_id', '=', Auth::user()->company_id)->where('references_id','=', 1)->first();
         $custom = Fields::where('settings_id', $settings->id)->where('references_id', '=', $request->segment(4))->get();
         $pdf = PDF::loadView('pdf.referee', compact('profile', 'ref', 'settings','custom'));
-        $name = $profile->first_name . '-' . $profile->surname . '-references-';
+        $name = ucwords($profile->first_name) . '-' . ucwords($profile->surname) . ' references ';
 
         $pdfFilename = urlencode(strtolower($name . '-' . date('d-m-Y') . '.pdf'));
         return $pdf->download($pdfFilename);
