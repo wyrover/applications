@@ -142,10 +142,12 @@
             </div>
         </div>
         
-    </div>
+
     <br />
     <hr />
-    <div class="col-md-6" style="min-height: 200px!important; height: auto!important;">
+        <br />
+        <legend>Additional Information</legend>
+
 
             @foreach($settings as $field)
 
