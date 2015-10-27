@@ -145,8 +145,8 @@
     </div>
     <br />
     <hr />
-    <div class="col-md-6">
-        <div class="col-md-6" style="min-height: 200px!important; height: auto!important;">
+    <div class="col-md-6" style="min-height: 200px!important; height: auto!important;">
+
             @foreach($settings as $field)
 
                 <input type="hidden" name="id" value="{!! $field->id !!}">
@@ -364,9 +364,6 @@
                 </div>
 
             @endforeach
-        </div>
-
-
     </div>
 
 </div>
