@@ -172,8 +172,8 @@ class ApplicationSubmissionController extends Controller
     {
         $applicant = Applications::where('code', $request->segment(2))->first();
         $settings = Settings::where('company_id', $applicant->company_id)->get();
-
-        return view('applications.submit', compact('code', 'applicant', 'settings'));
+        $company = Company::where('id', $applicant->company_id)->first();
+        return view('applications.submit', compact('company', 'applicant', 'settings'));
     }
 
     public function refereeSubmitted(Request $request)
