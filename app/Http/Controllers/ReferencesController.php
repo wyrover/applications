@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Applications;
 use App\Events\ReferenceRequestEmail;
 use App\References;
+use App\Settings;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -27,7 +28,6 @@ class ReferencesController extends Controller
     public function create()
     {
         $settings = Settings::where('company_id', '=', Auth::user()->company_id)->where('application_id', '=', 1)->get();
-
         return view('references.create', compact('settings'));
     }
 
