@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Applications;
+use App\Fields;
 use App\ReferenceFields;
 use App\References;
 use App\Settings;
@@ -63,7 +64,7 @@ class ApplicationsController extends Controller
         $profile = Applications::where('reference_id', $request->segment(4))->first();
         $ref = References::where('applications_id', '=', $request->segment(4))->first();
         $settings = Settings::where('company_id', '=', Auth::user()->company_id)->where('references_id','=', 1)->first();
-        $custom = ReferenceFields::where('id', $settings->id)->get();
+        $custom = Fields::where('settings_id', $settings->id)->get();
         $pdf = PDF::loadView('pdf.referee', compact('profile', 'ref', 'settings','custom'));
         $name = $profile->first_name . '-' . $profile->surname . '-references-';
 
