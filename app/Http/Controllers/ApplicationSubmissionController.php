@@ -44,6 +44,7 @@ class ApplicationSubmissionController extends Controller
             $output = str_replace($search, $replace, $segment);
             $company = Company::where('url', $output)->first();
             $fields = Settings::where('company_id', '=', $company->id)->get();
+
             return view('applications.submission', compact('company', 'fields'));
         }
     }

@@ -26,7 +26,9 @@ class ReferencesController extends Controller
 
     public function create()
     {
-        return view('references.create');
+        $settings = Settings::where('company_id', '=', Auth::user()->company_id)->where('application_id', '=', 1)->get();
+
+        return view('references.create', compact('settings'));
     }
 
     public function store(Request $request)
