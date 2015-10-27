@@ -96,8 +96,7 @@
 
         @foreach($settings as $field)
 
-            <input type="hidden" name="id" value="{!! $field->id !!}">
-            <input type="hidden" name="company_id" value="{!! $field->company_id !!}">
+            <input type="hidden" name="settings_id" value="{!! $field->id !!}">
 
             <input type="hidden" name="label" value="{!! $field->label !!}">
             <input type="hidden" name="label2" value="{!! $field->label2 !!}">
