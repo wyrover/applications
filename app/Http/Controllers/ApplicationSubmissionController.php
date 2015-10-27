@@ -180,7 +180,7 @@ class ApplicationSubmissionController extends Controller
     {
         $code = $request->segment(2);
         //dd($request->all());
-        $ref = new References;
+        $ref = References::where('id', $request->input('ref_id'));
         $ref->referee_name = $request->input('name');
         $ref->referee_start_date = $request->input('applicant_started');
         $ref->referee_end_date = $request->input('date_left');
