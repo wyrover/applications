@@ -30,7 +30,7 @@
             <td>{!! $item->city !!}</td>
             <td><a href="/applications/export/application/{!! $item->id !!}" class="btn btn-sm btn-default"  data-toggle="tooltip" data-placement="top" title="Download Application"><i class="fa fa-download"></i> Download</a></td>
             <td>
-                {!! dd($item->reference()) !!}
+                {!! dd($item->reference()->first()->id) !!}
             </td>
             <td>
                 @if ($item->reference()->first()->completed == 'No' && ! empty($item->reference()->first()->referee_email))
