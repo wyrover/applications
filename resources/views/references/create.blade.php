@@ -144,6 +144,10 @@
         
     </div>
 
+    <div class="col-md-6">
+        @include('references.settings')
+    </div>
+
 </div>
 
 <div class="form-group">
