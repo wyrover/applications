@@ -6,6 +6,7 @@ use App\Applications;
 use App\Events\ReferenceRequestEmail;
 use App\Mailers\AppMailer;
 use App\References;
+use App\Settings;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Auth;
@@ -54,6 +55,11 @@ class ReferenceRequestListener implements ShouldQueue
 
         // Update Applications table with new reference ID
         $this->updateApplication($referee, $application);
+
+        // Create settings fields/options
+        dd($event);
+        //$settings = Settings::create();
+
 
         if (! empty($event->user['email']) && $event->user['contact'] == 'Yes') {
 
