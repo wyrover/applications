@@ -4,6 +4,7 @@ namespace App\Listeners;
 
 use App\Applications;
 use App\Events\ReferenceRequestEmail;
+use App\Fields;
 use App\Mailers\AppMailer;
 use App\References;
 use App\Settings;
@@ -57,7 +58,7 @@ class ReferenceRequestListener implements ShouldQueue
         $this->updateApplication($referee, $application);
 
         // Create settings fields/options
-        $settings = new Settings;
+        $settings = new Fields;
         $settings->application_id = $application->id;
         $settings->label = $event->user['label'];
         $settings->label2 = $event->user['label2'];

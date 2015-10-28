@@ -147,7 +147,7 @@
 
 <!-- Additonal Info -->
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-    @foreach($custom as $c)
+    @foreach($settings as $c)
         <tr>
             <td>
                 <h3>Additional Information</h3>
