@@ -69,16 +69,16 @@ class ReferenceRequestListener implements ShouldQueue
         $settings->label8 = $event->user['label8'];
         $settings->label9 = $event->user['label9'];
         $settings->label10 = $event->user['label10'];
-        $settings->answer = $event->user['answer'];
-        $settings->answer2 = $event->user['answer2'];
-        $settings->answer3 = $event->user['answer3'];
-        $settings->answer4 = $event->user['answer4'];
-        $settings->answer5 = $event->user['answer5'];
-        $settings->answer6 = $event->user['answer6'];
-        $settings->answer7 = $event->user['answer7'];
-        $settings->answer8 = $event->user['answer8'];
-        $settings->answer9 = $event->user['answer9'];
-        $settings->answer10 = $event->user['answer10'];
+        if (! empty($event->user['answer'])) { $settings->answer = $event->user['answer']; }
+        if (! empty($event->user['answer2'])) { $settings->answer2 = $event->user['answer2']; }
+        if (! empty($event->user['answer3'])) { $settings->answer3 = $event->user['answer3']; }
+        if (! empty($event->user['answer4'])) { $settings->answer4 = $event->user['answer4']; }
+        if (! empty($event->user['answer5'])) { $settings->answer5 = $event->user['answer5']; }
+        if (! empty($event->user['answer6'])) { $settings->answer6 = $event->user['answer6']; }
+        if (! empty($event->user['answer7'])) { $settings->answer7 = $event->user['answer7']; }
+        if (! empty($event->user['answer8'])) { $settings->answer8 = $event->user['answer8']; }
+        if (! empty($event->user['answer9'])) { $settings->answer9 = $event->user['answer9']; }
+        if (! empty($event->user['answer10'])) { $settings->answer10 = $event->user['answer10']; }
         $settings->save();
 
 
