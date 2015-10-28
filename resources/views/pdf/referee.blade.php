@@ -96,21 +96,14 @@
     <tr>
         <td align="left">
             <h3>Applicant Details</h3>
-            First Name: <strong>{!! $profile->first_name !!}</strong><br />
-            @if (! empty($profile->middle_name)) Middle Names: <strong>{!! $profile->middle_name !!}</strong> <br />@endif
-            Surname: <strong>{!! $profile->surname !!}</strong><br />
-            {{--Address Line 1: <strong>{!! $profile->address_line1 !!}</strong><br />--}}
-            {{--Address Line 2: <strong>{!! $profile->address_line2 !!}</strong><br />--}}
-            {{--City: <strong>{!! $profile->city !!}</strong><br />--}}
-            {{--Postcode: <strong>{!! $profile->postcode !!}</strong><br />--}}
-
+            First Name: <strong>{!! $profile->first_name !!}</strong>
         </td>
-        {{--<td>--}}
-            {{--Telephone: <strong>{!! $profile->telephone !!}</strong><br />--}}
-            {{--Mobile: <strong>{!! $profile->mobile !!}</strong><br />--}}
-            {{--Email: <strong>{!! $profile->email !!}</strong><br />--}}
-            {{--National Insurance Number: <strong>{!! $profile->ni_number !!}</strong><br />--}}
-        {{--</td>--}}
+        <td align="center">
+            @if (! empty($profile->middle_name)) Middle Names: <strong>{!! $profile->middle_name !!}</strong>@endif
+        </td>
+        <td align="right">
+            Surname: <strong>{!! $profile->surname !!}</strong>
+        </td>
     </tr>
 </table>
 
