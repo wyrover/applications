@@ -98,10 +98,10 @@
             <h3>Applicant Details</h3>
             First Name: <strong>{!! $profile->first_name !!}</strong>
         </td>
-        <td align="center">
+        <td>
             @if (! empty($profile->middle_name)) Middle Names: <strong>{!! $profile->middle_name !!}</strong>@endif
         </td>
-        <td align="right">
+        <td>
             Surname: <strong>{!! $profile->surname !!}</strong>
         </td>
     </tr>
