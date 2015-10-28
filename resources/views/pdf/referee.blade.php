@@ -95,22 +95,22 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr>
         <td align="left">
-            <h3>Personal Details</h3>
+            <h3>Applicant Details</h3>
             First Name: <strong>{!! $profile->first_name !!}</strong><br />
             @if (! empty($profile->middle_name)) Middle Names: <strong>{!! $profile->middle_name !!}</strong> <br />@endif
             Surname: <strong>{!! $profile->surname !!}</strong><br />
-            Address Line 1: <strong>{!! $profile->address_line1 !!}</strong><br />
-            Address Line 2: <strong>{!! $profile->address_line2 !!}</strong><br />
-            City: <strong>{!! $profile->city !!}</strong><br />
-            Postcode: <strong>{!! $profile->postcode !!}</strong><br />
+            {{--Address Line 1: <strong>{!! $profile->address_line1 !!}</strong><br />--}}
+            {{--Address Line 2: <strong>{!! $profile->address_line2 !!}</strong><br />--}}
+            {{--City: <strong>{!! $profile->city !!}</strong><br />--}}
+            {{--Postcode: <strong>{!! $profile->postcode !!}</strong><br />--}}
 
         </td>
-        <td>
-            Telephone: <strong>{!! $profile->telephone !!}</strong><br />
-            Mobile: <strong>{!! $profile->mobile !!}</strong><br />
-            Email: <strong>{!! $profile->email !!}</strong><br />
-            National Insurance Number: <strong>{!! $profile->ni_number !!}</strong><br />
-        </td>
+        {{--<td>--}}
+            {{--Telephone: <strong>{!! $profile->telephone !!}</strong><br />--}}
+            {{--Mobile: <strong>{!! $profile->mobile !!}</strong><br />--}}
+            {{--Email: <strong>{!! $profile->email !!}</strong><br />--}}
+            {{--National Insurance Number: <strong>{!! $profile->ni_number !!}</strong><br />--}}
+        {{--</td>--}}
     </tr>
 </table>
 
@@ -133,6 +133,17 @@
             Is this your previous /current employer?: @if(! empty($ref->referee_current_employer)) <strong>{!! $ref->referee_current_employer !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
             Can we contact this reference?: @if(! empty($ref->referee_contact)) <strong>{!! $ref->referee_contact !!}</strong> @else <span class="no-answer">No answer given</span> @endif
         </td>
+    </tr>
+    <tr>
+        <td>Reason For Leaving?<br /><strong>{!! $ref->leaving !!}</strong></td>
+    </tr>
+</table>
+<br />
+<hr />
+<br />
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td>Would you re-employ?<br /><strong>{!! $ref->re_employ !!}</strong></td>
     </tr>
 </table>
 <br />
