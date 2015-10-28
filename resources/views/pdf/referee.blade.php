@@ -135,7 +135,7 @@
         </td>
     </tr>
     <tr>
-        <td>Reason For Leaving?<br /><strong>{!! $ref->leaving !!}</strong></td>
+        <td>Reason For Leaving?<br />@if(! empty($ref->leaving))<strong>{!! $ref->leaving !!}</strong> @else <span class="no-answer">No answer given</span> @endif</td>
     </tr>
 </table>
 <br />
@@ -143,7 +143,7 @@
 <br />
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr>
-        <td>Would you re-employ?<br /><strong>{!! $ref->re_employ !!}</strong></td>
+        <td>Would you re-employ?<br />@if(! empty($ref->re_employ)) <strong>{!! $ref->re_employ !!}</strong> @else <span class="no-answer">No answer given</span> @endif</td>
     </tr>
 </table>
 <br />
