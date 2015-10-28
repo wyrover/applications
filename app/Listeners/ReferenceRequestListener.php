@@ -57,8 +57,29 @@ class ReferenceRequestListener implements ShouldQueue
         $this->updateApplication($referee, $application);
 
         // Create settings fields/options
-        dd($event);
-        //$settings = Settings::create();
+        $settings = new Settings;
+        $settings->application_id = $application->id;
+        $settings->label = $event->user['label'];
+        $settings->label2 = $event->user['label2'];
+        $settings->label3 = $event->user['label3'];
+        $settings->label4 = $event->user['label4'];
+        $settings->label5 = $event->user['label5'];
+        $settings->label6 = $event->user['label6'];
+        $settings->label7 = $event->user['label7'];
+        $settings->label8 = $event->user['label8'];
+        $settings->label9 = $event->user['label9'];
+        $settings->label10 = $event->user['label10'];
+        $settings->answer = $event->user['answer'];
+        $settings->answer2 = $event->user['answer2'];
+        $settings->answer3 = $event->user['answer3'];
+        $settings->answer4 = $event->user['answer4'];
+        $settings->answer5 = $event->user['answer5'];
+        $settings->answer6 = $event->user['answer6'];
+        $settings->answer7 = $event->user['answer7'];
+        $settings->answer8 = $event->user['answer8'];
+        $settings->answer9 = $event->user['answer9'];
+        $settings->answer10 = $event->user['answer10'];
+        $settings->save();
 
 
         if (! empty($event->user['email']) && $event->user['contact'] == 'Yes') {
