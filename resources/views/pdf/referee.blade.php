@@ -94,8 +94,10 @@
 <br />
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr>
+        <td><h3>Applicant Details</h3></td>
+    </tr>
+    <tr>
         <td align="left">
-            <h3>Applicant Details</h3>
             First Name: <strong>{!! $profile->first_name !!}</strong>
         </td>
         <td>
