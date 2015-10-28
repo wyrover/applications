@@ -81,6 +81,8 @@ class ReferenceRequestListener implements ShouldQueue
         if (! empty($event->user['answer10'])) { $settings->answer10 = $event->user['answer10']; }
         $settings->save();
 
+        $referee->settings_id = $settings->id;
+        $referee->update();
 
         if (! empty($event->user['email']) && $event->user['contact'] == 'Yes') {
 
