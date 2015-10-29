@@ -357,7 +357,7 @@
             <div class="col-lg-7">
                 <select name="contact2" class="form-control">
                     <option value="Yes">Yes</option>
-                    <option value="No">No</option>
+                    <option value="No" selected>No</option>
                 </select>
             </div>
         </div>
