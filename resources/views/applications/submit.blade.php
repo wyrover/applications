@@ -32,7 +32,7 @@
 
         <input type="hidden" name="code" value="{!! $applicant->code !!}">
         <input type="hidden" name="company_id" value="{!! $applicant->company_id !!}">
-        <input type="hidden" name="ref_id" value="{!! $applicant->reference_id !!}">
+        <input type="hidden" name="references_id" value="{!! $applicant->reference_id !!}">
 
         <div class="panel panel-default">
             <div class="panel-heading">Applicant Details</div>
