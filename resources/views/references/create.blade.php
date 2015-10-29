@@ -110,7 +110,7 @@
             <input type="hidden" name="label10" value="{!! $field->label10 !!}">
 
             <div class="form-group">
-                <div class="col-sm-4">{!! $field->label !!}</div>
+                <div class="col-sm-3">{!! $field->label !!}</div>
                 <div class="col-lg-7">
                     @if ($field->type == 'input')
                         <input type="{!! $field->type !!}" name="answer" class="form-control" value="">
@@ -130,7 +130,7 @@
             </div>
 
             <div class="form-group">
-                <div class="col-sm-4">{!! $field->label2 !!}</div>
+                <div class="col-sm-3">{!! $field->label2 !!}</div>
                 <div class="col-lg-7">
                     @if ($field->type2 == 'input')
                         <input type="{!! $field->type2 !!}" name="answer2" class="form-control" value="">
@@ -150,7 +150,7 @@
             </div>
 
             <div class="form-group">
-                <div class="col-sm-4">{!! $field->label3 !!}</div>
+                <div class="col-sm-3">{!! $field->label3 !!}</div>
                 <div class="col-lg-7">
                     @if ($field->type3 == 'input')
                         <input type="{!! $field->type3 !!}" name="answer3" class="form-control" value="">
@@ -170,7 +170,7 @@
             </div>
 
             <div class="form-group">
-                <div class="col-sm-4">{!! $field->label4 !!}</div>
+                <div class="col-sm-3">{!! $field->label4 !!}</div>
                 <div class="col-lg-7">
                     @if ($field->type4 == 'input')
                         <input type="{!! $field->type4 !!}" name="answer4" class="form-control" value="">
@@ -190,7 +190,7 @@
             </div>
 
             <div class="form-group">
-                <div class="col-sm-4">{!! $field->label5 !!}</div>
+                <div class="col-sm-3">{!! $field->label5 !!}</div>
                 <div class="col-lg-7">
                     @if ($field->type5 == 'input')
                         <input type="{!! $field->type5 !!}" name="answer5" class="form-control" value="">
@@ -210,7 +210,7 @@
             </div>
 
             <div class="form-group">
-                <div class="col-sm-4">{!! $field->label6 !!}</div>
+                <div class="col-sm-3">{!! $field->label6 !!}</div>
                 <div class="col-lg-7">
                     @if ($field->type6 == 'input')
                         <input type="{!! $field->type6 !!}" name="answer6" class="form-control" value="">
@@ -230,7 +230,7 @@
             </div>
 
             <div class="form-group">
-                <div class="col-sm-4">{!! $field->label7 !!}</div>
+                <div class="col-sm-3">{!! $field->label7 !!}</div>
                 <div class="col-lg-7">
                     @if ($field->type7 == 'input')
                         <input type="{!! $field->type7 !!}" name="answer7" class="form-control" value="">
@@ -250,7 +250,7 @@
             </div>
 
             <div class="form-group">
-                <div class="col-sm-4">{!! $field->label8 !!}</div>
+                <div class="col-sm-3">{!! $field->label8 !!}</div>
                 <div class="col-lg-7">
                     @if ($field->type8 == 'input')
                         <input type="{!! $field->type8 !!}" name="answer8" class="form-control" value="">
@@ -270,7 +270,7 @@
             </div>
 
             <div class="form-group">
-                <div class="col-sm-4">{!! $field->label9 !!}</div>
+                <div class="col-sm-3">{!! $field->label9 !!}</div>
                 <div class="col-lg-7">
                     @if ($field->type9 == 'input')
                         <input type="{!! $field->type9 !!}" name="answer9" class="form-control" value="">
@@ -290,7 +290,7 @@
             </div>
 
             <div class="form-group">
-                <div class="col-sm-4">{!! $field->label10 !!}</div>
+                <div class="col-sm-3">{!! $field->label10 !!}</div>
                 <div class="col-lg-7">
                     @if ($field->type10 == 'input')
                         <input type="{!! $field->type10 !!}" name="answer10" class="form-control" value="">
