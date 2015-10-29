@@ -99,7 +99,7 @@ class ApplicationSubmissionController extends Controller
         // Check if referee is contactable then
         $referee = $ref;
 
-        if ($ref->referee_contact == 'Yes' && $ref->completed == 0){
+        if ($ref->referee_contact == 'Yes' && $ref->completed == 'Yes'){
             // Fire Event to send email to referee 1
             //event(new EmailRefereeOne($referee, $application));
             $data = array(
@@ -117,7 +117,7 @@ class ApplicationSubmissionController extends Controller
                     ->subject('Reference Request');
             });
         }
-        if ($ref->referee_contact2 == 'Yes' && $ref->completed == 0){
+        if ($ref->referee_contact2 == 'Yes' && $ref->completed == 'Yes'){
             // Fire Event to send email to referee 2
             //event(new EmailRefereeTwo($referee, $application));
             $data = array(
