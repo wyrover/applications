@@ -105,7 +105,7 @@ class ReferenceRequestListener implements ShouldQueue
         if (! empty($event->user['emailtwo']) && $event->user['contact2'] == 'Yes') {
 
             $data = array(
-                'email' => $event->user['emailtwo'],
+                'emailtwo' => $event->user['emailtwo'],
                 'name' => $event->user['name2'],
                 'worker' => $event->user['first_name'] . ' ' . $event->user['surname'],
                 'company' => $cn->name,
@@ -113,7 +113,7 @@ class ReferenceRequestListener implements ShouldQueue
             );
             // Send the email
             Mail::send('emails/references/request2', $data, function ($message) use ($data) {
-                $message->to($data['email'])
+                $message->to($data['emailtwo'])
                     ->from('noreply@madesimpleltd.co.uk')
                     ->subject('You have been selected to provide a reference');
             });
