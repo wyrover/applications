@@ -85,6 +85,8 @@ class ReferenceRequestListener implements ShouldQueue
         $referee->settings_id = $settings->id;
         $referee->update();
 
+        dd($event);
+
         if (! empty($event->user['email']) && $event->user['contact'] == 'Yes') {
 
             $data = array(
