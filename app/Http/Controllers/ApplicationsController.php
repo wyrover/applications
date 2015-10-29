@@ -66,7 +66,6 @@ class ApplicationsController extends Controller
         $profile = Applications::where('reference_id', $request->segment(4))->first();
         $ref = References::where('id', '=', $request->segment(4))->first();
         $settings = Fields::where('application_id', '=', $request->segment(4))->first();
-
         $pdf = PDF::loadView('pdf.referee', compact('profile', 'ref', 'settings'));
         $name = ucwords($profile->first_name) . '-' . ucwords($profile->surname) . ' references ';
 
@@ -78,8 +77,8 @@ class ApplicationsController extends Controller
     {
         $profile = Applications::where('id', $request->segment(4))->first();
         $ref = References::where('applications_id', '=', $request->segment(4))->first();
-        $settings = Settings::where('company_id', '=', $ref->company_id)->where('application_id', '!=', '0')->first();
-        $custom = ReferenceFields::where('id', $settings->id)->get();
+        $settings = Fields::where('application_id', '=', $request->segment(4))->first();
+
         $pdf = PDF::loadView('pdf.refereetwo', compact('profile', 'ref', 'settings','custom'));
         $name = $profile->first_name . '-' . $profile->surname . '-references-';
 
