@@ -150,16 +150,16 @@
         <tr>
             <td>
                 <h3>Additional Information</h3>
-                @if (! empty($settings->label) && $settings->answer) {!! $settings->label !!}: <strong>{!! $settings->answer !!}</strong><br />@endif
-                @if (! empty($settings->label2) && $settings->answer2) {!! $settings->label2 !!}: <strong>{!! $settings->answer2 !!}</strong><br />@endif
-                @if (! empty($settings->label3) && $settings->answer3) {!! $settings->label3 !!}: <strong>{!! $settings->answer3 !!}</strong><br />@endif
-                @if (! empty($settings->label4) && $settings->answer4) {!! $settings->label4 !!}: <strong>{!! $settings->answer4 !!}</strong><br />@endif
-                @if (! empty($settings->label5) && $settings->answer5) {!! $settings->label5 !!}: <strong>{!! $settings->answer5 !!}</strong><br />@endif
-                @if (! empty($settings->label6) && $settings->answer6) {!! $settings->label6 !!}: <strong>{!! $settings->answer6 !!}</strong><br />@endif
-                @if (! empty($settings->label7) && $settings->answer7) {!! $settings->label7 !!}: <strong>{!! $settings->answer7 !!}</strong><br />@endif
-                @if (! empty($settings->label8) && $settings->answer8) {!! $settings->label8 !!}: <strong>{!! $settings->answer8 !!}</strong><br />@endif
-                @if (! empty($settings->label9) && $settings->answer9) {!! $settings->label9 !!}: <strong>{!! $settings->answer9 !!}</strong><br />@endif
-                @if (! empty($settings->label10) && $settings->answer10) {!! $settings->label10 !!}: <strong>{!! $settings->answer10 !!}</strong><br />@endif
+                @if (! empty($settings->label)) {!! $settings->label !!}: <strong>{!! $settings->answer !!}</strong><br />@endif
+                @if (! empty($settings->label2)) {!! $settings->label2 !!}: <strong>{!! $settings->answer2 !!}</strong><br />@endif
+                @if (! empty($settings->label3)) {!! $settings->label3 !!}: <strong>{!! $settings->answer3 !!}</strong><br />@endif
+                @if (! empty($settings->label4)) {!! $settings->label4 !!}: <strong>{!! $settings->answer4 !!}</strong><br />@endif
+                @if (! empty($settings->label5)) {!! $settings->label5 !!}: <strong>{!! $settings->answer5 !!}</strong><br />@endif
+                @if (! empty($settings->label6)) {!! $settings->label6 !!}: <strong>{!! $settings->answer6 !!}</strong><br />@endif
+                @if (! empty($settings->label7)) {!! $settings->label7 !!}: <strong>{!! $settings->answer7 !!}</strong><br />@endif
+                @if (! empty($settings->label8)) {!! $settings->label8 !!}: <strong>{!! $settings->answer8 !!}</strong><br />@endif
+                @if (! empty($settings->label9)) {!! $settings->label9 !!}: <strong>{!! $settings->answer9 !!}</strong><br />@endif
+                @if (! empty($settings->label10)) {!! $settings->label10 !!}: <strong>{!! $settings->answer10 !!}</strong><br />@endif
             </td>
         </tr>
 </table>
