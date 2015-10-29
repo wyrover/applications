@@ -57,6 +57,35 @@ class ReferenceRequestListener implements ShouldQueue
         // Update Applications table with new reference ID
         $this->updateApplication($referee, $application);
 
+        // Create settings fields/options
+        $settings = new Fields;
+        $settings->application_id = $application->id;
+        $settings->references_id = $referee->id;
+        $settings->label = $event->user['label'];
+        $settings->label2 = $event->user['label2'];
+        $settings->label3 = $event->user['label3'];
+        $settings->label4 = $event->user['label4'];
+        $settings->label5 = $event->user['label5'];
+        $settings->label6 = $event->user['label6'];
+        $settings->label7 = $event->user['label7'];
+        $settings->label8 = $event->user['label8'];
+        $settings->label9 = $event->user['label9'];
+        $settings->label10 = $event->user['label10'];
+        if (! empty($event->user['answer'])) { $settings->answer = $event->user['answer']; }
+        if (! empty($event->user['answer2'])) { $settings->answer2 = $event->user['answer2']; }
+        if (! empty($event->user['answer3'])) { $settings->answer3 = $event->user['answer3']; }
+        if (! empty($event->user['answer4'])) { $settings->answer4 = $event->user['answer4']; }
+        if (! empty($event->user['answer5'])) { $settings->answer5 = $event->user['answer5']; }
+        if (! empty($event->user['answer6'])) { $settings->answer6 = $event->user['answer6']; }
+        if (! empty($event->user['answer7'])) { $settings->answer7 = $event->user['answer7']; }
+        if (! empty($event->user['answer8'])) { $settings->answer8 = $event->user['answer8']; }
+        if (! empty($event->user['answer9'])) { $settings->answer9 = $event->user['answer9']; }
+        if (! empty($event->user['answer10'])) { $settings->answer10 = $event->user['answer10']; }
+        $settings->save();
+
+        $referee->settings_id = $settings->id;
+        $referee->update();
+
         if (! empty($event->user['email']) && $event->user['contact'] == 'Yes') {
 
             $data = array(
@@ -90,35 +119,7 @@ class ReferenceRequestListener implements ShouldQueue
                     ->subject('You have been selected to provide a reference');
             });
         }
-        
-        // Create settings fields/options
-        $settings = new Fields;
-        $settings->application_id = $application->id;
-        $settings->references_id = $referee->id;
-        $settings->label = $event->user['label'];
-        $settings->label2 = $event->user['label2'];
-        $settings->label3 = $event->user['label3'];
-        $settings->label4 = $event->user['label4'];
-        $settings->label5 = $event->user['label5'];
-        $settings->label6 = $event->user['label6'];
-        $settings->label7 = $event->user['label7'];
-        $settings->label8 = $event->user['label8'];
-        $settings->label9 = $event->user['label9'];
-        $settings->label10 = $event->user['label10'];
-        if (! empty($event->user['answer'])) { $settings->answer = $event->user['answer']; }
-        if (! empty($event->user['answer2'])) { $settings->answer2 = $event->user['answer2']; }
-        if (! empty($event->user['answer3'])) { $settings->answer3 = $event->user['answer3']; }
-        if (! empty($event->user['answer4'])) { $settings->answer4 = $event->user['answer4']; }
-        if (! empty($event->user['answer5'])) { $settings->answer5 = $event->user['answer5']; }
-        if (! empty($event->user['answer6'])) { $settings->answer6 = $event->user['answer6']; }
-        if (! empty($event->user['answer7'])) { $settings->answer7 = $event->user['answer7']; }
-        if (! empty($event->user['answer8'])) { $settings->answer8 = $event->user['answer8']; }
-        if (! empty($event->user['answer9'])) { $settings->answer9 = $event->user['answer9']; }
-        if (! empty($event->user['answer10'])) { $settings->answer10 = $event->user['answer10']; }
-        $settings->save();
 
-        $referee->settings_id = $settings->id;
-        $referee->update();
 
     }
 
