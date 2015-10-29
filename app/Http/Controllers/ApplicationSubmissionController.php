@@ -171,7 +171,7 @@ class ApplicationSubmissionController extends Controller
     public function postReference(Request $request)
     {
         $applicant = Applications::where('code', $request->segment(2))->first();
-        $settings = Settings::where('company_id', $applicant->company_id)->where('references_id', '=', 1)->get();
+        $settings = Settings::where('company_id', $applicant->company_id)->get();
         $company = Company::where('id', $applicant->company_id)->first();
         return view('applications.submit', compact('company', 'applicant', 'settings'));
     }
@@ -202,6 +202,10 @@ class ApplicationSubmissionController extends Controller
         $apps->reference_id = $ref->id;
         $apps->update();
 
+        $fields->settings_id = $settings->id;
+        $fields->references_id = $ref->id;
+        $fields->update();
+
         if (App::environment('production')) {
             $segment = \Request::url();
             $search = ['http://', 'https://', '.madesimpleltd', '.co.uk/', \Request::segment(1) .'/', \Request::segment(2).'/', \Request::segment(3)];
@@ -213,10 +217,6 @@ class ApplicationSubmissionController extends Controller
             $ref->company_id = $company->id;
             $ref->applications_id = $apps->id;
             $ref->update();
-
-            $fields->settings_id = $settings->id;
-            $fields->references_id = $ref->id;
-            $fields->update();
 
         }
 
