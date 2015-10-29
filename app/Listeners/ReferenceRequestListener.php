@@ -90,10 +90,11 @@ class ReferenceRequestListener implements ShouldQueue
                     ->subject('You have been selected to provide a reference');
             });
         }
-        dd($application);
+        
         // Create settings fields/options
         $settings = new Fields;
         $settings->application_id = $application->id;
+        $settings->references_id = $referee->id;
         $settings->label = $event->user['label'];
         $settings->label2 = $event->user['label2'];
         $settings->label3 = $event->user['label3'];
