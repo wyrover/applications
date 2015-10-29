@@ -33,7 +33,7 @@
         <input type="hidden" name="code" value="{!! $applicant->code !!}">
         <input type="hidden" name="company_id" value="{!! $applicant->company_id !!}">
         <input type="hidden" name="references_id" value="{!! $applicant->reference_id !!}">
-        <code>{!! dd($applicant->reference()->first()->referee_name) !!}</code>
+
         <div class="panel panel-default">
             <div class="panel-heading">Applicant Details</div>
             <div class="panel-body">
@@ -72,7 +72,11 @@
                         <div class="form-group">
                             <div class="col-sm-4">Your Name</div>
                             <div class="col-lg-7">
-                                <input type="text" name="name" class="form-control" value="{!! old('name') !!}" autocomplete="off">
+                                @if (! empty($applicant->reference()->first()->referee_name))
+                                    <input type="text" name="name" class="form-control" value="{!! $applicant->reference()->first()->referee_name !!}" autocomplete="off">
+                                @else
+                                    <input type="text" name="name" class="form-control" value="{!! $applicant->reference()->first()->referee_name2 !!}" autocomplete="off">
+                                @endif
                             </div>
                         </div>
 
@@ -93,7 +97,11 @@
                         <div class="form-group">
                             <div class="col-sm-4">Your Email Address</div>
                             <div class="col-lg-7">
-                                <input type="text" name="email_address" class="form-control" value="" autocomplete="off">
+                                @if (! empty($applicant->reference()->first()->referee_email))
+                                    <input type="text" name="email_address" class="form-control" value="{!! $applicant->reference()->first()->referee_email !!}" autocomplete="off">
+                                @else
+                                    <input type="text" name="email_address" class="form-control" value="{!! $applicant->reference()->first()->referee_email2 !!}" autocomplete="off">
+                                @endif
                             </div>
                         </div>
 
