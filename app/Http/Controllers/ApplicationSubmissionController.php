@@ -179,8 +179,8 @@ class ApplicationSubmissionController extends Controller
     public function refereeSubmitted(Request $request)
     {
         $code = $request->segment(2);
-        dd($request->all());
-        $ref = References::where('id', $request->input('ref_id'))->first();
+        //dd($request->all());
+        $ref = References::where('id', $request->input('references_id'))->first();
         $ref->referee_name = $request->input('name');
         $ref->referee_start_date = $request->input('applicant_started');
         $ref->referee_end_date = $request->input('date_left');
