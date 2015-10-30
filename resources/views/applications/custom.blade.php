@@ -1,4 +1,4 @@
-<div class="panel panel-default" style="min-height: 200px!important; height: auto!important;">
+<div class="panel panel-default" style="min-height: 60px!important; height: auto!important;">
   <div class="panel-heading">Other Information</div>
   <div class="panel-body">
       <div class="col-md-6" >
