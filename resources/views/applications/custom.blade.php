@@ -1,8 +1,9 @@
-<div class="panel panel-default" style="min-height: 60px!important; height: auto!important;">
+<div class="panel panel-default" style="min-height: 20px!important; height: auto!important;">
   <div class="panel-heading">Other Information</div>
   <div class="panel-body">
       <div class="col-md-6" >
 
+          @if($field->label)
             <div class="form-group">
                 <div class="col-sm-4">{!! $field->label !!}</div>
                 <div class="col-lg-7">
@@ -22,6 +23,8 @@
                         @endif
                 </div>
             </div>
+          @endif
+              @if($field->label2)
 
               <div class="form-group">
                   <div class="col-sm-4">{!! $field->label2 !!}</div>
@@ -42,6 +45,8 @@
                           @endif
                   </div>
               </div>
+              @endif
+              @if($field->label3)
 
               <div class="form-group">
                   <div class="col-sm-4">{!! $field->label3 !!}</div>
@@ -62,6 +67,8 @@
                       @endif
                   </div>
               </div>
+              @endif
+              @if($field->label4)
 
               <div class="form-group">
                   <div class="col-sm-4">{!! $field->label4 !!}</div>
@@ -82,6 +89,8 @@
                       @endif
                   </div>
               </div>
+              @endif
+              @if($field->label5)
 
               <div class="form-group">
                   <div class="col-sm-4">{!! $field->label5 !!}</div>
@@ -102,7 +111,8 @@
                       @endif
                   </div>
               </div>
-
+            @endif
+              @if($field->label6)
               <div class="form-group">
                   <div class="col-sm-4">{!! $field->label6 !!}</div>
                   <div class="col-lg-7">
@@ -122,6 +132,8 @@
                       @endif
                   </div>
               </div>
+                @endif
+              @if($field->label7)
 
               <div class="form-group">
                   <div class="col-sm-4">{!! $field->label7 !!}</div>
@@ -142,6 +154,8 @@
                       @endif
                   </div>
               </div>
+              @endif
+              @if($field->label8)
 
               <div class="form-group">
                   <div class="col-sm-4">{!! $field->label8 !!}</div>
@@ -162,7 +176,9 @@
                       @endif
                   </div>
               </div>
+                @endif
 
+              @if($field->label9)
               <div class="form-group">
                   <div class="col-sm-4">{!! $field->label9 !!}</div>
                   <div class="col-lg-7">
@@ -182,6 +198,8 @@
                       @endif
                   </div>
               </div>
+              @endif
+              @if($field->label10)
 
               <div class="form-group">
                   <div class="col-sm-4">{!! $field->label10 !!}</div>
@@ -202,6 +220,7 @@
                       @endif
                   </div>
               </div>
+                  @endif
 
       </div>
   </div>
