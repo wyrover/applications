@@ -62,8 +62,9 @@ class ApplicationSubmissionController extends Controller
                        'ni_number', 'driver', 'endorsements', 'vehicle_access', 'right_to_work', 'evidence_right_to_work', 'comments', 'education', 'employer_name', 'job_title', 'employer_start_date',
                        'employer_end_date', 'employer_responsibilities', 'employer_name2', 'job_title2', 'employer_start_date2', 'employer_end_date2', 'employer_responsibilities2', 'health_info',
                        'criminal_convictions', 'convictions_comments', 'next_of_kin_name', 'next_of_kin_address', 'next_of_kin_telephone', 'next_of_kin_mobile', 'next_of_kin_relationship', 'created_at', 'updated_at',
-                       'contactable', 'accept_data_protection', 'company_id', 'employer_name3', 'job_title3', 'employer_start_date3', 'employer_end_date3', 'employer_responsibilities3', 'signed_by','code'
+                       'accept_data_protection', 'company_id', 'employer_name3', 'job_title3', 'employer_start_date3', 'employer_end_date3', 'employer_responsibilities3', 'signed_by','code'
         ]));
+        $application->contactable = json_decode($request->input('contactable'));
         // Create New Reference
         $ref = new References;
         $ref->company_id = $request->input('company_id');

@@ -407,9 +407,9 @@
               <div class="panel-body">
                   <div class="form-group">
                       <div class="col-lg-5">
-                          <div class="col-md-2"><label>SMS</label><input type="checkbox" name="contactable" value="sms"></div>
-                          <div class="col-md-2"><label>Email</label><input type="checkbox" name="contactable" value="email"></div>
-                          <div class="col-md-2"><label>Phone</label><input type="checkbox" name="contactable" value="phone"></div>
+                          <div class="col-md-2"><label>SMS</label><input type="checkbox" name="contactable[]" value="sms"></div>
+                          <div class="col-md-2"><label>Email</label><input type="checkbox" name="contactable[]" value="email"></div>
+                          <div class="col-md-2"><label>Phone</label><input type="checkbox" name="contactable[]" value="phone"></div>
                       </div>
                   </div>
               </div>
