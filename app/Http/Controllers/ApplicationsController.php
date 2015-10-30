@@ -39,8 +39,8 @@ class ApplicationsController extends Controller
         $name = 'application';
         $pdfFilename = urlencode(strtolower($name . '-' . date('d-m-Y') . '.pdf'));
         $ref = References::where('applications_id', '=', $request->segment(4))->first();
-        $settings = Settings::where('company_id', '=', Auth::user()->company_id)->where('references_id','=', 1)->first();
-        $custom = Fields::where('settings_id', $settings->id)->where('references_id', '=', $request->segment(4))->get();
+        $settings = Settings::where('company_id', '=', Auth::user()->company_id)->where('references_id','=', 0)->first();
+        $custom = Fields::where('settings_id', $settings->id)->where('application_id', '=', $request->segment(4))->get();
 
         $pdf = PDF::loadView('pdf.application', compact('ref', 'custom', 'settings'));
         return $pdf->download($pdfFilename);
