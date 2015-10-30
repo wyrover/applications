@@ -582,7 +582,7 @@
                     </div>
                 </div>
             </div>
-            @if (count($fields))
+            @if (count($field))
                 @include('applications.custom')
             @endif
 
