@@ -2,7 +2,7 @@
   <div class="panel-heading">Other Information</div>
   <div class="panel-body">
       <div class="col-md-6" >
-        @foreach($fields as $field)
+
             <div class="form-group">
                 <div class="col-sm-4">{!! $field->label !!}</div>
                 <div class="col-lg-7">
@@ -203,7 +203,6 @@
                   </div>
               </div>
 
-        @endforeach
       </div>
   </div>
 </div>
