@@ -98,8 +98,7 @@ class ApplicationSubmissionController extends Controller
         $settings->save();
 
         $fields = Fields::create($request->only('label', 'label2', 'label3', 'label4', 'label5', 'label6', 'label7', 'label8', 'label9', 'label10','answer', 'answer2', 'answer3', 'answer4', 'answer5', 'answer6', 'answer7', 'answer8', 'answer9', 'answer10'));
-        $fields->application_id = $application->id;
-        $fields->update();
+
         // Check if referee is contactable then
         $referee = $ref;
 
@@ -139,6 +138,8 @@ class ApplicationSubmissionController extends Controller
                     ->subject('Reference Request');
             });
         }
+        $fields->application_id = $application->id;
+        $fields->update();
         flash()->success('Success', 'Thank you! Your submission has been successful and your referees emailed.');
         return back();
     }
