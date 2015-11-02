@@ -28,25 +28,14 @@ class ApplicationSubmissionController extends Controller
      */
     public function create()
     {
-//        if (App::environment('local')) {
-//            $segment = \Request::url();
-//            $search = ['http://', 'https://', '.applications', '.app', '/application'];
-//            $replace = ['', '', '', '', ''];
-//            $output = str_replace($search, $replace, $segment);
-//            $company = Company::where('url', $output)->first();
-//            $fields = Settings::where('company_id', '=', $company->id)->get();
-//            return view('applications.submission', compact('company', 'fields'));
-//        }
-        if (App::environment('production')) {
-            $segment = \Request::url();
-            $search = ['http://', 'https://', '.madesimpleltd', '.co.uk', '/application'];
-            $replace = ['', '', '', '', ''];
-            $output = str_replace($search, $replace, $segment);
-            $company = Company::where('url', $output)->first();
-            $field = Settings::where('company_id', '=', $company->id)->where('application_id','=', 1)->first();
+        $segment = \Request::url();
+        $search = ['http://', 'https://', '.madesimpleltd', '.co.uk', '/application'];
+        $replace = ['', '', '', '', ''];
+        $output = str_replace($search, $replace, $segment);
+        $company = Company::where('url', $output)->first();
+        $field = Settings::where('company_id', '=', $company->id)->where('application_id','=', 1)->first();
 
-            return view('applications.submission', compact('company', 'field'));
-        }
+        return view('applications.submission', compact('company', 'field'));
     }
 
     /**
@@ -184,7 +173,6 @@ class ApplicationSubmissionController extends Controller
     public function refereeSubmitted(Request $request)
     {
         $code = $request->segment(2);
-        //dd($request->all());
         $ref = References::where('id', $request->input('references_id'))->first();
         $ref->referee_name = $request->input('name');
         $ref->referee_start_date = $request->input('applicant_started');
@@ -201,9 +189,7 @@ class ApplicationSubmissionController extends Controller
         $settings->fields_id = $fields->id;
         $settings->update();
 
-
         $apps = Applications::where('code', $code)->first();
-        //dd($apps);
         $apps->reference_id = $ref->id;
         $apps->update();
 
