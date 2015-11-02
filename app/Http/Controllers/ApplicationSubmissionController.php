@@ -115,8 +115,8 @@ class ApplicationSubmissionController extends Controller
             $data = array(
                 'worker'  => ucwords($application->first_name) .' '. ucwords($application->surname),
                 'company' => $ref->company->name,
-                'email'   => $ref->referee_email,
-                'refereeName' => $ref->referee_name,
+                'email'   => $ref->referee_email2,
+                'refereeName' => $ref->referee_name2,
                 'code'    => $application->code
             );
             // Send the email
