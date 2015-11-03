@@ -26,8 +26,8 @@
         <tbody>
         @foreach($refs as $ref)
             <tr>
-                <td>{!! date('d/m/y', strtotime($ref->application()->first()->created_at)) !!}</td>
-                <td>{!! $ref->application()->first()->first_name !!}&nbsp;{!! $ref->application()->first()->surname !!}</td>
+                <td>{!! date('d/m/y', strtotime($ref->created_at)) !!}</td>
+                <td>{!! $ref->first_name !!}&nbsp;{!! $ref->last_name !!}</td>
                 <td>
                     @if ($ref->completed == 'Yes')
                         <a href="/applications/export/exportReferee/{!! $ref->id !!}" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>
