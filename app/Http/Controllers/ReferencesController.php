@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Applications;
+use App\Company;
 use App\Events\ReferenceRequestEmail;
 use App\References;
 use App\Settings;
@@ -69,8 +70,8 @@ class ReferencesController extends Controller
         $search = ['http://', 'https://', '.madesimpleltd', '.co.uk/', \Request::segment(1) .'/', \Request::segment(2).'/', \Request::segment(3)];
         $replace = ['', '', '', '', '', '', ''];
         $output = str_replace($search, $replace, $segment);
-        $companyurl = Company::where('url', $output)->first();
-        $company = Company::where('id', $companyurl->company_id)->first();
+        $url = Company::where('url', $output)->first();
+        $company = Company::where('id', $url->company_id)->first();
 
         $referee =  References::where('code', $code)->first();
         return view('references.submit', compact('referee', 'company'));
