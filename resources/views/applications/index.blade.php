@@ -37,11 +37,11 @@
                             <button>Button1 ID: {{ $ref->id }}</button>
                         @endif
 
-                        @if ($ref->completedtwo == 'Yes')
+                        @if ($ref->completed == 'Yes')
                             <button>Button2 ID: {{ $ref->id }}</button>
                         @endif
 
-                    
+
                     {{--{!! dd($ref) !!}--}}
                     {{--@if ($ref->completed == 'Yes')--}}
                         {{--<a href="/applications/export/exportReferee/{!! $ref->id !!}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>--}}
