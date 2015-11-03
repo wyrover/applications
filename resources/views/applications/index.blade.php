@@ -31,7 +31,7 @@
             <td><a href="/applications/export/application/{!! $item->id !!}" class="btn btn-sm btn-default"  data-toggle="tooltip" data-placement="top" title="Download Application"><i class="fa fa-download"></i> Download</a></td>
             <td>
                 @foreach ($refs as $ref)
-                    @foreach($refs as $ref)
+
 
                         @if ($ref->completed == 'Yes')
                             <button>Button1 ID: {{ $ref->id }}</button>
@@ -41,7 +41,7 @@
                             <button>Button2 ID: {{ $ref->id }}</button>
                         @endif
 
-                    @endforeach
+                    
                     {{--{!! dd($ref) !!}--}}
                     {{--@if ($ref->completed == 'Yes')--}}
                         {{--<a href="/applications/export/exportReferee/{!! $ref->id !!}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>--}}
