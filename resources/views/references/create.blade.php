@@ -86,7 +86,7 @@
                 <select name="contact" class="form-control">
                     <option selected>Please Select</option>
                     <option value="Yes">Yes</option>
-                    <option value="No" selected>No</option>
+                    <option value="No">No</option>
                 </select>
             </div>
         </div>
@@ -348,6 +348,7 @@
             <div class="col-sm-3">Is this your previous /current employer?</div>
             <div class="col-lg-7">
                 <select name="employer2" class="form-control">
+                    <option selected>Please Select</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                 </select>
@@ -358,8 +359,9 @@
             <div class="col-sm-3">Can we contact this reference?</div>
             <div class="col-lg-7">
                 <select name="contact2" class="form-control">
+                    <option selected>Please Select</option>
                     <option value="Yes">Yes</option>
-                    <option value="No" selected>No</option>
+                    <option value="No">No</option>
                 </select>
             </div>
         </div>
