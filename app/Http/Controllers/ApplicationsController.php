@@ -26,7 +26,7 @@ class ApplicationsController extends Controller
 
         $ref = References::where('company_id', Auth::user()->company_id)->get();
 
-        dd($ref);
+        //dd($ref);
         return view('applications.index', compact('applications','ref'));
     }
 
