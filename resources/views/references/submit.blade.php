@@ -28,9 +28,9 @@
 
 <div class="container content">
     <div class="col-lg-12 col-md-6 col-sm-4 col-xs-4">
-        {!! Form::open(['url' => 'application/'. $applicant->code .'/submitReference', 'class' => 'form-horizontal']) !!}
+        {!! Form::open(['url' => 'reference/'. $code .'/submit', 'class' => 'form-horizontal']) !!}
 
-        <input type="hidden" name="code" value="{!! $applicant->code !!}">
+        <input type="hidden" name="code" value="{!! $code !!}">
         <input type="hidden" name="company_id" value="{!! $applicant->company_id !!}">
         <input type="hidden" name="references_id" value="{!! $applicant->reference_id !!}">
         <input type="hidden" name="referee_id" value="{!! $referee->id !!}">

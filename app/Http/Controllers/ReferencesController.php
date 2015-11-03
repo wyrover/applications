@@ -74,7 +74,7 @@ class ReferencesController extends Controller
         $company = Company::where('id', $url->company_id)->first();
 
         $referee =  References::where('code', $code)->first();
-        return view('references.submit', compact('referee', 'company'));
+        return view('references.submit', compact('referee', 'company','code'));
     }
 
     public function postReference(Request $request)
