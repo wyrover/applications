@@ -59,9 +59,10 @@ class ReferencesController extends Controller
     }
 
 
-    public function submitReference($code)
+    public function submitReference(Request $request)
     {
-        dd($code);
+        $code = $request->segment(2);
+
     }
 
     public function export(Request $request)
