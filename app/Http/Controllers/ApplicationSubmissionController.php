@@ -260,7 +260,7 @@ class ApplicationSubmissionController extends Controller
         $ref->referee_email = $request->input('email_address');
         $ref->position = $request->input('position');
         $ref->leaving = $request->input('reason_for_leaving');
-        $ref->completed = 'Yes';
+        $ref->completedtwo = 'Yes';
         $ref->update();
 
         $fields = Fields::create($request->except('_token','referee_id','first_name', 'middle_name', 'surname','name','phone','position','email_address','applicant_started','date_left','reason_for_leaving','code'));
