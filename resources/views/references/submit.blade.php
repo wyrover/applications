@@ -31,6 +31,7 @@
         {!! Form::open(['url' => 'reference/'. $code .'/submit', 'class' => 'form-horizontal']) !!}
 
         <input type="hidden" name="code" value="{!! $code !!}">
+        <input type="hidden" name="reference_id" value="{!! $referee->id !!}">
 
         <div class="panel panel-default">
             <div class="panel-heading">Applicant Details</div>
