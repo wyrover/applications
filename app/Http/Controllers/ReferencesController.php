@@ -78,7 +78,7 @@ class ReferencesController extends Controller
 
     public function postReference(Request $request)
     {
-        $fields = Fields::create($request->except('_token','referee_id','first_name', 'middle_name', 'surname','name','phone','position','email_address','applicant_started','date_left','reason_for_leaving','code'));
+        $fields = Fields::create($request->except('_token','reference_id','first_name', 'middle_name', 'surname','name','phone','position','email_address','applicant_started','date_left','reason_for_leaving','code'));
 
         $ref = References::where('id', $request->input('referee_id'))->first();
         $ref->referee_name = $request->input('name');
