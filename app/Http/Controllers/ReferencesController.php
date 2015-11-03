@@ -71,10 +71,9 @@ class ReferencesController extends Controller
         $replace = ['', '', '', '', '', '', ''];
         $output = str_replace($search, $replace, $segment);
         $company = Company::where('url', $output)->first();
-//        $company = Company::where('id', $url->company_id)->first();
-//        dd($url);
         $referee =  References::where('code', $code)->first();
-        return view('references.submit', compact('referee', 'company','code'));
+        $settings = Settings::where('company_id', $company->id)->where('references_id', '=', 1)->get();
+        return view('references.submit', compact('referee', 'company','code','settings'));
     }
 
     public function postReference(Request $request)
