@@ -190,7 +190,7 @@ class ApplicationSubmissionController extends Controller
         $settings = Settings::where('company_id', $applicant->company_id)->where('references_id', '=', 1)->get();
         $company = Company::where('id', $applicant->company_id)->first();
         $referee =  References::where('code', $request->segment(2))->first();
-        dd($referee);
+        //dd($referee);
         return view('applications.submit', compact('company', 'applicant', 'settings', 'referee'));
     }
 
@@ -245,8 +245,8 @@ class ApplicationSubmissionController extends Controller
         $applicant = Applications::where('code_two', $request->segment(2))->first();
         $settings = Settings::where('company_id', $applicant->company_id)->where('references_id', '=', 1)->get();
         $company = Company::where('id', $applicant->company_id)->first();
-        $referee =  References::where('code_two', $request->segment(2))->first();
-        dd($referee);
+        $referee =  References::where('code', $request->segment(2))->first();
+//        dd($referee);
         return view('applications.submit_two', compact('company', 'applicant', 'settings', 'referee'));
     }
 
