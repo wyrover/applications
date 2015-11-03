@@ -103,14 +103,16 @@ if (App::environment('production')) {
         post('application/{code}/reference', 'ApplicationSubmissionController@refereeSubmittedTwo');
 
         /* Submission of a application */
+        get('reference/{code}/submit', 'ReferencesController@submitReference');
+        post('reference/{code}/submit', 'ReferencesController@postReference');
+
         get('application', 'ApplicationSubmissionController@create');
         post('application', 'ApplicationSubmissionController@store');
 
         get('reference/{code}', 'ApplicationSubmissionController@reference');
         post('reference/{code}', 'ApplicationSubmissionController@postReference');
 
-        get('reference/{code}/submit', 'ReferencesController@submitReference');
-        post('reference/{code}/submit', 'ReferencesController@postReference');
+
 
         Route::group(['middleware' => 'auth'], function () {
 
