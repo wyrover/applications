@@ -74,7 +74,7 @@ class ApplicationsController extends Controller
 
     public function exportRefereeTwo(Request $request)
     {
-        $profile = Applications::where('reference_id', $request->segment(4))->first();
+        $profile = Applications::where('reference_two_id', $request->segment(4))->first();
         $ref = References::where('id', '=', $request->segment(4))->first();
         $settings = Fields::where('references_id', '=', $request->segment(4))->first();
 
