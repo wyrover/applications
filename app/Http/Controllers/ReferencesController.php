@@ -66,7 +66,7 @@ class ReferencesController extends Controller
 
     public function export(Request $request)
     {
-        $profile = References('company_id', Auth::user()->company_id)->first();
+        $profile = References::where('company_id', Auth::user()->company_id)->first();
         $ref = References::where('id', '=', $request->segment(3))->first();
         $settings = Fields::where('references_id', '=', $request->segment(3))->first();
         $pdf = PDF::loadView('references.pdf', compact('profile', 'ref', 'settings'));
