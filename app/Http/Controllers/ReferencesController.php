@@ -78,7 +78,7 @@ class ReferencesController extends Controller
 
     public function postReference(Request $request)
     {
-        $ref = References::where('id', $request->input('referee_id'))->first();
+        $ref = References::where('id', $request->input('reference_id'))->first();
         dd($ref);
         $ref->referee_name = $request->input('name');
         $ref->referee_start_date = $request->input('applicant_started');
