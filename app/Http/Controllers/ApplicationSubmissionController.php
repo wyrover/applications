@@ -188,7 +188,7 @@ class ApplicationSubmissionController extends Controller
         $settings = Settings::where('company_id', $applicant->company_id)->where('references_id', '=', 1)->get();
         $company = Company::where('id', $applicant->company_id)->first();
         $referee =  References::where('applications_id', $applicant->id)->first();
-        dd($applicant);
+        dd($referee);
         return view('applications.submit', compact('company', 'applicant', 'settings', 'referee'));
     }
 
