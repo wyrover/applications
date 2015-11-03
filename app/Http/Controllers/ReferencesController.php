@@ -66,10 +66,10 @@ class ReferencesController extends Controller
 
     public function export(Request $request)
     {
-        //$profile = Applications::where('reference_id', $request->segment(4))->first();
+        $profile = References('company_id', Auth::user()->company_id)->first();
         $ref = References::where('id', '=', $request->segment(3))->first();
         $settings = Fields::where('references_id', '=', $request->segment(3))->first();
-        $pdf = PDF::loadView('pdf.referee', compact('profile', 'ref', 'settings'));
+        $pdf = PDF::loadView('references.pdf', compact('profile', 'ref', 'settings'));
         $name = ucwords($ref->first_name) . '-' . ucwords($ref->last_name) . ' references ';
 
         $pdfFilename = urlencode(strtolower($name . '-' . date('d-m-Y') . '.pdf'));
