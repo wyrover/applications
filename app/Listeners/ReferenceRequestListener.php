@@ -119,10 +119,7 @@ class ReferenceRequestListener implements ShouldQueue
                     ->subject('You have been selected to provide a reference');
             });
         }
-
-
     }
-
 
     /**
      * @param ReferenceRequestEmail $event
@@ -132,7 +129,6 @@ class ReferenceRequestListener implements ShouldQueue
     public function createNewReference(ReferenceRequestEmail $event)
     {
         $referee = new References;
-//        $referee->applications_id = $application->id;
         $referee->company_id = Auth::user()->company_id;
         $referee->code = str_random(40);
         $referee->first_name = $event->user['first_name'];
@@ -153,7 +149,6 @@ class ReferenceRequestListener implements ShouldQueue
     public function createNewReferenceTwo(ReferenceRequestEmail $event)
     {
         $refereetwo = new References;
-//        $refereetwo->applications_id = $application->id;
         $refereetwo->company_id = Auth::user()->company_id;
         $refereetwo->first_name = $event->user['first_name'];
         $refereetwo->middle_name = $event->user['middle'];
@@ -165,7 +160,7 @@ class ReferenceRequestListener implements ShouldQueue
         $refereetwo->referee_relationship = $event->user['relationship2'];
         $refereetwo->referee_current_employer = $event->user['employer2'];
         $refereetwo->referee_contact = $event->user['contact2'];
-        $refereetwo->completed = 'No';
+        $refereetwo->completedtwo = 'No';
         $refereetwo->reference_only = 1;
         $refereetwo->save();
         return $refereetwo;

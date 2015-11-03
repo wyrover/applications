@@ -12,7 +12,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Fields;
-use App\ReferenceFields;;
+use App\ReferenceFields;
 use PDF;
 
 class ReferencesController extends Controller
@@ -55,16 +55,25 @@ class ReferencesController extends Controller
         Applications::where('reference_id', $id)->delete();
         flash()->success('Success', 'Record successfully deleted');
         return back();
-
     }
 
-
+    /**
+     * Submit Reference
+     *
+     * @param Request $request
+     */
     public function submitReference(Request $request)
     {
         $code = $request->segment(2);
 
     }
 
+    /**
+     * Export PDF
+     *
+     * @param Request $request
+     * @return mixed
+     */
     public function export(Request $request)
     {
         $profile = References::where('company_id', Auth::user()->company_id)->first();
