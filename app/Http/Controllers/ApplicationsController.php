@@ -24,10 +24,10 @@ class ApplicationsController extends Controller
     {
         $applications = Applications::where('company_id', Auth::user()->company_id)->paginate(10);
 
-        $ref = References::where('company_id', Auth::user()->company_id)->get();
+        $refs = References::where('company_id', Auth::user()->company_id)->get();
 
         //dd($ref);
-        return view('applications.index', compact('applications','ref'));
+        return view('applications.index', compact('applications','refs'));
     }
 
     /**
