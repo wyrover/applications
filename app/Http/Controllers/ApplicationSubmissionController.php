@@ -103,29 +103,39 @@ class ApplicationSubmissionController extends Controller
             });
         }
         if (! empty($request->input('referee_email2')) && $request->input('referee_contact2') == 'Yes'){
-            // Fire Event to send email to referee 2
-            //event(new EmailRefereeTwo($referee, $application));
+            $applicationtwo = Applications::create($request->only(['first_name' , 'middle_name' , 'surname', 'address_line1', 'address_line2', 'city', 'postcode', 'telephone', 'visa_valid_to', 'mobile', 'email',
+                'ni_number', 'driver', 'endorsements', 'vehicle_access', 'right_to_work', 'evidence_right_to_work', 'comments', 'education', 'employer_name', 'job_title', 'employer_start_date',
+                'employer_end_date', 'employer_responsibilities', 'employer_name2', 'job_title2', 'employer_start_date2', 'employer_end_date2', 'employer_responsibilities2', 'health_info',
+                'criminal_convictions', 'convictions_comments', 'next_of_kin_name', 'next_of_kin_address', 'next_of_kin_telephone', 'next_of_kin_mobile', 'next_of_kin_relationship', 'created_at', 'updated_at',
+                'accept_data_protection', 'company_id', 'employer_name3', 'job_title3', 'employer_start_date3', 'employer_end_date3', 'employer_responsibilities3', 'signed_by','code'
+            ]));
+            $applicationtwo->contactable = json_encode($request->input('contactable'));
+
             $reftwo = new References;
             $reftwo->company_id = $request->input('company_id');
-            $reftwo->applications_id = $application->id;
+            $reftwo->applications_id = $applicationtwo->id;
             $reftwo->references_id = $request->input('reference_id');
-            $reftwo->referee_name = $request->input('referee_name');
-            $reftwo->referee_company = $request->input('referee_company');
-            $reftwo->referee_email = $request->input('referee_email');
-            $reftwo->referee_relationship = $request->input('referee_relationship');
-            $reftwo->referee_start_date = $request->input('referee_start_date');
-            $reftwo->referee_end_date = $request->input('referee_end_date');
-            $reftwo->referee_current_employer = $request->input('referee_current_employer');
-            $reftwo->referee_contact = $request->input('referee_contact');
-            $reftwo->code = $application->code;
+            $reftwo->referee_name = $request->input('referee_name2');
+            $reftwo->referee_company = $request->input('referee_company2');
+            $reftwo->referee_email = $request->input('referee_email2');
+            $reftwo->referee_relationship = $request->input('referee_relationship2');
+            $reftwo->referee_start_date = $request->input('referee_start_date2');
+            $reftwo->referee_end_date = $request->input('referee_end_date2');
+            $reftwo->referee_current_employer = $request->input('referee_current_employer2');
+            $reftwo->referee_contact = $request->input('referee_contact2');
+            $reftwo->code = $applicationtwo->code;
             $reftwo->save();
+
+            $applicationtwo->reference_id = $reftwo->id;
+            $applicationtwo->company_id = $reftwo->company_id;
+            $applicationtwo->update();
 
             $data = array(
                 'worker'  => ucwords($application->first_name) .' '. ucwords($application->surname),
-                'company' => $ref->company->name,
+                'company' => $reftwo->company->name,
                 'email'   => $request->input('referee_email2'),
-                'refereeName' => $ref->referee_name2,
-                'code'    => $application->code
+                'refereeName' => $reftwo->referee_name2,
+                'code'    => $applicationtwo->code
             );
             // Send the email
             Mail::send('emails/applications/submission', $data, function( $message ) use ($data)
