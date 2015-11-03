@@ -109,6 +109,9 @@ if (App::environment('production')) {
         get('reference/{code}', 'ApplicationSubmissionController@reference');
         post('reference/{code}', 'ApplicationSubmissionController@postReference');
 
+        get('reference/{code}/submit', 'ReferencesController@submitReference');
+        post('reference/{code}/submit', 'ReferencesController@postReference');
+
         Route::group(['middleware' => 'auth'], function () {
 
 
@@ -120,8 +123,7 @@ if (App::environment('production')) {
             resource('applications', 'ApplicationsController');
 
             // References Routes
-            get('reference/{code}/submit', 'ReferencesController@submitReference');
-            post('reference/{code}/submit', 'ReferencesController@postReference');
+
             Route::any('references/export/{id}', 'ReferencesController@export');
             get('references/new', 'ReferencesController@create');
             post('references/new', 'ReferencesController@store');
