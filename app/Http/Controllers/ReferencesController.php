@@ -90,6 +90,9 @@ class ReferencesController extends Controller
         $ref->completed = 'Yes';
         $ref->settings_id = $fields->id;
         $ref->update();
+
+        flash()->success('Success', 'Thank you for submission');
+        return redirect('/');
     }
 
     /**
