@@ -29,12 +29,12 @@
                 <td>{!! date('d/m/y', strtotime($ref->application()->first()->created_at)) !!}</td>
                 <td>{!! $ref->application()->first()->first_name !!}&nbsp;{!! $ref->application()->first()->surname !!}</td>
                 <td>
-                    @if (! empty($ref->referee_email) && $ref->completed == 'Yes')
+                    @if ($ref->completed == 'Yes')
                         <a href="/applications/export/exportReferee/{!! $ref->id !!}" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>
                     @else
                         <button class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Awaiting response from referee"><i class="fa fa-clock-o"></i></button>
                     @endif
-                    @if (! empty($ref->referee_email) && $ref->completedtwo == 'Yes')
+                    @if ($ref->completedtwo == 'Yes')
                         <a href="/applications/export/exportReferee/{!! $ref->id !!}" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>
                     @else
                         <button class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Awaiting response from referee"><i class="fa fa-clock-o"></i></button>
