@@ -121,6 +121,7 @@ if (App::environment('production')) {
 
             // References Routes
             Route::any('reference/{code}/submit', 'ReferencesController@submitReference');
+            Route::any('references/export/{id}', 'ReferencesController@export');
             get('references/new', 'ReferencesController@create');
             post('references/new', 'ReferencesController@store');
             Route::any('references/{id}/delete', 'ReferencesController@destroy');

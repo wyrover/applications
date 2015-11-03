@@ -30,12 +30,12 @@
                 <td>{!! $ref->first_name !!}&nbsp;{!! $ref->last_name !!}</td>
                 <td>
                     @if ($ref->completed == 'Yes')
-                        <a href="/applications/export/exportReferee/{!! $ref->id !!}" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>
+                        <a href="/references/export/{!! $ref->id !!}" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>
                     @else
                         <button class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Awaiting response from referee"><i class="fa fa-clock-o"></i></button>
                     @endif
                     @if ($ref->completedtwo == 'Yes')
-                        <a href="/applications/export/exportReferee/{!! $ref->id !!}" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>
+                        <a href="/references/export/{!! $ref->id !!}" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>
                     @else
                         <button class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Awaiting response from referee"><i class="fa fa-clock-o"></i></button>
                     @endif
