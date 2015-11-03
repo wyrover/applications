@@ -105,17 +105,17 @@ class ApplicationSubmissionController extends Controller
             });
         }
         if (! empty($request->input('referee_email2')) && $request->input('referee_contact2') == 'Yes'){
-            $applicationtwo = Applications::create($request->only(['first_name' , 'middle_name' , 'surname', 'address_line1', 'address_line2', 'city', 'postcode', 'telephone', 'visa_valid_to', 'mobile', 'email',
-                'ni_number', 'driver', 'endorsements', 'vehicle_access', 'right_to_work', 'evidence_right_to_work', 'comments', 'education', 'employer_name', 'job_title', 'employer_start_date',
-                'employer_end_date', 'employer_responsibilities', 'employer_name2', 'job_title2', 'employer_start_date2', 'employer_end_date2', 'employer_responsibilities2', 'health_info',
-                'criminal_convictions', 'convictions_comments', 'next_of_kin_name', 'next_of_kin_address', 'next_of_kin_telephone', 'next_of_kin_mobile', 'next_of_kin_relationship', 'created_at', 'updated_at',
-                'accept_data_protection', 'company_id', 'employer_name3', 'job_title3', 'employer_start_date3', 'employer_end_date3', 'employer_responsibilities3', 'signed_by','code'
-            ]));
-            $applicationtwo->contactable = json_encode($request->input('contactable'));
+//            $applicationtwo = Applications::create($request->only(['first_name' , 'middle_name' , 'surname', 'address_line1', 'address_line2', 'city', 'postcode', 'telephone', 'visa_valid_to', 'mobile', 'email',
+//                'ni_number', 'driver', 'endorsements', 'vehicle_access', 'right_to_work', 'evidence_right_to_work', 'comments', 'education', 'employer_name', 'job_title', 'employer_start_date',
+//                'employer_end_date', 'employer_responsibilities', 'employer_name2', 'job_title2', 'employer_start_date2', 'employer_end_date2', 'employer_responsibilities2', 'health_info',
+//                'criminal_convictions', 'convictions_comments', 'next_of_kin_name', 'next_of_kin_address', 'next_of_kin_telephone', 'next_of_kin_mobile', 'next_of_kin_relationship', 'created_at', 'updated_at',
+//                'accept_data_protection', 'company_id', 'employer_name3', 'job_title3', 'employer_start_date3', 'employer_end_date3', 'employer_responsibilities3', 'signed_by','code'
+//            ]));
+//            $applicationtwo->contactable = json_encode($request->input('contactable'));
 
             $reftwo = new References;
             $reftwo->company_id = $request->input('company_id');
-            $reftwo->applications_id = $applicationtwo->id;
+            $reftwo->applications_id = $application->id;
             $reftwo->references_id = $request->input('reference_id');
             $reftwo->referee_name = $request->input('referee_name2');
             $reftwo->referee_company = $request->input('referee_company2');
@@ -129,17 +129,17 @@ class ApplicationSubmissionController extends Controller
             $reftwo->settings_id = $request->input('settings_id');
             $reftwo->save();
 
-            $applicationtwo->reference_id = $reftwo->id;
-            $applicationtwo->company_id = $reftwo->company_id;
-            $applicationtwo->code = $reftwo->code;
-            $applicationtwo->update();
+            $application->reference_two_id = $reftwo->id;
+            $application->company_id = $request->input('company_id');
+            $application->code_two = $reftwo->code;
+            $application->update();
 
             $data = array(
                 'worker'  => ucwords($application->first_name) .' '. ucwords($application->surname),
                 'company' => $ref->company->name,
                 'email'   => $request->input('referee_email2'),
                 'refereeName' => $reftwo->referee_name,
-                'code'    => $applicationtwo->code
+                'code'    => $reftwo->code
             );
             // Send the email
             Mail::send('emails/applications/submission', $data, function( $message ) use ($data)
