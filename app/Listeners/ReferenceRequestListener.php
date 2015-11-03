@@ -59,7 +59,7 @@ class ReferenceRequestListener implements ShouldQueue
 
         // Create settings fields/options
         $settings = new Fields;
-        $settings->application_id = $referee->id;
+        //$settings->application_id = $referee->id;
         $settings->references_id = $referee->id;
         $settings->label = $event->user['label'];
         $settings->label2 = $event->user['label2'];
@@ -93,7 +93,7 @@ class ReferenceRequestListener implements ShouldQueue
                 'name' => $event->user['name'],
                 'worker' => $event->user['first_name'] . ' ' . $event->user['surname'],
                 'company' => $cn->name,
-                'code' => $application->code
+                'code' => $referee->code
             );
             // Send the email
             Mail::send('emails/references/request', $data, function ($message) use ($data) {
@@ -104,13 +104,13 @@ class ReferenceRequestListener implements ShouldQueue
         }
 
         if (! empty($event->user['emailtwo']) && $event->user['contact2'] == 'Yes') {
-            $refereetwo = $this->createNewReferenceTwo($event, $application);
+            $refereetwo = $this->createNewReferenceTwo($event);
             $data = array(
                 'emailtwo' => $event->user['emailtwo'],
                 'name' => $event->user['name2'],
                 'worker' => $event->user['first_name'] . ' ' . $event->user['surname'],
                 'company' => $cn->name,
-                'code' => $application->code
+                'code' => $refereetwo->code
             );
             // Send the email
             Mail::send('emails/references/request2', $data, function ($message) use ($data) {
@@ -134,7 +134,7 @@ class ReferenceRequestListener implements ShouldQueue
         $referee = new References;
 //        $referee->applications_id = $application->id;
         $referee->company_id = Auth::user()->company_id;
-        $referee->code = $application->code;
+        $referee->code = str_random(40);
         $referee->referee_name = $event->user['name'];
         $referee->referee_company = $event->user['company_name'];
         $referee->referee_email = $event->user['email'];
@@ -152,7 +152,7 @@ class ReferenceRequestListener implements ShouldQueue
         $refereetwo = new References;
 //        $refereetwo->applications_id = $application->id;
         $refereetwo->company_id = Auth::user()->company_id;
-        $refereetwo->code = $application->code;
+        $refereetwo->code = str_random(40);
         $refereetwo->referee_name = $event->user['name2'];
         $refereetwo->referee_company = $event->user['company_name2'];
         $refereetwo->referee_email = $event->user['emailtwo'];
