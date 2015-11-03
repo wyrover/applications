@@ -162,19 +162,19 @@ class ReferenceRequestListener implements ShouldQueue
 
     public function createNewReferenceTwo(ReferenceRequestEmail $event, $application)
     {
-        $referee = new References;
-        $referee->applications_id = $application->id;
-        $referee->company_id = Auth::user()->company_id;
-        $referee->code = $application->code;
-        $referee->referee_name2 = $event->user['name2'];
-        $referee->referee_company2 = $event->user['company_name2'];
-        $referee->referee_email2 = $event->user['emailtwo'];
-        $referee->referee_relationship2 = $event->user['relationship2'];
-        $referee->referee_current_employer2 = $event->user['employer2'];
-        $referee->referee_contact2 = $event->user['contact2'];
-        $referee->completedtwo = 'No';
-        $referee->save();
-        return $referee;
+        $refereetwo = new References;
+        $refereetwo->applications_id = $application->id;
+        $refereetwo->company_id = Auth::user()->company_id;
+        $refereetwo->code = $application->code;
+        $refereetwo->referee_name2 = $event->user['name2'];
+        $refereetwo->referee_company2 = $event->user['company_name2'];
+        $refereetwo->referee_email2 = $event->user['emailtwo'];
+        $refereetwo->referee_relationship2 = $event->user['relationship2'];
+        $refereetwo->referee_current_employer2 = $event->user['employer2'];
+        $refereetwo->referee_contact2 = $event->user['contact2'];
+        $refereetwo->completedtwo = 'No';
+        $refereetwo->save();
+        return $refereetwo;
     }
 
     /**
