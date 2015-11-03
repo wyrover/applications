@@ -31,33 +31,30 @@
         {!! Form::open(['url' => 'reference/'. $code .'/submit', 'class' => 'form-horizontal']) !!}
 
         <input type="hidden" name="code" value="{!! $code !!}">
-        <input type="hidden" name="company_id" value="{!! $applicant->company_id !!}">
-        <input type="hidden" name="references_id" value="{!! $applicant->reference_id !!}">
-        <input type="hidden" name="referee_id" value="{!! $referee->id !!}">
 
         <div class="panel panel-default">
             <div class="panel-heading">Applicant Details</div>
             <div class="panel-body">
                 <div class="col-md-4 col-sm-2">
-                    @if (! empty($applicant->first_name))
-                        <input type="hidden" name="first_name" value="{!! $applicant->first_name !!}">
+                    @if (! empty($referee->first_name))
+                        <input type="hidden" name="first_name" value="{!! $referee->first_name !!}">
 
-                        <strong>First Name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {!! $applicant->first_name !!}
+                        <strong>First Name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {!! $referee->first_name !!}
                     @endif
                 </div>
                 <div class="col-md-4 col-sm-2">
-                    @if (! empty($applicant->middle_name))
-                        <input type="hidden" name="middle_name" value="{!! $applicant->middle_name !!}">
-                        <strong>Middle Names</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {!! $applicant->middle_name !!}
+                    @if (! empty($referee->middle_name))
+                        <input type="hidden" name="middle_name" value="{!! $referee->middle_name !!}">
+                        <strong>Middle Names</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {!! $referee->middle_name !!}
                     @else
                         <strong>Middle Names</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -
                     @endif
                 </div>
                 <div class="col-md-4 col-sm-2">
-                    @if (! empty($applicant->surname))
-                        <input type="hidden" name="surname" value="{!! $applicant->surname !!}">
+                    @if (! empty($referee->surname))
+                        <input type="hidden" name="surname" value="{!! $referee->surname !!}">
 
-                        <strong>Surname</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{!! $applicant->surname !!}
+                        <strong>Surname</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{!! $referee->surname !!}
                     @endif
                 </div>
             </div>
