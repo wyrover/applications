@@ -67,14 +67,6 @@ class ApplicationSubmissionController extends Controller
         $ref->referee_end_date = $request->input('referee_end_date');
         $ref->referee_current_employer = $request->input('referee_current_employer');
         $ref->referee_contact = $request->input('referee_contact');
-        $ref->referee_name2 = $request->input('referee_name2');
-        $ref->referee_company2 = $request->input('referee_company2');
-        $ref->referee_email2 = $request->input('referee_email2');
-        $ref->referee_relationship2 = $request->input('referee_relationship2');
-        $ref->referee_start_date2 = $request->input('referee_start_date2');
-        $ref->referee_end_date2 = $request->input('referee_end_date2');
-        $ref->referee_current_employer2 = $request->input('referee_current_employer2');
-        $ref->referee_contact2 = $request->input('referee_contact2');
         $ref->save();
 
         $application->reference_id = $ref->id;
@@ -112,6 +104,20 @@ class ApplicationSubmissionController extends Controller
         if (! empty($request->input('referee_email2')) && $request->input('referee_contact2') == 'Yes'){
             // Fire Event to send email to referee 2
             //event(new EmailRefereeTwo($referee, $application));
+            $reftwo = new References;
+            $reftwo->company_id = $request->input('company_id');
+            $reftwo->applications_id = $application->id;
+            $reftwo->references_id = $request->input('reference_id');
+            $reftwo->referee_name2 = $request->input('referee_name2');
+            $reftwo->referee_company2 = $request->input('referee_company2');
+            $reftwo->referee_email2 = $request->input('referee_email2');
+            $reftwo->referee_relationship2 = $request->input('referee_relationship2');
+            $reftwo->referee_start_date2 = $request->input('referee_start_date2');
+            $reftwo->referee_end_date2 = $request->input('referee_end_date2');
+            $reftwo->referee_current_employer2 = $request->input('referee_current_employer2');
+            $reftwo->referee_contact2 = $request->input('referee_contact2');
+            $reftwo->save();
+
             $data = array(
                 'worker'  => ucwords($application->first_name) .' '. ucwords($application->surname),
                 'company' => $ref->company->name,
