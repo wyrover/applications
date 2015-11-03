@@ -120,6 +120,7 @@ if (App::environment('production')) {
             resource('applications', 'ApplicationsController');
 
             // References Routes
+            Route::any('reference/{code}/submit', 'ReferencesController@submitReference');
             get('references/new', 'ReferencesController@create');
             post('references/new', 'ReferencesController@store');
             Route::any('references/{id}/delete', 'ReferencesController@destroy');
