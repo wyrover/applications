@@ -68,6 +68,7 @@ class ApplicationSubmissionController extends Controller
         $ref->referee_current_employer = $request->input('referee_current_employer');
         $ref->referee_contact = $request->input('referee_contact');
         $ref->code = str_random(40);
+        $ref->settings_id = $request->input('settings_id');
         $ref->save();
 
         $application->reference_id = $ref->id;
@@ -124,7 +125,8 @@ class ApplicationSubmissionController extends Controller
             $reftwo->referee_end_date = $request->input('referee_end_date2');
             $reftwo->referee_current_employer = $request->input('referee_current_employer2');
             $reftwo->referee_contact = $request->input('referee_contact2');
-            $reftwo->code =  str_random(40);
+            $reftwo->code = str_random(40);
+            $reftwo->settings_id = $request->input('settings_id');
             $reftwo->save();
 
             $applicationtwo->reference_id = $reftwo->id;
