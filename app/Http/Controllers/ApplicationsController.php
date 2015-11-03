@@ -24,7 +24,7 @@ class ApplicationsController extends Controller
     {
         $applications = Applications::where('company_id', Auth::user()->company_id)->paginate(10);
 
-        $ref = References::where('applications_id', $applications->reference_id)->get();
+        $ref = References::where('company_id', Auth::user()->company_id)->get();
 
         dd($ref);
         return view('applications.index', compact('applications','ref'));
