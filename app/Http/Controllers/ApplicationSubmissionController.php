@@ -81,10 +81,10 @@ class ApplicationSubmissionController extends Controller
         $application->company_id = $ref->company_id;
         $application->update();
 
-        $settings = new Settings;
-        $settings->company_id = $ref->company_id;
-        $settings->application_id = $application->id;
-        $settings->save();
+//        $settings = new Settings;
+//        $settings->company_id = $ref->company_id;
+//        $settings->application_id = $application->id;
+//        $settings->save();
 
         $fields = Fields::create($request->only('label', 'label2', 'label3', 'label4', 'label5', 'label6', 'label7', 'label8', 'label9', 'label10','answer', 'answer2', 'answer3', 'answer4', 'answer5', 'answer6', 'answer7', 'answer8', 'answer9', 'answer10'));
 
@@ -167,7 +167,9 @@ class ApplicationSubmissionController extends Controller
         $applicant = Applications::where('code', $request->segment(2))->first();
         $settings = Settings::where('company_id', $applicant->company_id)->where('references_id', '=', 1)->get();
         $company = Company::where('id', $applicant->company_id)->first();
-        return view('applications.submit', compact('company', 'applicant', 'settings'));
+        $referee =  References::where('applications_id', $applicant->id)->first();
+        dd($referee);
+        return view('applications.submit', compact('company', 'applicant', 'settings', 'referee'));
     }
 
     public function refereeSubmitted(Request $request)
