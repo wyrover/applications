@@ -72,7 +72,7 @@ class ReferencesController extends Controller
         $output = str_replace($search, $replace, $segment);
         $url = Company::where('url', $output)->first();
         $company = Company::where('id', $url->company_id)->first();
-
+        dd($company);
         $referee =  References::where('code', $code)->first();
         return view('references.submit', compact('referee', 'company','code'));
     }
