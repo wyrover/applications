@@ -51,10 +51,10 @@
                     @endif
                 </div>
                 <div class="col-md-4 col-sm-2">
-                    @if (! empty($referee->surname))
-                        <input type="hidden" name="surname" value="{!! $referee->surname !!}">
+                    @if (! empty($referee->last_name))
+                        <input type="hidden" name="surname" value="{!! $referee->last_name !!}">
 
-                        <strong>Surname</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{!! $referee->surname !!}
+                        <strong>Surname</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{!! $referee->last_name !!}
                     @endif
                 </div>
             </div>
