@@ -109,14 +109,14 @@ class ApplicationSubmissionController extends Controller
             $reftwo->company_id = $request->input('company_id');
             $reftwo->applications_id = $application->id;
             $reftwo->references_id = $request->input('reference_id');
-            $reftwo->referee_name2 = $request->input('referee_name2');
-            $reftwo->referee_company2 = $request->input('referee_company2');
-            $reftwo->referee_email2 = $request->input('referee_email2');
-            $reftwo->referee_relationship2 = $request->input('referee_relationship2');
-            $reftwo->referee_start_date2 = $request->input('referee_start_date2');
-            $reftwo->referee_end_date2 = $request->input('referee_end_date2');
-            $reftwo->referee_current_employer2 = $request->input('referee_current_employer2');
-            $reftwo->referee_contact2 = $request->input('referee_contact2');
+            $reftwo->referee_name = $request->input('referee_name');
+            $reftwo->referee_company = $request->input('referee_company');
+            $reftwo->referee_email = $request->input('referee_email');
+            $reftwo->referee_relationship = $request->input('referee_relationship');
+            $reftwo->referee_start_date = $request->input('referee_start_date');
+            $reftwo->referee_end_date = $request->input('referee_end_date');
+            $reftwo->referee_current_employer = $request->input('referee_current_employer');
+            $reftwo->referee_contact = $request->input('referee_contact');
             $reftwo->code = $application->code;
             $reftwo->save();
 
@@ -183,7 +183,7 @@ class ApplicationSubmissionController extends Controller
     public function refereeSubmitted(Request $request)
     {
         $code = $request->segment(2);
-        $ref = References::where('id', $request->input('references_id'))->first();
+        $ref = References::where('id', $request->input('referee_id'))->first();
         $ref->referee_name = $request->input('name');
         $ref->referee_start_date = $request->input('applicant_started');
         $ref->referee_end_date = $request->input('date_left');
