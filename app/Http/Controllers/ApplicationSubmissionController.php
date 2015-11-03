@@ -189,7 +189,7 @@ class ApplicationSubmissionController extends Controller
         $applicant = Applications::where('code', $request->segment(2))->orWhere('code_two', $request->segment(2))->first();
         $settings = Settings::where('company_id', $applicant->company_id)->where('references_id', '=', 1)->get();
         $company = Company::where('id', $applicant->company_id)->first();
-        $referee =  References::where('applications_id', $applicant->id)->first();
+        $referee =  References::where('id', $applicant->reference_id)->orWhere('id', $applicant->reference_two_id)->first();
 //        dd($referee);
         return view('applications.submit', compact('company', 'applicant', 'settings', 'referee'));
     }
