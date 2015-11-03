@@ -104,7 +104,7 @@ class ReferenceRequestListener implements ShouldQueue
         }
 
         if (! empty($event->user['emailtwo']) && $event->user['contact2'] == 'Yes') {
-            $referee = $this->createNewReferenceTwo($event, $application);
+            $refereetwo = $this->createNewReferenceTwo($event, $application);
             $data = array(
                 'emailtwo' => $event->user['emailtwo'],
                 'name' => $event->user['name2'],
@@ -167,13 +167,13 @@ class ReferenceRequestListener implements ShouldQueue
         $refereetwo->applications_id = $application->id;
         $refereetwo->company_id = Auth::user()->company_id;
         $refereetwo->code = $application->code;
-        $refereetwo->referee_name2 = $event->user['name2'];
-        $refereetwo->referee_company2 = $event->user['company_name2'];
-        $refereetwo->referee_email2 = $event->user['emailtwo'];
-        $refereetwo->referee_relationship2 = $event->user['relationship2'];
-        $refereetwo->referee_current_employer2 = $event->user['employer2'];
-        $refereetwo->referee_contact2 = $event->user['contact2'];
-        $refereetwo->completedtwo = 'No';
+        $refereetwo->referee_name = $event->user['name2'];
+        $refereetwo->referee_company = $event->user['company_name2'];
+        $refereetwo->referee_email = $event->user['emailtwo'];
+        $refereetwo->referee_relationship = $event->user['relationship2'];
+        $refereetwo->referee_current_employer = $event->user['employer2'];
+        $refereetwo->referee_contact = $event->user['contact2'];
+        $refereetwo->completed = 'No';
         $refereetwo->reference_only = 1;
         $refereetwo->save();
         return $refereetwo;
