@@ -70,9 +70,9 @@ class ReferencesController extends Controller
         $search = ['http://', 'https://', '.madesimpleltd', '.co.uk/', \Request::segment(1) .'/', \Request::segment(2).'/', \Request::segment(3)];
         $replace = ['', '', '', '', '', '', ''];
         $output = str_replace($search, $replace, $segment);
-        $url = Company::where('url', $output)->first();
-        $company = Company::where('id', $url->company_id)->first();
-        dd($url);
+        $company = Company::where('url', $output)->first();
+//        $company = Company::where('id', $url->company_id)->first();
+//        dd($url);
         $referee =  References::where('code', $code)->first();
         return view('references.submit', compact('referee', 'company','code'));
     }
