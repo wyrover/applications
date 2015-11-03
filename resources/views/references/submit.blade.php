@@ -70,7 +70,7 @@
                         <div class="form-group">
                             <div class="col-sm-4">Your Name</div>
                             <div class="col-lg-7">
-                                <input type="text" name="name" class="form-control" value="{!! $referee->referee_name !!}" autocomplete="off">
+                                <input type="text" name="name" class="form-control" value="" autocomplete="off">
                             </div>
                         </div>
 
@@ -91,7 +91,7 @@
                         <div class="form-group">
                             <div class="col-sm-4">Your Email Address</div>
                             <div class="col-lg-7">
-                                <input type="text" name="email_address" class="form-control" value="{!! $referee->referee_email !!}" autocomplete="off">
+                                <input type="text" name="email_address" class="form-control" value="" autocomplete="off">
 
                             </div>
                         </div>
