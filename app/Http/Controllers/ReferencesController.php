@@ -21,7 +21,7 @@ class ReferencesController extends Controller
      */
     public function index()
     {
-        $refs = References::where('company_id', Auth::user()->company_id)->paginate(config('custom.per_page'));
+        $refs = References::where('company_id', Auth::user()->company_id)->where('reference_only', '=', 1)->paginate(config('custom.per_page'));
         return view('references.list', compact('refs'));
     }
 

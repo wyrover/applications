@@ -49,17 +49,17 @@ class ReferenceRequestListener implements ShouldQueue
         $companyId = Auth::user()->company_id;
         $cn = \App\Company::where('id', '=', $companyId)->first();
         // Create record in applications table
-        $application = $this->createNewApplication($event);
+        //$application = $this->createNewApplication($event);
 
         // Create record in references table
-        $referee = $this->createNewReference($event, $application);
+        $referee = $this->createNewReference($event);
 
         // Update Applications table with new reference ID
-        $this->updateApplication($referee, $application);
+        //$this->updateApplication($referee, $application);
 
         // Create settings fields/options
         $settings = new Fields;
-        $settings->application_id = $application->id;
+        $settings->application_id = $referee->id;
         $settings->references_id = $referee->id;
         $settings->label = $event->user['label'];
         $settings->label2 = $event->user['label2'];
@@ -123,30 +123,16 @@ class ReferenceRequestListener implements ShouldQueue
 
     }
 
-    /**
-     * @param ReferenceRequestEmail $event
-     * @return Applications
-     */
-    public function createNewApplication(ReferenceRequestEmail $event)
-    {
-        $application = new Applications;
-        $application->first_name = $event->user['first_name'];
-        $application->middle_name = $event->user['middle'];
-        $application->surname = $event->user['surname'];
-        $application->code = str_random(45);
-        $application->save();
-        return $application;
-    }
 
     /**
      * @param ReferenceRequestEmail $event
      * @param $application
      * @return References
      */
-    public function createNewReference(ReferenceRequestEmail $event, $application)
+    public function createNewReference(ReferenceRequestEmail $event)
     {
         $referee = new References;
-        $referee->applications_id = $application->id;
+//        $referee->applications_id = $application->id;
         $referee->company_id = Auth::user()->company_id;
         $referee->code = $application->code;
         $referee->referee_name = $event->user['name'];
@@ -161,10 +147,10 @@ class ReferenceRequestListener implements ShouldQueue
         return $referee;
     }
 
-    public function createNewReferenceTwo(ReferenceRequestEmail $event, $application)
+    public function createNewReferenceTwo(ReferenceRequestEmail $event)
     {
         $refereetwo = new References;
-        $refereetwo->applications_id = $application->id;
+//        $refereetwo->applications_id = $application->id;
         $refereetwo->company_id = Auth::user()->company_id;
         $refereetwo->code = $application->code;
         $refereetwo->referee_name = $event->user['name2'];
@@ -179,14 +165,14 @@ class ReferenceRequestListener implements ShouldQueue
         return $refereetwo;
     }
 
-    /**
-     * @param $referee
-     * @param $application
-     */
-    public function updateApplication($referee, $application)
-    {
-        $application->reference_id = $referee->id;
-        $application->company_id = Auth::user()->company_id;
-        $application->update();
-    }
+//    /**
+//     * @param $referee
+//     * @param $application
+//     */
+//    public function updateApplication($referee, $application)
+//    {
+//        $application->reference_id = $referee->id;
+//        $application->company_id = Auth::user()->company_id;
+//        $application->update();
+//    }
 }
