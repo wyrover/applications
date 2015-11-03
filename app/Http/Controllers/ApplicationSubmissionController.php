@@ -200,6 +200,7 @@ class ApplicationSubmissionController extends Controller
         $ref->referee_start_date = $request->input('applicant_started');
         $ref->referee_end_date = $request->input('date_left');
         $ref->referee_email = $request->input('email_address');
+        $ref->position = $request->input('position');
         $ref->leaving = $request->input('reason_for_leaving');
         $ref->completed = 'Yes';
         $ref->update();
