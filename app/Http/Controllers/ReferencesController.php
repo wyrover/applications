@@ -61,7 +61,7 @@ class ReferencesController extends Controller
 
     public function submitReference($code)
     {
-
+        dd($code);
     }
 
     public function export(Request $request)
