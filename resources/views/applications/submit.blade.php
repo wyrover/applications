@@ -72,11 +72,7 @@
                         <div class="form-group">
                             <div class="col-sm-4">Your Name</div>
                             <div class="col-lg-7">
-                                @if (! empty($applicant->reference()->first()->referee_name))
-                                    <input type="text" name="name" class="form-control" value="{!! $applicant->reference()->first()->referee_name !!}" autocomplete="off">
-                                @else
-                                    <input type="text" name="name" class="form-control" value="{!! $applicant->reference()->first()->referee_name2 !!}" autocomplete="off">
-                                @endif
+                                    <input type="text" name="name" class="form-control" value="" autocomplete="off">
                             </div>
                         </div>
 
@@ -97,11 +93,8 @@
                         <div class="form-group">
                             <div class="col-sm-4">Your Email Address</div>
                             <div class="col-lg-7">
-                                @if (! empty($applicant->reference()->first()->referee_email))
-                                    <input type="text" name="email_address" class="form-control" value="{!! $applicant->reference()->first()->referee_email !!}" autocomplete="off">
-                                @else
-                                    <input type="text" name="email_address" class="form-control" value="{!! $applicant->reference()->first()->referee_email2 !!}" autocomplete="off">
-                                @endif
+                                    <input type="text" name="email_address" class="form-control" value="" autocomplete="off">
+
                             </div>
                         </div>
 
