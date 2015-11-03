@@ -132,9 +132,9 @@ class ApplicationSubmissionController extends Controller
 
             $data = array(
                 'worker'  => ucwords($application->first_name) .' '. ucwords($application->surname),
-                'company' => $reftwo->company->name,
+                'company' => $ref->company->name,
                 'email'   => $request->input('referee_email2'),
-                'refereeName' => $reftwo->referee_name2,
+                'refereeName' => $reftwo->referee_name,
                 'code'    => $applicationtwo->code
             );
             // Send the email
@@ -186,7 +186,7 @@ class ApplicationSubmissionController extends Controller
         $settings = Settings::where('company_id', $applicant->company_id)->where('references_id', '=', 1)->get();
         $company = Company::where('id', $applicant->company_id)->first();
         $referee =  References::where('applications_id', $applicant->id)->first();
-        dd($referee);
+        dd($applicant);
         return view('applications.submit', compact('company', 'applicant', 'settings', 'referee'));
     }
 
