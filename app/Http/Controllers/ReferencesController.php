@@ -65,6 +65,19 @@ class ReferencesController extends Controller
     public function submitReference(Request $request)
     {
         $code = $request->segment(2);
+        $segment = \Request::url();
+        $search = ['http://', 'https://', '.madesimpleltd', '.co.uk/', \Request::segment(1) .'/', \Request::segment(2).'/', \Request::segment(3)];
+        $replace = ['', '', '', '', '', '', ''];
+        $output = str_replace($search, $replace, $segment);
+        $companyurl = Company::where('url', $output)->first();
+        $company = Company::where('id', $companyurl->company_id)->first();
+
+        $referee =  References::where('code', $code)->first();
+        return view('references.submit', compact('referee', 'company'));
+    }
+
+    public function postReference(Request $request)
+    {
 
     }
 
