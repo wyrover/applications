@@ -167,14 +167,5 @@ class ReferenceRequestListener implements ShouldQueue
         return $refereetwo;
     }
 
-//    /**
-//     * @param $referee
-//     * @param $application
-//     */
-//    public function updateApplication($referee, $application)
-//    {
-//        $application->reference_id = $referee->id;
-//        $application->company_id = Auth::user()->company_id;
-//        $application->update();
-//    }
+
 }
