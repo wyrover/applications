@@ -186,15 +186,71 @@ class ApplicationSubmissionController extends Controller
 
     public function postReference(Request $request)
     {
-        $applicant = Applications::where('code', $request->segment(2))->orWhere('code_two', $request->segment(2))->first();
+        $applicant = Applications::where('code', $request->segment(2))->first();
         $settings = Settings::where('company_id', $applicant->company_id)->where('references_id', '=', 1)->get();
         $company = Company::where('id', $applicant->company_id)->first();
-        $referee =  References::where('code', $request->segment(2))->orWhere('code_two', $request->segment(2))->first();
+        $referee =  References::where('code', $request->segment(2))->first();
         dd($referee);
         return view('applications.submit', compact('company', 'applicant', 'settings', 'referee'));
     }
 
     public function refereeSubmitted(Request $request)
+    {
+        $code = $request->segment(2);
+        $ref = References::where('id', $request->input('referee_id'))->first();
+        $ref->referee_name = $request->input('name');
+        $ref->referee_start_date = $request->input('applicant_started');
+        $ref->referee_end_date = $request->input('date_left');
+        $ref->referee_email = $request->input('email_address');
+        $ref->position = $request->input('position');
+        $ref->leaving = $request->input('reason_for_leaving');
+        $ref->completed = 'Yes';
+        $ref->update();
+
+        $fields = Fields::create($request->except('_token','referee_id','first_name', 'middle_name', 'surname','name','phone','position','email_address','applicant_started','date_left','reason_for_leaving','code'));
+        //$settings = Settings::create($request->only('label', 'label2', 'label3', 'label4', 'label5', 'label6', 'label7', 'label8', 'label9', 'label10', 'company_id'));
+        $settings = Settings::where('id', $ref->settings_id)->first();
+
+        $settings->fields_id = $fields->id;
+        $settings->update();
+
+        $apps = Applications::where('code', $code)->first();
+        $apps->reference_id = $ref->id;
+        $apps->update();
+
+        $fields->settings_id = $settings->id;
+        $fields->references_id = $ref->id;
+        $fields->update();
+
+        if (App::environment('production')) {
+            $segment = \Request::url();
+            $search = ['http://', 'https://', '.madesimpleltd', '.co.uk/', \Request::segment(1) .'/', \Request::segment(2).'/', \Request::segment(3)];
+            $replace = ['', '', '', '', '', '', ''];
+            $output = str_replace($search, $replace, $segment);
+            $company = Company::where('url', $output)->first();
+
+            $ref->settings_id = $settings->id;
+            $ref->company_id = $company->id;
+            $ref->applications_id = $apps->id;
+            $ref->update();
+
+        }
+
+        flash()->success('Success', 'Thank you for submission');
+        return redirect('/');
+    }
+
+    public function postReferenceTwo(Request $request)
+    {
+        $applicant = Applications::where('code_two', $request->segment(2))->first();
+        $settings = Settings::where('company_id', $applicant->company_id)->where('references_id', '=', 1)->get();
+        $company = Company::where('id', $applicant->company_id)->first();
+        $referee =  References::where('code_two', $request->segment(2))->first();
+        dd($referee);
+        return view('applications.submit_two', compact('company', 'applicant', 'settings', 'referee'));
+    }
+
+    public function refereeSubmittedTwo(Request $request)
     {
         $code = $request->segment(2);
         $ref = References::where('id', $request->input('referee_id'))->first();

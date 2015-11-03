@@ -99,7 +99,8 @@ if (App::environment('production')) {
         /* Reference Submission */
         get('application/{code}/submitReference', 'ApplicationSubmissionController@postReference');
         post('application/{code}/submitReference', 'ApplicationSubmissionController@refereeSubmitted');
-
+        get('application/{code}/reference', 'ApplicationSubmissionController@postReferenceTwo');
+        post('application/{code}/reference', 'ApplicationSubmissionController@refereeSubmittedTwo');
 
         /* Submission of a application */
         get('application', 'ApplicationSubmissionController@create');
