@@ -142,7 +142,7 @@ class ApplicationSubmissionController extends Controller
                 'code'    => $reftwo->code
             );
             // Send the email
-            Mail::send('emails/applications/submission', $data, function( $message ) use ($data)
+            Mail::send('emails/applications/submissiontwo', $data, function( $message ) use ($data)
             {
                 $message->to($data['email'])
                     ->from(config('custom.noreplyemail'), 'Made Simple')
