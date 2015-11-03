@@ -148,20 +148,14 @@ class ReferenceRequestListener implements ShouldQueue
         $referee = new References;
         $referee->applications_id = $application->id;
         $referee->company_id = Auth::user()->company_id;
+        $referee->code = $application->code;
         $referee->referee_name = $event->user['name'];
         $referee->referee_company = $event->user['company_name'];
         $referee->referee_email = $event->user['email'];
         $referee->referee_relationship = $event->user['relationship'];
         $referee->referee_current_employer = $event->user['employer'];
         $referee->referee_contact = $event->user['contact'];
-        $referee->referee_name2 = $event->user['name2'];
-        $referee->referee_company2 = $event->user['company_name2'];
-        $referee->referee_email2 = $event->user['emailtwo'];
-        $referee->referee_relationship2 = $event->user['relationship2'];
-        $referee->referee_current_employer2 = $event->user['employer2'];
-        $referee->referee_contact2 = $event->user['contact2'];
         $referee->completed = 'No';
-        $referee->completedtwo = 'No';
         $referee->save();
         return $referee;
     }
@@ -171,6 +165,7 @@ class ReferenceRequestListener implements ShouldQueue
         $referee = new References;
         $referee->applications_id = $application->id;
         $referee->company_id = Auth::user()->company_id;
+        $referee->code = $application->code;
         $referee->referee_name2 = $event->user['name2'];
         $referee->referee_company2 = $event->user['company_name2'];
         $referee->referee_email2 = $event->user['emailtwo'];
