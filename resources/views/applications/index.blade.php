@@ -50,9 +50,9 @@
                     @if ($item->reference()->first()->completed == 'Yes' && $item->reference()->first()->completedtwo == 'No')
                     <a href="/applications/export/exportReferee/{!! $item->id !!}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>
                     @endif
-                    {{--@if ($item->completedtwo == 'Yes' && $item->completed == 'No')--}}
-                    {{--<a href="/applications/export/exportRefereeTwo/{!! $item->id !!}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>--}}
-                    {{--@endif--}}
+                    @if ($item->reference()->first()->completedtwo == 'Yes' && $item->reference()->first()->completed == 'No')
+                    <a href="/applications/export/exportRefereeTwo/{!! $item->id !!}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>
+                    @endif
 
                             {{--<button class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Awaiting response from referee"><i class="fa fa-clock-o"></i></button>--}}
 
