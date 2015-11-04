@@ -74,6 +74,7 @@ class ApplicationSubmissionController extends Controller
         $application->reference_id = $ref->id;
         $application->company_id = $ref->company_id;
         $application->code = $ref->code;
+        $application->app_only = 1;
         $application->update();
 
 //        $settings = new Settings;
