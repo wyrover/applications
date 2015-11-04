@@ -215,6 +215,7 @@ class ApplicationSubmissionController extends Controller
         $settings->update();
 
         $apps = Applications::where('code', $code)->first();
+        $apps->app_only = 0;
         $apps->reference_id = $ref->id;
         $apps->update();
 
