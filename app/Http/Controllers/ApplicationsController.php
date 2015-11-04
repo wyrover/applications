@@ -86,7 +86,7 @@ class ApplicationsController extends Controller
     }
 
 
-    public function destory(Request $request)
+    public function destroy(Request $request)
     {
         $id = $request->input('id');
         $apps = Applications::where('id', '=' , $id)->first();
