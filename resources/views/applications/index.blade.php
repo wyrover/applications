@@ -65,6 +65,7 @@
             </td>
             <td>
                 {!! Form::open(['url' => '/applications/delete']) !!}
+                     <input type="hidden" name="_method" value="DELETE">
                           <input type="hidden" name="id" value="{!! $item->id !!}">
                           <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to remove this?')"><i class="fa fa-trash-o"></i> Delete</button>
                 {!! Form::close() !!}
