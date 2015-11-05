@@ -608,7 +608,7 @@
                     <hr />
                     <div class="form-group  {{ $errors->has('accept_data_protection') ? 'has-error' : '' }}">
                         <div class="col-sm-2">I accept this statement</div>
-                        <div class="col-lg-2">
+                        <div class="col-lg-5">
                             <input type="checkbox" name="accept_data_protection" value="1">
                             {!! $errors->first('accept_data_protection', '<span class="help-block">You must check that you accept the above statement.</span>') !!}
                         </div>
