@@ -152,7 +152,7 @@ class ApplicationSubmissionController extends Controller
         }
         $fields->application_id = $application->id;
         $fields->update();
-        flash()->success('Success', 'Thank you! Your submission has been successful and your referees emailed.');
+        flash()->success('Success', 'Thank you! Your submission has been successful and referees emailed.');
         return back();
     }
 

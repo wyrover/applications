@@ -632,7 +632,7 @@
 
                 </div>
             </div>
-            <button class="btn btn-success btn-lg" type="submit">Submit</button><br /><br />
+            <button class="btn btn-success btn-lg" type="submit">Submit Application</button><br /><br />
         {!! Form::close() !!}
     </div>
     </div>
