@@ -132,8 +132,7 @@
                         <div class="form-group {{ $errors->has('ni_number') ? 'has-error' : '' }}">
                             <div class="col-sm-4">National Insurance Number <span class="text-danger">*</span></div>
                             <div class="col-lg-7">
-                                <input type="text" name="ni_number" class="form-control" value="{!! old('ni_number') !!}">
-                                <div class="help-block">Format as AB123456C</div>
+                                <input type="text" name="ni_number" class="form-control" value="{!! old('ni_number') !!}" placeholder="Example: AB123456C">
                                 {!! $errors->first('ni_number', '<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
@@ -265,14 +264,14 @@
                         <div class="form-group">
                             <div class="col-sm-4">Start Date</div>
                             <div class="col-lg-7">
-                                <input type="date" name="employer_start_date" class="form-control" placeholder="">
+                                <input type="date" name="employer_start_date" class="form-control" placeholder="dd/mm/yyyy">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-4">End Date</div>
                             <div class="col-lg-7">
-                                <input type="date" name="employer_end_date" class="form-control">
+                                <input type="date" name="employer_end_date" class="form-control" placeholder="dd/mm/yyyy">
                             </div>
                         </div>
 
@@ -302,14 +301,14 @@
                         <div class="form-group">
                             <div class="col-sm-4">Start Date</div>
                             <div class="col-lg-7">
-                                <input type="text" name="employer_start_date3" class="form-control">
+                                <input type="date" name="employer_start_date3" class="form-control" placeholder="dd/mm/yyyy">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-4">End Date</div>
                             <div class="col-lg-7">
-                                <input type="text" name="employer_end_date3" class="form-control">
+                                <input type="date" name="employer_end_date3" class="form-control" placeholder="dd/mm/yyyy">
                             </div>
                         </div>
 
@@ -341,14 +340,14 @@
                         <div class="form-group">
                             <div class="col-sm-4">Start Date</div>
                             <div class="col-lg-7">
-                                <input type="text" name="employer_start_date2" class="form-control">
+                                <input type="date" name="employer_start_date2" class="form-control" placeholder="dd/mm/yyyy">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-4">End Date</div>
                             <div class="col-lg-7">
-                                <input type="text" name="employer_end_date2" class="form-control">
+                                <input type="date" name="employer_end_date2" class="form-control" placeholder="dd/mm/yyyy">
                             </div>
                         </div>
 
@@ -495,13 +494,13 @@
                         <div class="form-group">
                             <div class="col-sm-4">Start Date</div>
                             <div class="col-lg-7">
-                                <input type="text" name="referee_start_date" class="form-control">
+                                <input type="date" name="referee_start_date" class="form-control" placeholder="dd/mm/yyyy">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4">End Date</div>
                             <div class="col-lg-7">
-                                <input type="text" name="referee_end_date" class="form-control">
+                                <input type="date" name="referee_end_date" class="form-control" placeholder="dd/mm/yyyy">
                             </div>
                         </div>
                         <div class="form-group">
@@ -553,13 +552,13 @@
                         <div class="form-group">
                             <div class="col-sm-4">Start Date</div>
                             <div class="col-lg-7">
-                                <input type="text" name="referee_start_date2" class="form-control">
+                                <input type="date" name="referee_start_date2" class="form-control" placeholder="dd/mm/yyyy">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4">End Date</div>
                             <div class="col-lg-7">
-                                <input type="text" name="referee_end_date2" class="form-control">
+                                <input type="date" name="referee_end_date2" class="form-control" placeholder="dd/mm/yyyy">
                             </div>
                         </div>
                         <div class="form-group">
@@ -614,9 +613,11 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="col-sm-2">Digital Signature (full name)</div>
+                        <div class="col-sm-2 {{ $errors->has('signed_by') ? 'has-error' : '' }}">Digital Signature (full name) <span class="text-danger">*</span></div>
                         <div class="col-lg-5">
                             <input type="text" class="form-control" name="signed_by">
+                            {!! $errors->first('signed_by', '<span class="help-block">You must enter your full name as a digital signature</span>') !!}
+
                         </div>
                     </div>
 

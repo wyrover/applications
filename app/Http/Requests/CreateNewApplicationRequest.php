@@ -32,7 +32,8 @@ class CreateNewApplicationRequest extends Request
             'telephone' => 'required|number',
             'mobile' => 'required|number',
             'email' => 'required|email',
-            'ni_number' => 'required'
+            'ni_number' => 'required',
+            'signed_by' => 'required'
         ];
     }
 }
