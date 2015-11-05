@@ -29,11 +29,12 @@ class CreateNewApplicationRequest extends Request
             'address_line1' => 'required',
             'city' => 'required',
             'postcode' => 'required',
-            'telephone' => 'required|number',
-            'mobile' => 'required|number',
+            'telephone' => 'required|numeric',
+            'mobile' => 'required|numeric',
             'email' => 'required|email',
             'ni_number' => 'required',
-            'signed_by' => 'required'
+            'signed_by' => 'required',
+            'accept_data_protection' => 'required|accepted'
         ];
     }
 }
