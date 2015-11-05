@@ -58,7 +58,7 @@
                         </div>
 
                         <div class="form-group {{ $errors->has('surname') ? 'has-error' : '' }}">
-                            <div class="col-sm-4">Surname</div>
+                            <div class="col-sm-4">Surname <span class="text-danger">*</span></div>
                             <div class="col-lg-7">
                                 <input type="text" name="surname" class="form-control" value="{!! old('surname') !!}">
                                 {!! $errors->first('surname', '<span class="help-block">:message</span>') !!}
@@ -66,23 +66,22 @@
                         </div>
 
                         <div class="form-group {{ $errors->has('address_line1') ? 'has-error' : '' }}">
-                            <div class="col-sm-4">Address Line 1</div>
+                            <div class="col-sm-4">Address Line 1 <span class="text-danger">*</span></div>
                             <div class="col-lg-7">
                                 <input type="text" name="address_line1" class="form-control" value="{!! old('address_line1') !!}">
                                 {!! $errors->first('address_line1', '<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
 
-                        <div class="form-group {{ $errors->has('address_line2') ? 'has-error' : '' }}">
+                        <div class="form-group">
                             <div class="col-sm-4">Address Line 2</div>
                             <div class="col-lg-7">
                                 <input type="text" name="address_line2" class="form-control" value="{!! old('address_line2') !!}">
-                                {!! $errors->first('address_line2', '<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
 
                         <div class="form-group {{ $errors->has('city') ? 'has-error' : '' }}">
-                            <div class="col-sm-4">City</div>
+                            <div class="col-sm-4">City <span class="text-danger">*</span></div>
                             <div class="col-lg-7">
                                 <input type="text" name="city" class="form-control" value="{!! old('city') !!}">
                                 {!! $errors->first('city', '<span class="help-block">:message</span>') !!}
@@ -90,7 +89,7 @@
                         </div>
 
                         <div class="form-group {{ $errors->has('postcode') ? 'has-error' : '' }}">
-                            <div class="col-sm-4">Postcode</div>
+                            <div class="col-sm-4">Postcode <span class="text-danger">*</span></div>
                             <div class="col-lg-7">
                                 <input type="text" name="postcode" class="form-control" value="{!! old('postcode') !!}">
                                 {!! $errors->first('postcode', '<span class="help-block">:message</span>') !!}
@@ -101,7 +100,7 @@
 
                     <div class="col-md-6">
                         <div class="form-group {{ $errors->has('telephone') ? 'has-error' : '' }}">
-                            <div class="col-sm-4">Telephone</div>
+                            <div class="col-sm-4">Telephone <span class="text-danger">*</span></div>
                             <div class="col-lg-7">
                                 <input type="text" name="telephone" class="form-control" value="{!! old('telephone') !!}">
                                 {!! $errors->first('telephone', '<span class="help-block">:message</span>') !!}
@@ -111,7 +110,7 @@
 
                     <div class="col-md-6">
                         <div class="form-group {{ $errors->has('mobile') ? 'has-error' : '' }}">
-                            <div class="col-sm-4">Mobile</div>
+                            <div class="col-sm-4">Mobile <span class="text-danger">*</span></div>
                             <div class="col-lg-7">
                                 <input type="text" name="mobile" class="form-control" value="{!! old('mobile') !!}">
                                 {!! $errors->first('mobile', '<span class="help-block">:message</span>') !!}
@@ -121,7 +120,7 @@
 
                     <div class="col-md-6">
                         <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
-                            <div class="col-sm-4">Email</div>
+                            <div class="col-sm-4">Email <span class="text-danger">*</span></div>
                             <div class="col-lg-7">
                                 <input type="text" name="email" class="form-control" value="{!! old('email') !!}">
                                 {!! $errors->first('email', '<span class="help-block">:message</span>') !!}
@@ -131,9 +130,10 @@
 
                     <div class="col-md-6">
                         <div class="form-group {{ $errors->has('ni_number') ? 'has-error' : '' }}">
-                            <div class="col-sm-4">National Insurance Number</div>
+                            <div class="col-sm-4">National Insurance Number <span class="text-danger">*</span></div>
                             <div class="col-lg-7">
                                 <input type="text" name="ni_number" class="form-control" value="{!! old('ni_number') !!}">
+                                <div class="help-block">Format as AB123456C</div>
                                 {!! $errors->first('ni_number', '<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
@@ -265,14 +265,14 @@
                         <div class="form-group">
                             <div class="col-sm-4">Start Date</div>
                             <div class="col-lg-7">
-                                <input type="text" name="employer_start_date" class="form-control">
+                                <input type="date" name="employer_start_date" class="form-control" placeholder="">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-4">End Date</div>
                             <div class="col-lg-7">
-                                <input type="text" name="employer_end_date" class="form-control">
+                                <input type="date" name="employer_end_date" class="form-control">
                             </div>
                         </div>
 

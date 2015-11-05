@@ -27,12 +27,11 @@ class CreateNewApplicationRequest extends Request
             'first_name' => 'required',
             'surname' => 'required',
             'address_line1' => 'required',
-            'address_line2' => 'required',
             'city' => 'required',
             'postcode' => 'required',
-            'telephone' => 'required',
-            'mobile' => 'required',
-            'email' => 'required',
+            'telephone' => 'required|number',
+            'mobile' => 'required|number',
+            'email' => 'required|email',
             'ni_number' => 'required'
         ];
     }
