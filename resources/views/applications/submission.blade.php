@@ -29,7 +29,9 @@
 <div class="container content">
     <div class="row">
     <div class="col-lg-11 col-md-10 col-sm-11 col-xs-5">
-         <p>Please fill out this application as accurately as possible make sure to fill as many boxes as you can</p>
+         <p>Please fill out this application as accurately as possible make sure to fill as many boxes as you can.<br />
+            Fields marked with <span class="text-danger">*</span> are required.
+         </p>
         {!! Form::open(['url' => 'application', 'class' => 'form-horizontal']) !!}
 
             <input type="hidden" name="company_id" value="{!! $company->id !!}">
@@ -42,7 +44,7 @@
                 <div class="panel-body">
                     <div class="col-md-6">
                         <div class="form-group {{ $errors->has('first_name') ? 'has-error' : '' }}">
-                            <div class="col-sm-4">First Name</div>
+                            <div class="col-sm-4">First Name <span class="text-danger">*</span></div>
                             <div class="col-lg-7">
                                 <input type="text" name="first_name" class="form-control" value="{!! old('first_name') !!}">
                                 {!! $errors->first('first_name', '<span class="help-block">:message</span>') !!}
