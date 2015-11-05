@@ -359,6 +359,14 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="col-sm-4">Any gaps in your employment ?</div>
+                            <div class="col-lg-7">
+                                <textarea name="employment_gaps" class="form-control" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
