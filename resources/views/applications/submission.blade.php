@@ -606,8 +606,8 @@
                 <div class="panel-body">
                     <p>The information that you provide on this form and on any CV given will be used by us to provide you work finding services. In providing this service to you, you consent to your personal data being included on a computerised database and consent to us transferring your personal details to our clients. We may check the information collected, with third parties or with other information held by us. We may also use or pass to certain third parties information to prevent or detect crime, to protect public funds, or in other way permitted or required by law.</p>
                     <hr />
-                    <div class="form-group">
-                        <div class="col-sm-2 {{ $errors->has('accept_data_protection') ? 'has-error' : '' }}">I accept this statement</div>
+                    <div class="form-group  {{ $errors->has('accept_data_protection') ? 'has-error' : '' }}">
+                        <div class="col-sm-2">I accept this statement</div>
                         <div class="col-lg-2">
                             <input type="checkbox" name="accept_data_protection" value="1">
                             {!! $errors->first('accept_data_protection', '<span class="help-block">You must check that you accept the above statement.</span>') !!}
@@ -621,8 +621,8 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <div class="col-sm-2 {{ $errors->has('signed_by') ? 'has-error' : '' }}">Digital Signature (full name) <span class="text-danger">*</span></div>
+                    <div class="form-group {{ $errors->has('signed_by') ? 'has-error' : '' }}">
+                        <div class="col-sm-2">Digital Signature (full name) <span class="text-danger">*</span></div>
                         <div class="col-lg-5">
                             <input type="text" class="form-control" name="signed_by">
                             {!! $errors->first('signed_by', '<span class="help-block">You must enter your full name as a digital signature</span>') !!}
