@@ -11,7 +11,38 @@
           </div>
           <div style="margin: 10px 0px 0px 0px;"></div>
           <div class="table-responsive">
-          
+          <table class="table table-striped table-bordered">
+              <thead>
+                    <tr>
+                        <th>Name</th>
+                        {{--<th>Company</th>--}}
+                        {{--<th>Address</th>--}}
+                        {{--<th>City</th>--}}
+                        {{--<th>Postcode</th>--}}
+                        {{--<th>Phone</th>--}}
+                        <th>Actions</th>
+                    </tr>
+              </thead>
+
+              <tbody>
+                @foreach($accounts as $account)
+                    <tr>
+                        <td>{!! $account->name !!}</td>
+                        {{--<td>{!! $account->company()->first()->name !!}</td>--}}
+                        {{--<td>{!! $account->company()->first()->address1 !!}, {!! $account->company()->first()->address2 !!}</td>--}}
+                        {{--<td>{!! $account->company()->first()->city !!}</td>--}}
+                        {{--<td>{!! $account->company()->first()->postcode !!}</td>--}}
+                        {{--<td>{!! $account->company()->first()->phone !!}</td>--}}
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a href="/admin/account/{!! $account->id !!}/edit" class="btn btn-sm btn-warning">Edit</a>
+                                <a href="/admin/account/{!! $account->id !!}/delete" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to remove this?')">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+              </tbody>
+          </table>
               {!! $accounts->render() !!}
           </div>
       </div>
