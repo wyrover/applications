@@ -53,7 +53,7 @@
                         <div class="form-group">
                             <div class="col-sm-4">Middle Name(s)</div>
                             <div class="col-lg-7">
-                                <input type="text" name="middle_name" class="form-control">
+                                <input type="text" name="middle_name" class="form-control" value="{!! old('middle_name') !!}">
                             </div>
                         </div>
 
@@ -158,7 +158,7 @@
                     <div class="form-group">
                         <div class="col-sm-4">Please list any endorsements? (if any)</div>
                         <div class="col-lg-7">
-                            <textarea name="endorsements" class="form-control" rows="2"></textarea>
+                            <textarea name="endorsements" class="form-control" rows="2">{!! old('endorsements') !!}</textarea>
                         </div>
                     </div>
                     </div>
@@ -207,14 +207,14 @@
                         <div class="form-group">
                             <div class="col-sm-4">When is your visa valid until?</div>
                             <div class="col-lg-7">
-                                <input type="text" name="visa_valid_to" class="form-control">
+                                <input type="text" name="visa_valid_to" class="form-control" value="{!! old('visa_valid_to') !!}">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-4">Comments</div>
                             <div class="col-lg-7">
-                                <textarea name="comments" class="form-control" rows="2"></textarea>
+                                <textarea name="comments" class="form-control" rows="2">{!! old('comments') !!}</textarea>
                             </div>
                         </div>
                     </div>
@@ -234,7 +234,7 @@
                             <div class="col-sm-4">From GCSE or equivalent to degree level in chronological order
                                 Postgraduate education or study or any other professional qualifications</div>
                             <div class="col-lg-7">
-                                <textarea name="education" class="form-control" rows="6"></textarea>
+                                <textarea name="education" class="form-control" rows="6">{!! old('education') !!}</textarea>
                             </div>
                         </div>
 
@@ -250,28 +250,28 @@
                         <div class="form-group">
                             <div class="col-sm-4">Employer Name</div>
                             <div class="col-lg-7">
-                                <input type="text" name="employer_name" class="form-control">
+                                <input type="text" name="employer_name" class="form-control" value="{!! old('employer_name') !!}">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-4">Job Title</div>
                             <div class="col-lg-7">
-                                <input type="text" name="job_title" class="form-control">
+                                <input type="text" name="job_title" class="form-control" value="{!! old('job_title') !!}">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-4">Start Date</div>
                             <div class="col-lg-7">
-                                <input type="date" name="employer_start_date" class="form-control" placeholder="dd/mm/yyyy">
+                                <input type="date" name="employer_start_date" class="form-control" placeholder="dd/mm/yyyy" value="{!! old('employer_start_date') !!}">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-4">End Date</div>
                             <div class="col-lg-7">
-                                <input type="date" name="employer_end_date" class="form-control" placeholder="dd/mm/yyyy">
+                                <input type="date" name="employer_end_date" class="form-control" placeholder="dd/mm/yyyy" value="{!! old('employer_end_date') !!}">
                             </div>
                         </div>
 
@@ -279,7 +279,7 @@
                             <div class="col-sm-4">Description of duties and responsibilities and reason for leaving
                             </div>
                             <div class="col-lg-7">
-                                <textarea name="employer_responsibilities" class="form-control" row="3"></textarea>
+                                <textarea name="employer_responsibilities" class="form-control" rows="3">{!! old('employer_responsibilities') !!}</textarea>
                             </div>
                         </div>
 
@@ -287,28 +287,28 @@
                         <div class="form-group">
                             <div class="col-sm-4">Employer Name</div>
                             <div class="col-lg-7">
-                                <input type="text" name="employer_name3" class="form-control">
+                                <input type="text" name="employer_name3" class="form-control" value="{!! old('employer_name3') !!}">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-4">Job Title</div>
                             <div class="col-lg-7">
-                                <input type="text" name="job_title3" class="form-control">
+                                <input type="text" name="job_title3" class="form-control" value="{!! old('job_title3') !!}">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-4">Start Date</div>
                             <div class="col-lg-7">
-                                <input type="date" name="employer_start_date3" class="form-control" placeholder="dd/mm/yyyy">
+                                <input type="date" name="employer_start_date3" class="form-control" placeholder="dd/mm/yyyy" value="{!! old('employer_start_emd3') !!}">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-4">End Date</div>
                             <div class="col-lg-7">
-                                <input type="date" name="employer_end_date3" class="form-control" placeholder="dd/mm/yyyy">
+                                <input type="date" name="employer_end_date3" class="form-control" placeholder="dd/mm/yyyy" value="{!! old('employer_end_date3') !!}">
                             </div>
                         </div>
 
@@ -316,7 +316,7 @@
                             <div class="col-sm-4">Description of duties and responsibilities and reason for leaving
                             </div>
                             <div class="col-lg-7">
-                                <textarea name="employer_responsibilities3" class="form-control" row="3"></textarea>
+                                <textarea name="employer_responsibilities3" class="form-control" rows="3">{!! old('employer_responsibilities3') !!}</textarea>
                             </div>
                         </div>
 
@@ -326,28 +326,28 @@
                         <div class="form-group">
                             <div class="col-sm-4">Employer Name</div>
                             <div class="col-lg-7">
-                                <input type="text" name="employer_name2" class="form-control">
+                                <input type="text" name="employer_name2" class="form-control" value="{!! old('employer_name2') !!}">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-4">Job Title</div>
                             <div class="col-lg-7">
-                                <input type="text" name="job_title2" class="form-control">
+                                <input type="text" name="job_title2" class="form-control" value="{!! old('job_title2') !!}">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-4">Start Date</div>
                             <div class="col-lg-7">
-                                <input type="date" name="employer_start_date2" class="form-control" placeholder="dd/mm/yyyy">
+                                <input type="date" name="employer_start_date2" class="form-control" placeholder="dd/mm/yyyy" value="{!! old('employer_start_date2') !!}">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-4">End Date</div>
                             <div class="col-lg-7">
-                                <input type="date" name="employer_end_date2" class="form-control" placeholder="dd/mm/yyyy">
+                                <input type="date" name="employer_end_date2" class="form-control" placeholder="dd/mm/yyyy" value="{!! old('employer_end_date2') !!}">
                             </div>
                         </div>
 
@@ -355,7 +355,7 @@
                             <div class="col-sm-4">Description of duties and responsibilities and reason for leaving
                             </div>
                             <div class="col-lg-7">
-                                <textarea name="employer_responsibilities2" class="form-control" row="3"></textarea>
+                                <textarea name="employer_responsibilities2" class="form-control" rows="3">{!! old('employer_responsibilities2') !!}</textarea>
                             </div>
                         </div>
                     </div>
@@ -363,7 +363,7 @@
                         <div class="form-group">
                             <div class="col-sm-4">Any gaps in your employment ?</div>
                             <div class="col-lg-7">
-                                <textarea name="employment_gaps" class="form-control" rows="4"></textarea>
+                                <textarea name="employment_gaps" class="form-control" rows="4">{!! old('employment_gaps') !!}</textarea>
                             </div>
                         </div>
                     </div>
@@ -405,7 +405,7 @@
                         <div class="form-group">
                             <div class="col-sm-4">Comments</div>
                             <div class="col-lg-7">
-                                <textarea name="convictions_comments" class="form-control" rows="5"></textarea>
+                                <textarea name="convictions_comments" class="form-control" rows="5">{!! old('convictions_comments') !!}</textarea>
                             </div>
                         </div>
                     </div>
@@ -432,20 +432,20 @@
                     <div class="form-group">
                         <div class="col-sm-4">Relationship to you</div>
                         <div class="col-lg-7">
-                            <input type="text" name="next_of_kin_relationship" class="form-control">
+                            <input type="text" name="next_of_kin_relationship" class="form-control" value="{!! old('next_of_kin_relationship') !!}">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-4">Name</div>
                         <div class="col-lg-7">
-                            <input type="text" name="next_of_kin_name" class="form-control">
+                            <input type="text" name="next_of_kin_name" class="form-control" value="{!! old('next_of_kin_name') !!}">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-4">Address</div>
                         <div class="col-lg-7">
-                            <textarea name="next_of_kin_address" class="form-control" rows="2"></textarea>
+                            <textarea name="next_of_kin_address" class="form-control" rows="2">{!! old('next_of_kin_address') !!}</textarea>
                         </div>
                     </div>
                 </div>
@@ -454,14 +454,14 @@
                     <div class="form-group">
                         <div class="col-sm-4">Telephone</div>
                         <div class="col-lg-7">
-                            <input type="text" name="next_of_kin_telephone" class="form-control">
+                            <input type="text" name="next_of_kin_telephone" class="form-control" value="{!! old('next_of_kin_telephone') !!}">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-4">Mobile</div>
                         <div class="col-lg-7">
-                            <input type="text" name="next_of_kin_mobile" class="form-control">
+                            <input type="text" name="next_of_kin_mobile" class="form-control" value="{!! old('next_of_kin_mobile') !!}">
                         </div>
                     </div>
 
@@ -478,37 +478,37 @@
                         <div class="form-group">
                             <div class="col-sm-4">Name</div>
                             <div class="col-lg-7">
-                                <input type="text" name="referee_name" class="form-control">
+                                <input type="text" name="referee_name" class="form-control" value="{!! old('referee_name') !!}">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4">Company Name</div>
                             <div class="col-lg-7">
-                                <input type="text" name="referee_company" class="form-control">
+                                <input type="text" name="referee_company" class="form-control" value="{!! old('referee_company') !!}">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4">Email</div>
                             <div class="col-lg-7">
-                                <input type="text" name="referee_email" class="form-control">
+                                <input type="text" name="referee_email" class="form-control" value="{!! old('referee_email') !!}">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4">Relationship</div>
                             <div class="col-lg-7">
-                                <input type="text" name="referee_relationship" class="form-control">
+                                <input type="text" name="referee_relationship" class="form-control" value="{!! old('referee_relationship') !!}">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4">Start Date</div>
                             <div class="col-lg-7">
-                                <input type="date" name="referee_start_date" class="form-control" placeholder="dd/mm/yyyy">
+                                <input type="date" name="referee_start_date" class="form-control" placeholder="dd/mm/yyyy" value="{!! old('referee_start_date') !!}">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4">End Date</div>
                             <div class="col-lg-7">
-                                <input type="date" name="referee_end_date" class="form-control" placeholder="dd/mm/yyyy">
+                                <input type="date" name="referee_end_date" class="form-control" placeholder="dd/mm/yyyy" value="{!! old('referee_end_date') !!}">
                             </div>
                         </div>
                         <div class="form-group">
@@ -536,37 +536,37 @@
                         <div class="form-group">
                             <div class="col-sm-4">Name</div>
                             <div class="col-lg-7">
-                                <input type="text" name="referee_name2" class="form-control">
+                                <input type="text" name="referee_name2" class="form-control" value="{!! old('referee_name2') !!}">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4">Company Name</div>
                             <div class="col-lg-7">
-                                <input type="text" name="referee_company2" class="form-control">
+                                <input type="text" name="referee_company2" class="form-control" value="{!! old('referee_company2') !!}">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4">Email</div>
                             <div class="col-lg-7">
-                                <input type="text" name="referee_email2" class="form-control">
+                                <input type="text" name="referee_email2" class="form-control" value="{!! old('referee_email2') !!}">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4">Relationship</div>
                             <div class="col-lg-7">
-                                <input type="text" name="referee_relationship2" class="form-control">
+                                <input type="text" name="referee_relationship2" class="form-control" value="{!! old('referee_relationship2') !!}">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4">Start Date</div>
                             <div class="col-lg-7">
-                                <input type="date" name="referee_start_date2" class="form-control" placeholder="dd/mm/yyyy">
+                                <input type="date" name="referee_start_date2" class="form-control" placeholder="dd/mm/yyyy" value="{!! old('referee_start_date2') !!}">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4">End Date</div>
                             <div class="col-lg-7">
-                                <input type="date" name="referee_end_date2" class="form-control" placeholder="dd/mm/yyyy">
+                                <input type="date" name="referee_end_date2" class="form-control" placeholder="dd/mm/yyyy" value="{!! old('referee_end_date2') !!}">
                             </div>
                         </div>
                         <div class="form-group">
