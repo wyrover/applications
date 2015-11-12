@@ -132,7 +132,7 @@ class ReferenceRequestListener implements ShouldQueue
         $referee->company_id = Auth::user()->company_id;
         $referee->code = str_random(40);
         $referee->first_name = $event->user['first_name'];
-        $referee->middle_name = $event->user['middle'];
+        //$referee->middle_name = $event->user['middle'];
         $referee->last_name = $event->user['surname'];
         $referee->referee_name = $event->user['name'];
         $referee->referee_company = $event->user['company_name'];
@@ -151,7 +151,7 @@ class ReferenceRequestListener implements ShouldQueue
         $refereetwo = new References;
         $refereetwo->company_id = Auth::user()->company_id;
         $refereetwo->first_name = $event->user['first_name'];
-        $refereetwo->middle_name = $event->user['middle'];
+       // $refereetwo->middle_name = $event->user['middle'];
         $refereetwo->last_name = $event->user['surname'];
         $refereetwo->code = str_random(40);
         $refereetwo->referee_name = $event->user['name2'];
