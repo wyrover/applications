@@ -145,13 +145,14 @@
                 <div class="panel-heading">Transport</div>
                 <div class="panel-body">
                     <div class="col-md-6">
-                    <div class="form-group">
+                    <div class="form-group {{ $errors->has('driver') ? 'has-error' : '' }}">
                         <div class="col-sm-4">Are you a driver?</div>
                         <div class="col-lg-7">
                             <select name="driver" class="form-control">
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
                             </select>
+                            {!! $errors->first('driver', '<span class="help-block">Are your driver field is required</span>') !!}
                         </div>
                     </div>
 
@@ -183,13 +184,14 @@
                 <div class="panel-heading">Permission to work in the UK</div>
                 <div class="panel-body">
                     <div class="col-md-6">
-                        <div class="form-group">
+                        <div class="form-group {{ $errors->has('right_to_work') ? 'has-error' : '' }}">
                             <div class="col-sm-4">Do you have the right to work in the UK?</div>
                             <div class="col-lg-7">
                                 <select name="right_to_work" class="form-control">
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                 </select>
+                                {!! $errors->first('right_to_work', '<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
                         <div class="form-group">
@@ -390,13 +392,14 @@
                 <div class="panel-heading">Criminal Convictions</div>
                 <div class="panel-body">
                     <div class="col-md-6">
-                        <div class="form-group">
+                        <div class="form-group {!! $errors->has('criminal_convictions') ? 'has-error' : '' !!}">
                             <div class="col-sm-4">Do you have any unspent* criminal convictions?</div>
                             <div class="col-lg-7">
                                 <select name="criminal_convictions" class="form-control">
                                     <option value="Yes">Yes</option>
                                     <option value="No" selected>No</option>
                                 </select>
+                                {!! $errors->first('criminal_convictions', '<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
                     </div>

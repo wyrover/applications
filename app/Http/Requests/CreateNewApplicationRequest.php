@@ -34,7 +34,10 @@ class CreateNewApplicationRequest extends Request
             'email' => 'required|email',
             'ni_number' => 'required',
             'signed_by' => 'required',
-            'accept_data_protection' => 'required|accepted'
+            'accept_data_protection' => 'required|accepted',
+            'right_to_work' => 'required',
+            'driver' => 'required',
+            'criminal_convictions' => 'required'
         ];
     }
 }
