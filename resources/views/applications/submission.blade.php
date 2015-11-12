@@ -146,7 +146,7 @@
                 <div class="panel-body">
                     <div class="col-md-6">
                     <div class="form-group {{ $errors->has('driver') ? 'has-error' : '' }}">
-                        <div class="col-sm-4">Are you a driver?</div>
+                        <div class="col-sm-4">Are you a driver? <span class="text-danger">*</span></div>
                         <div class="col-lg-7">
                             <select name="driver" class="form-control">
                                 <option value="Yes">Yes</option>
@@ -185,7 +185,7 @@
                 <div class="panel-body">
                     <div class="col-md-6">
                         <div class="form-group {{ $errors->has('right_to_work') ? 'has-error' : '' }}">
-                            <div class="col-sm-4">Do you have the right to work in the UK?</div>
+                            <div class="col-sm-4">Do you have the right to work in the UK? <span class="text-danger">*</span></div>
                             <div class="col-lg-7">
                                 <select name="right_to_work" class="form-control">
                                     <option value="Yes">Yes</option>
@@ -393,7 +393,7 @@
                 <div class="panel-body">
                     <div class="col-md-6">
                         <div class="form-group {!! $errors->has('criminal_convictions') ? 'has-error' : '' !!}">
-                            <div class="col-sm-4">Do you have any unspent* criminal convictions?</div>
+                            <div class="col-sm-4">Do you have any unspent criminal convictions? <span class="text-danger">*</span></div>
                             <div class="col-lg-7">
                                 <select name="criminal_convictions" class="form-control">
                                     <option value="Yes">Yes</option>
@@ -420,9 +420,9 @@
               <div class="panel-body">
                   <div class="form-group">
                       <div class="col-lg-5">
-                          <div class="col-md-2"><label>SMS</label><input type="checkbox" name="contactable" value="sms"></div>
-                          <div class="col-md-2"><label>Email</label><input type="checkbox" name="contactable" value="email"></div>
-                          <div class="col-md-2"><label>Phone</label><input type="checkbox" name="contactable" value="phone"></div>
+                          <div class="col-md-2"><label>SMS</label><input type="checkbox" name="contactable[]" value="sms"></div>
+                          <div class="col-md-2"><label>Email</label><input type="checkbox" name="contactable[]" value="email"></div>
+                          <div class="col-md-2"><label>Phone</label><input type="checkbox" name="contactable[]" value="phone"></div>
                       </div>
                   </div>
               </div>
