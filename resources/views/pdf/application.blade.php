@@ -286,6 +286,7 @@
 <br />
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
+    @foreach($refs as $ref)
     <tr>
         <td align="left">
             <h3>Reference Details</h3>
@@ -319,6 +320,7 @@
             Can we contact this reference?: @if(! empty($ref->referee_contact)) <strong>{!! $ref->referee_contact!!}</strong> @else <span class="no-answer">No answer given</span> @endif
         </td>
     </tr>
+    @endforeach
 </table>
 <br />
 <hr />
