@@ -38,12 +38,14 @@ class ApplicationsController extends Controller
         $name = 'application';
         $pdfFilename = urlencode(strtolower($name . '-' . date('d-m-Y') . '.pdf'));
         $ref = References::where('applications_id', '=', $request->segment(4))->first();
-        $refs = References::where('applications_id', '=', $request->segment(4))->get();
+//        $refs = References::where('applications_id', '=', $request->segment(4))->get();
+        $refOne = References::where('id', $request->input('ref_one'))->first();
+        $refTwo = References::where('id', $request->input('ref_two'))->first();
         $settings = Settings::where('company_id', '=', Auth::user()->company_id)->where('references_id','=', 0)->first();
         $custom = Fields::where('settings_id', $settings->id)->where('application_id', '=', $request->segment(4))->get();
 
-//        $pdf = PDF::loadView('pdf.application', compact('refs', 'ref', 'custom', 'settings'));
-//        return $pdf->download($pdfFilename);
+        $pdf = PDF::loadView('pdf.application', compact('refOne', 'refTwo', 'ref', 'custom', 'settings'));
+        return $pdf->download($pdfFilename);
     }
 
     /**

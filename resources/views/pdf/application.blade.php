@@ -286,41 +286,41 @@
 <br />
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-    @foreach($refs as $item)
+
     <tr>
         <td align="left">
             <h3>Reference Details</h3>
-            Name: @if(! empty($item->referee_name)) <strong>{!! $item->referee_name !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
-            Company Name: @if(! empty($item->referee_company )) <strong>{!! $item->referee_company !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
-            Email Address: @if(! empty($item->referee_email )) <strong>{!! $item->referee_email !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
-            Start Date: @if(! empty($item->referee_start_date )) <strong>{!! $item->referee_start_date !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
-            End Date: @if(! empty($item->referee_end_date )) <strong>{!! $item->referee_end_date !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
+            Name: @if(! empty($refOne->referee_name)) <strong>{!! $refOne->referee_name !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
+            Company Name: @if(! empty($refOne->referee_company )) <strong>{!! $refOne->referee_company !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
+            Email Address: @if(! empty($refOne->referee_email )) <strong>{!! $refOne->referee_email !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
+            Start Date: @if(! empty($refOne->referee_start_date )) <strong>{!! $refOne->referee_start_date !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
+            End Date: @if(! empty($refOne->referee_end_date )) <strong>{!! $refOne->referee_end_date !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
 
         </td>
         <td>
             <h4>First Referee</h4>
-            Relationship: @if(! empty( $item->referee_relationship)) <strong>{!! $item->referee_relationship!!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
-            Is this your previous /current employer?: @if(! empty($item->referee_current_employer)) <strong>{!! $item->referee_current_employer !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
-            Can we contact this reference?: @if(! empty($item->referee_contact)) <strong>{!! $item->referee_contact !!}</strong> @else <span class="no-answer">No answer given</span> @endif
+            Relationship: @if(! empty( $refOne->referee_relationship)) <strong>{!! $refOne->referee_relationship!!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
+            Is this your previous /current employer?: @if(! empty($refOne->referee_current_employer)) <strong>{!! $refOne->referee_current_employer !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
+            Can we contact this reference?: @if(! empty($refOne->referee_contact)) <strong>{!! $refOne->referee_contact !!}</strong> @else <span class="no-answer">No answer given</span> @endif
         </td>
     </tr>
     <tr>
         <td align="left"><br /><br /><br/><br/><br/>
-            Name: @if(! empty($item->referee_name)) <strong>{!! $item->referee_name !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
-            Company Name: @if(! empty($item->referee_company)) <strong>{!! $item->referee_company !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
-            Email Address: @if(! empty($item->referee_email )) <strong>{!! $item->referee_email !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
-            Start Date: @if(! empty($item->referee_start_date )) <strong>{!! $item->referee_start_date !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
-            Start Date: @if(! empty($item->referee_end_date )) <strong>{!! $item->referee_end_date !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
+            Name: @if(! empty($refTwo->referee_name)) <strong>{!! $refTwo->referee_name !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
+            Company Name: @if(! empty($refTwo->referee_company)) <strong>{!! $refTwo->referee_company !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
+            Email Address: @if(! empty($refTwo->referee_email )) <strong>{!! $refTwo->referee_email !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
+            Start Date: @if(! empty($refTwo->referee_start_date )) <strong>{!! $refTwo->referee_start_date !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
+            Start Date: @if(! empty($refTwo->referee_end_date )) <strong>{!! $refTwo->referee_end_date !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
 
         </td>
         <td><br />
             <h4>Second Referee</h4>
-            Relationship: @if(! empty( $item->referee_relationship)) <strong>{!! $item->referee_relationship !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
-            Is this your previous /current employer?: @if(! empty($item->referee_current_employer)) <strong>{!! $item->referee_current_employer !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
-            Can we contact this reference?: @if(! empty($item->referee_contact)) <strong>{!! $item->referee_contact!!}</strong> @else <span class="no-answer">No answer given</span> @endif
+            Relationship: @if(! empty( $refTwo->referee_relationship)) <strong>{!! $refTwo->referee_relationship !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
+            Is this your previous /current employer?: @if(! empty($refTwo->referee_current_employer)) <strong>{!! $refTwo->referee_current_employer !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
+            Can we contact this reference?: @if(! empty($refTwo->referee_contact)) <strong>{!! $refTwo->referee_contact!!}</strong> @else <span class="no-answer">No answer given</span> @endif
         </td>
     </tr>
-    @endforeach
+
 </table>
 <br />
 <hr />
