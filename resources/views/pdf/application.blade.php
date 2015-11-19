@@ -287,7 +287,6 @@
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     @foreach($refs as $item)
-        {!! dd($ref['referee_name']) !!}
     <tr>
         <td align="left">
             <h3>Reference Details</h3>
