@@ -20,7 +20,7 @@
             <th></th>
         </tr>
     </thead>
-    {!! dd($applications) !!}
+    
     <tbody>
     @foreach($applications as $item)
 
