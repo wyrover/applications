@@ -137,7 +137,7 @@ class ReferenceRequestListener implements ShouldQueue
         $referee->referee_name = $event->user['name'];
         $referee->referee_company = $event->user['company_name'];
         $referee->referee_email = $event->user['email'];
-        $referee->referee_relationship = $event->user['relationship'];
+        //$referee->referee_relationship = $event->user['relationship'];
         $referee->referee_current_employer = $event->user['employer'];
         $referee->referee_contact = $event->user['contact'];
         $referee->completed = 'No';

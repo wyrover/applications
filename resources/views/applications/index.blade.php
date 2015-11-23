@@ -9,6 +9,7 @@
 @if(count($applications))
 
 <table class="table table-striped table-bordered">
+
     <thead>
         <tr>
             <th>Date Submitted</th>
@@ -20,7 +21,6 @@
             <th></th>
         </tr>
     </thead>
-    
     <tbody>
     @foreach($applications as $item)
 
@@ -34,7 +34,6 @@
                     <input type="hidden" name="ref_two" value="{!! $item->reference_two_id !!}">
                     <button type="submit" class="btn btn-sm btn-default"  data-toggle="tooltip" data-placement="top" title="Download Application"><i class="fa fa-download"></i> Download</button>
                 {!! Form::close() !!}
-                {{--<a href="/applications/export/application/{!! $item->id !!}" class="btn btn-sm btn-default"  data-toggle="tooltip" data-placement="top" title="Download Application"><i class="fa fa-download"></i> Download</a>--}}
             </td>
             <td>
                 {{--@foreach ($refs as $ref)--}}
