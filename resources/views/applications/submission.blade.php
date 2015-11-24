@@ -38,6 +38,7 @@
             <input type="hidden" name="company_name_for_submission" value="{!! $company->name !!}">
             <input type="hidden" name="code" value="{!! str_random(40) !!}">
             <input type="hidden" name="settings_id" value="{!! $field->id !!}">
+            <input type="hidden" name="app_only" value="1">
 
             <div class="panel panel-default">
                 <div class="panel-heading">Personal Details</div>
