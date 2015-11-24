@@ -53,6 +53,7 @@ class ApplicationSubmissionController extends Controller
                        'criminal_convictions', 'convictions_comments', 'next_of_kin_name', 'next_of_kin_address', 'next_of_kin_telephone', 'next_of_kin_mobile', 'next_of_kin_relationship', 'created_at', 'updated_at',
                        'accept_data_protection', 'app_only', 'employment_gaps', 'company_id', 'employer_name3', 'job_title3', 'employer_start_date3', 'employer_end_date3', 'employer_responsibilities3', 'signed_by','code'
         ]));
+        dd($application);
         $application->contactable = json_encode($request->input('contactable'));
         // Create New Reference
         $ref = new References;
