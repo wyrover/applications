@@ -40,18 +40,15 @@
                 {{--// $item->reference()->first()->id is row id --}}
 
 
-                    @foreach($item->reference as $referee)
-                        @if ($referee->completed == 'Yes')
+                @foreach($item->reference as $referee)
+                    @if ($referee->completed == 'Yes')
                         <a href="/applications/export/exportReferee/{!! $referee->id !!}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>
-                        @else
-                        <button class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Awaiting response from referee"><i class="fa fa-clock-o"></i></button>
-                        @endif
-                        @if ($referee->completedtwo == 'Yes')
+                    @elseif ($referee->completedtwo == 'Yes')
                         <a href="/applications/export/exportRefereeTwo/{!! $referee->id !!}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>
-                        @else
+                    @else
                         <button class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Awaiting response from referee"><i class="fa fa-clock-o"></i></button>
-                        @endif
-                    @endforeach
+                    @endif
+                @endforeach
             </td>
             <td>
                 <a href="/applications/{!! $item->id !!}/notes" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Notes"><i class="fa fa-edit"></i> Notes</a>
