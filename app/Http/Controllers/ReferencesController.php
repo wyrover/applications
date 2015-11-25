@@ -69,7 +69,17 @@ class ReferencesController extends Controller
 
         if (! empty($request->input('emailtwo') && $request->input('contact2') == 'Yes')) {
 
-            $refereetwo = $this->createNewReferenceTwo($request);
+            $refereetwo = new References;
+            $refereetwo->company_id = Auth::user()->company_id;
+            $refereetwo->first_name = $request->input('first_name');
+            $refereetwo->last_name = $request->input('surname');
+            $refereetwo->code = str_random(40);
+            $refereetwo->referee_name = $request->input('name2');
+            $refereetwo->referee_company = $request->input('company_name2');
+            $refereetwo->referee_email = $request->input('emailtwo');
+            $refereetwo->referee_contact = $request->input('contact2');
+            $refereetwo->completedtwo = 'No';
+            $refereetwo->save();
 
             $data = array(
                 'emailtwo' => $request->input('emailtwo'),
