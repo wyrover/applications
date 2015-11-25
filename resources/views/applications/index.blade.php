@@ -36,22 +36,6 @@
                 {!! Form::close() !!}
             </td>
             <td>
-                {{--@foreach ($refs as $ref)--}}
-
-                    {{--@if ($ref->completed == 'Yes' && $ref->completedtwo == 'No')--}}
-
-                        {{--<a href="/applications/export/exportReferee/{!! $ref->id !!}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>--}}
-
-                    {{--@elseif ($ref->completedtwo == 'Yes' && $ref->completed == 'No')--}}
-
-                        {{--<a href="/applications/export/exportRefereeTwo/{!! $ref->id !!}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>--}}
-
-                    {{--@else--}}
-
-                        {{--<button class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Awaiting response from referee"><i class="fa fa-clock-o"></i></button>--}}
-
-
-                    {{--@endif--}}
                 {{--// item->id is applications_id--}}
                 {{--// $item->reference()->first()->id is row id --}}
 
@@ -62,14 +46,12 @@
                         @else
                         <button class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Awaiting response from referee"><i class="fa fa-clock-o"></i></button>
                         @endif
-                        @if ($referee->completed == 'Yes')
+                        @if ($referee->completedtwo == 'Yes')
                         <a href="/applications/export/exportRefereeTwo/{!! $referee->id !!}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>
                         @else
                         <button class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Awaiting response from referee"><i class="fa fa-clock-o"></i></button>
                         @endif
                     @endforeach
-
-                {{--@endforeach--}}
             </td>
             <td>
                 <a href="/applications/{!! $item->id !!}/notes" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Notes"><i class="fa fa-edit"></i> Notes</a>
