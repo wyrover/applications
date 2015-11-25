@@ -38,7 +38,14 @@ class ReferencesController extends Controller
     public function store(Request $request)
     {
         $user = $request->all();
-        event(new ReferenceRequestEmail($user));
+        $referee = new References;
+        $referee->company_id = Auth::user()->company_id;
+        $referee->code = str_random(40);
+        $referee->first_name = $user->first_name;
+        $referee->last_name = $user->surname;
+        $referee->referee_name = $user->name;
+        $referee->referee_company = $user->company_name;
+        $referee->referee_email = $user->email;
         flash()->success('Success','Reference request has been sent');
         return redirect('/references');
     }
