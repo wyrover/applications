@@ -33,13 +33,13 @@ class Applications extends Model
         return $this->hasMany('App\References', 'applications_id', 'id');
     }
 
-    public function scopeRefereeOne($query, $appId)
+    public function scopeRefereeOne($query, $appId, $id)
     {
-        return $query->where('applications_id', $appId)->first();
+        return $query->where('applications_id', $appId)->where('id', $id)->first();
     }
 
-    public function scopeRefereeTwo($query, $appId)
+    public function scopeRefereeTwo($query, $appId, $id)
     {
-        return $query->where('application_id', $appId);
+        return $query->where('application_id', $appId)->where('id', $id)->first();
     }
 }
