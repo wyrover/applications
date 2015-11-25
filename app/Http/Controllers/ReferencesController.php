@@ -68,7 +68,9 @@ class ReferencesController extends Controller
         }
 
         if (! empty($request->input('emailtwo') && $request->input('contact2') == 'Yes')) {
+
             $refereetwo = $this->createNewReferenceTwo($request);
+
             $data = array(
                 'emailtwo' => $request->input('emailtwo'),
                 'name' => $request->input('name2'),
@@ -159,7 +161,7 @@ class ReferencesController extends Controller
         return $pdf->download($pdfFilename);
     }
 
-    private function createNewReferenceTwo($request)
+    public function createNewReferenceTwo($request)
     {
         $refereetwo = new References;
         $refereetwo->company_id = Auth::user()->company_id;
