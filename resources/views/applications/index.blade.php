@@ -55,7 +55,7 @@
                 {{--// item->id is applications_id--}}
                 {{--// $item->reference()->first()->id is row id --}}
 
-                    {!! dd($item->reference) !!}
+                    
                     @foreach($item->reference as $referee)
                         @if ($referee->completed == 'Yes')
                         <a href="/applications/export/exportReferee/{!! $referee->id !!}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>
