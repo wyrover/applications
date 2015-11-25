@@ -41,21 +41,21 @@ class ReferencesController extends Controller
         $referee = new References;
         $referee->company_id = Auth::user()->company_id;
         $referee->code = str_random(40);
-        $referee->first_name = $user->first_name;
-        $referee->last_name = $user->surname;
-        $referee->referee_name = $user->name;
-        $referee->referee_company = $user->company_name;
-        $referee->referee_email = $user->email;
+        $referee->first_name = $request->input('first_name');
+        $referee->last_name = $request->input('surname');
+        $referee->referee_name = $request->input('name');
+        $referee->referee_company = $request->input('company_name');
+        $referee->referee_email = $request->input('email');
 
         $companyId = Auth::user()->company_id;
         $cn = \App\Company::where('id', '=', $companyId)->first();
 
-        if (! empty($user->email) && $user->contact == 'Yes') {
+        if (! empty($request->input('email') && $request->input('contact') == 'Yes')) {
 
             $data = array(
-                'email' => $user->email,
-                'name' => $user->name,
-                'worker' => $user->first_name . ' ' . $user->surname,
+                'email' => $request->input('email'),
+                'name' => $request->input('name'),
+                'worker' => $request->input('first_name') . ' ' . $request->input('surname'),
                 'company' => $cn->name,
                 'code' => $referee->code
             );
@@ -67,12 +67,12 @@ class ReferencesController extends Controller
             });
         }
 
-        if (! empty($user->emailtwo) && $user->contact2 == 'Yes') {
+        if (! empty($request->input('emailtwo') && $request->input('contact2') == 'Yes')) {
             $refereetwo = $this->createNewReferenceTwo($user);
             $data = array(
-                'emailtwo' => $user->emailtwo,
-                'name' => $user->name2,
-                'worker' => $user->first_name . ' ' . $user->surname,
+                'emailtwo' => $request->input('emailtwo'),
+                'name' => $request->input('name2'),
+                'worker' => $request->input('first_name') . ' ' . $request->input('surname'),
                 'company' => $cn->name,
                 'code' => $refereetwo->code
             );
