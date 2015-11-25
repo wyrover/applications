@@ -52,7 +52,7 @@
 
 
                     {{--@endif--}}
-                    {!! dd($item->RefereeOne($item->reference()->first()->id), $item->id)->first() !!}
+                    {!! dd($item->id) !!}
                     {{--@if ($item->RefereeOne())--}}
                     {{--<a href="/applications/export/exportReferee/{!! $item->reference()->first()->id !!}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>--}}
                     {{--@else--}}
