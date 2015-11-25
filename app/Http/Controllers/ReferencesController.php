@@ -46,6 +46,8 @@ class ReferencesController extends Controller
         $referee->referee_name = $request->input('name');
         $referee->referee_company = $request->input('company_name');
         $referee->referee_email = $request->input('email');
+        $referee->reference_only = '1';
+        $referee->save();
 
         $companyId = Auth::user()->company_id;
         $cn = \App\Company::where('id', '=', $companyId)->first();
@@ -79,6 +81,7 @@ class ReferencesController extends Controller
             $refereetwo->referee_email = $request->input('emailtwo');
             $refereetwo->referee_contact = $request->input('contact2');
             $refereetwo->completedtwo = 'No';
+            $refereetwo->reference_only = '1';
             $refereetwo->save();
 
             $data = array(
