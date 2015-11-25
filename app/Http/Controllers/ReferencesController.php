@@ -46,6 +46,43 @@ class ReferencesController extends Controller
         $referee->referee_name = $user->name;
         $referee->referee_company = $user->company_name;
         $referee->referee_email = $user->email;
+
+        $companyId = Auth::user()->company_id;
+        $cn = \App\Company::where('id', '=', $companyId)->first();
+
+        if (! empty($user->email) && $user->contact == 'Yes') {
+
+            $data = array(
+                'email' => $user->email,
+                'name' => $user->name,
+                'worker' => $user->first_name . ' ' . $user->surname,
+                'company' => $cn->name,
+                'code' => $referee->code
+            );
+            // Send the email
+            Mail::send('emails/references/request', $data, function ($message) use ($data) {
+                $message->to($data['email'])
+                    ->from('noreply@madesimpleltd.co.uk')
+                    ->subject('You have been selected to provide a reference');
+            });
+        }
+
+        if (! empty($user->emailtwo) && $user->contact2 == 'Yes') {
+            $refereetwo = $this->createNewReferenceTwo($user);
+            $data = array(
+                'emailtwo' => $user->emailtwo,
+                'name' => $user->name2,
+                'worker' => $user->first_name . ' ' . $user->surname,
+                'company' => $cn->name,
+                'code' => $refereetwo->code
+            );
+            // Send the email
+            Mail::send('emails/references/request2', $data, function ($message) use ($data) {
+                $message->to($data['emailtwo'])
+                    ->from('noreply@madesimpleltd.co.uk')
+                    ->subject('You have been selected to provide a reference');
+            });
+        }
         flash()->success('Success','Reference request has been sent');
         return redirect('/references');
     }
@@ -120,6 +157,21 @@ class ReferencesController extends Controller
 
         $pdfFilename = urlencode(strtolower($name . '-' . date('d-m-Y') . '.pdf'));
         return $pdf->download($pdfFilename);
+    }
+
+    private function createNewReferenceTwo($user)
+    {
+        $refereetwo = new References;
+        $refereetwo->company_id = Auth::user()->company_id;
+        $refereetwo->first_name =$user->first_name;
+        $refereetwo->last_name =$user->surname;
+        $refereetwo->code = str_random(40);
+        $refereetwo->referee_name =$user->name2;
+        $refereetwo->referee_company =$user->company_name2;
+        $refereetwo->referee_email =$user->emailtwo;
+        $refereetwo->referee_contact =$user->contact2;
+        $refereetwo->completedtwo = 'No';
+        $refereetwo->save();
     }
 
 
