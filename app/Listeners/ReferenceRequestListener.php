@@ -136,7 +136,9 @@ class ReferenceRequestListener implements ShouldQueue
         $referee->referee_name = $event->user['name'];
         $referee->referee_company = $event->user['company_name'];
         $referee->referee_email = $event->user['email'];
-        $referee->referee_current_employer = $event->user['employer'];
+        if (\Request::url() != url() . 'references/new') {
+            $referee->referee_current_employer = $event->user['employer'];
+        }
         $referee->referee_contact = $event->user['contact'];
         $referee->completed = 'No';
         $referee->app_only = 'true';
@@ -154,8 +156,10 @@ class ReferenceRequestListener implements ShouldQueue
         $refereetwo->referee_name = $event->user['name2'];
         $refereetwo->referee_company = $event->user['company_name2'];
         $refereetwo->referee_email = $event->user['emailtwo'];
-        $refereetwo->referee_relationship = $event->user['relationship2'];
-        $refereetwo->referee_current_employer = $event->user['employer2'];
+        if (\Request::url() != url() . 'references/new') {
+            $refereetwo->referee_relationship = $event->user['relationship2'];
+            $refereetwo->referee_current_employer = $event->user['employer2'];
+        }
         $refereetwo->referee_contact = $event->user['contact2'];
         $refereetwo->completedtwo = 'No';
         $refereetwo->app_only = 'true';
