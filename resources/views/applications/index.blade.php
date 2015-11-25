@@ -52,7 +52,7 @@
 
 
                     {{--@endif--}}
-                    {!! dd($item->reference()) !!}
+                    {!! dd($item->reference()->first()) !!}
                     @if ($item->reference()->first()->completed == 'Yes' && $item->reference()->first()->completedtwo == 'No')
                     <a href="/applications/export/exportReferee/{!! $item->id !!}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>
                     @else
