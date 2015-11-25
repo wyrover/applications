@@ -56,16 +56,18 @@
                 {{--// $item->reference()->first()->id is row id --}}
 
                     {!! dd($item->reference) !!}
-                    {{--@if ($item->RefereeOne())--}}
-                    {{--<a href="/applications/export/exportReferee/{!! $item->reference()->first()->id !!}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>--}}
-                    {{--@else--}}
-                    {{--<button class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Awaiting response from referee"><i class="fa fa-clock-o"></i></button>--}}
-                    {{--@endif--}}
-                    {{--@if ($item->reference()->first()->completed == 'Yes' && $item->reference()->first()->completed == 'No')--}}
-                    {{--<a href="/applications/export/exportRefereeTwo/{!! $item->id !!}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>--}}
-                    {{--@else--}}
-                    {{--<button class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Awaiting response from referee"><i class="fa fa-clock-o"></i></button>--}}
-                    {{--@endif--}}
+                    @foreach($item->reference as $referee)
+                        @if ($referee->completed == 'Yes')
+                        <a href="/applications/export/exportReferee/{!! $referee->id !!}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>
+                        @else
+                        <button class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Awaiting response from referee"><i class="fa fa-clock-o"></i></button>
+                        @endif
+                        {{--@if ($item->reference()->first()->completed == 'Yes' && $item->reference()->first()->completed == 'No')--}}
+                        {{--<a href="/applications/export/exportRefereeTwo/{!! $item->id !!}" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Download Reference"><i class="fa fa-download"></i> Download</a>--}}
+                        {{--@else--}}
+                        {{--<button class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="top" title="Awaiting response from referee"><i class="fa fa-clock-o"></i></button>--}}
+                        {{--@endif--}}
+                    @endforeach
 
                 {{--@endforeach--}}
             </td>
