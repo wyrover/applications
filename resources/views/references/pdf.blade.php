@@ -163,6 +163,6 @@
         </td>
     </tr>
 </table>
-<small>IP address logged: {!! Request::ip() !!}</small>
+<small>IP address logged: {!! $ref->ip_address !!}</small>
 </body>
 </html>
