@@ -164,5 +164,7 @@
         </tr>
 </table>
 
+<small>IP address logged: {!! Request::ip() !!}</small>
+
 </body>
 </html>
