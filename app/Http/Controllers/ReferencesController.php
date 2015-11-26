@@ -47,6 +47,7 @@ class ReferencesController extends Controller
         $referee->referee_company = $request->input('company_name');
         $referee->referee_email = $request->input('email');
         $referee->reference_only = '1';
+        $referee->ip_address = $request->ip();
         $referee->save();
 
         $companyId = Auth::user()->company_id;
@@ -82,6 +83,7 @@ class ReferencesController extends Controller
             $refereetwo->referee_contact = $request->input('contact2');
             $refereetwo->completedtwo = 'No';
             $refereetwo->reference_only = '1';
+            $refereetwo->ip_address = $request->ip();
             $refereetwo->save();
 
             $data = array(
