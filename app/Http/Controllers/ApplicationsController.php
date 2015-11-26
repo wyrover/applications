@@ -43,7 +43,6 @@ class ApplicationsController extends Controller
         $settings = Settings::where('company_id', '=', Auth::user()->company_id)->where('references_id','=', 0)->first();
         $custom = Fields::where('settings_id', $settings->id)->where('application_id', '=', $request->segment(4))->get();
 
-        dd($custom);
         $pdf = PDF::loadView('pdf.application', compact('refOne', 'refTwo', 'ref', 'custom', 'settings'));
         return $pdf->download($pdfFilename);
     }
