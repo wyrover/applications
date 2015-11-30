@@ -86,7 +86,7 @@ class ApplicationSubmissionController extends Controller
         $fields = Fields::create($request->only('label', 'label2', 'label3', 'label4', 'label5', 'label6', 'label7', 'label8', 'label9', 'label10','answer', 'answer2', 'answer3', 'answer4', 'answer5', 'answer6', 'answer7', 'answer8', 'answer9', 'answer10'));
         $fields->settings_id = $request->input('settings_id');
         $fields->update();
-        
+
         // Check if referee is contactable then
         $referee = $ref;
 

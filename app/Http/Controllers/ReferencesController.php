@@ -134,6 +134,7 @@ class ReferencesController extends Controller
         $company = Company::where('url', $output)->first();
         $referee =  References::where('code', $code)->first();
         $settings = Settings::where('company_id', $company->id)->where('references_id', '=', 1)->get();
+
         return view('references.submit', compact('referee', 'company','code','settings'));
     }
 
@@ -151,6 +152,9 @@ class ReferencesController extends Controller
 
 
         $fields = Fields::create($request->except('_token','reference_id','first_name', 'middle_name', 'surname','name','phone','position','email_address','applicant_started','date_left','reason_for_leaving','code'));
+        $fields->references_id = $ref->id;
+        $fields->update();
+        
         $ref->settings_id = $fields->id;
         $ref->update();
 
