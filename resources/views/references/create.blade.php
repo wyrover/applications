@@ -90,6 +90,14 @@
                 </select>
             </div>
         </div>
+
+        <div class="form-group">
+            <div class="col-sm-3">Would you re-employ</div>
+            <div class="col-lg-7">
+                <input type="text" name="re_employ" class="form-control" value="" autocomplete="off">
+            </div>
+        </div>
+
         <br />
         <hr />
 
@@ -145,6 +153,13 @@
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                 </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-3">Would you re-employ</div>
+            <div class="col-lg-7">
+                <input type="text" name="re_employ2" class="form-control" value="" autocomplete="off">
             </div>
         </div>
 
