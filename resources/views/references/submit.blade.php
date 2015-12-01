@@ -123,12 +123,12 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-sm-4">Would you re-employ?</div>
-                            <div class="col-lg-7">
-                                <textarea name="re-employ" class="form-control" rows="2"></textarea>
-                            </div>
-                        </div>
+                        {{--<div class="form-group">--}}
+                            {{--<div class="col-sm-4">Would you re-employ?</div>--}}
+                            {{--<div class="col-lg-7">--}}
+                                {{--<textarea name="re-employ" class="form-control" rows="2"></textarea>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
 
                     </div>
                     <hr />

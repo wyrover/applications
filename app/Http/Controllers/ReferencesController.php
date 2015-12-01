@@ -38,23 +38,23 @@ class ReferencesController extends Controller
     public function store(Request $request)
     {
         $user = $request->all();
-        $referee = new References;
-        $referee->company_id = Auth::user()->company_id;
-        $referee->code = str_random(40);
-        $referee->first_name = $request->input('first_name');
-        $referee->last_name = $request->input('surname');
-        $referee->referee_name = $request->input('name');
-        $referee->referee_company = $request->input('company_name');
-        $referee->referee_email = $request->input('email');
-        $referee->reference_only = '1';
-        $referee->re_employ = $request->input('re_employ');
-        $referee->ip_address = $request->ip();
-        $referee->save();
 
         $companyId = Auth::user()->company_id;
         $cn = \App\Company::where('id', '=', $companyId)->first();
 
         if (! empty($request->input('email') && $request->input('contact') == 'Yes')) {
+            $referee = new References;
+            $referee->company_id = Auth::user()->company_id;
+            $referee->code = str_random(40);
+            $referee->first_name = $request->input('first_name');
+            $referee->last_name = $request->input('surname');
+            $referee->referee_name = $request->input('name');
+            $referee->referee_company = $request->input('company_name');
+            $referee->referee_email = $request->input('email');
+            $referee->reference_only = '1';
+            $referee->re_employ = $request->input('re_employ');
+            $referee->ip_address = $request->ip();
+            $referee->save();
 
             $data = array(
                 'email' => $request->input('email'),
@@ -150,7 +150,7 @@ class ReferencesController extends Controller
         $ref->position = $request->input('position');
         $ref->leaving = $request->input('reason_for_leaving');
         $ref->completed = 'Yes';
-        $ref->re_employ = $request->input('re_employ');
+//        $ref->re_employ = $request->input('re_employ');
         $ref->update();
 
 
