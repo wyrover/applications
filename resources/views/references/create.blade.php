@@ -40,28 +40,28 @@
 
     <div class="col-md-6">
         <label>First Referee</label>
-        
+
         <div class="form-group">
             <div class="col-sm-3">Name</div>
             <div class="col-lg-7">
                 <input type="text" name="name" class="form-control" value="" autocomplete="off">
             </div>
         </div>
-        
+
         <div class="form-group">
             <div class="col-sm-3">Company Name</div>
             <div class="col-lg-7">
                 <input type="text" name="company_name" class="form-control" value="" autocomplete="off">
             </div>
         </div>
-        
+
         <div class="form-group">
             <div class="col-sm-3">Email</div>
             <div class="col-lg-7">
                 <input type="text" name="email" class="form-control" value="" autocomplete="off">
             </div>
         </div>
-        
+
         {{--<div class="form-group">--}}
             {{--<div class="col-sm-3">Relationship</div>--}}
             {{--<div class="col-lg-7">--}}
@@ -91,12 +91,7 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-sm-3">Would you re-employ</div>
-            <div class="col-lg-7">
-                <input type="text" name="re_employ" class="form-control" value="" autocomplete="off">
-            </div>
-        </div>
+
 
         <br />
         <hr />
@@ -156,12 +151,7 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-sm-3">Would you re-employ</div>
-            <div class="col-lg-7">
-                <input type="text" name="re_employ2" class="form-control" value="" autocomplete="off">
-            </div>
-        </div>
+
 
     </div>
 
