@@ -18,6 +18,8 @@
 </head>
 <body>
 
+
+
 <div class="nav-side-menu">
     <div class="brand">
         @if (! empty($company))
