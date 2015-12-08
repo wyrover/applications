@@ -154,7 +154,7 @@ class ReferencesController extends Controller
         $ref->update();
 
 
-        $fields = Fields::create($request->except('_token','reference_id','first_name', 'middle_name', 'surname','name','phone','position','email_address','applicant_started','date_left','reason_for_leaving','code'));
+        $fields = Fields::create($request->except('_token','re_employ','reference_id','first_name', 'middle_name', 'surname','name','phone','position','email_address','applicant_started','date_left','reason_for_leaving','code'));
         $fields->references_id = $ref->id;
         $fields->update();
 
