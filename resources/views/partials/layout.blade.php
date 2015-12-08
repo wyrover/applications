@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="/css/custom.css">
 
     <!-- Fonts -->
-    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600S' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600S' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
