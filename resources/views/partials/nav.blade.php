@@ -1,7 +1,7 @@
 <div class="nav-side-menu">
     <div class="brand">
         @if (! empty(Auth::user()->company->logo))
-            <img src="uploads/{!! Auth::user()->company->logo !!}" width="100">
+            <img src="/uploads/{!! Auth::user()->company->logo !!}" width="100">
         @endif
     </div>
 
