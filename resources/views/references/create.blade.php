@@ -92,7 +92,6 @@
         </div>
 
 
-
         <br />
         <hr />
 
@@ -122,7 +121,7 @@
             </div>
         </div>
 
-        {{--<div class="form-group">--}}
+        {{--<div class="form-group">
             {{--<div class="col-sm-3">Relationship</div>--}}
             {{--<div class="col-lg-7">--}}
                 {{--<input type="text" name="relationship2" class="form-control" value="" autocomplete="off">--}}

@@ -150,7 +150,7 @@ class ReferencesController extends Controller
         $ref->position = $request->input('position');
         $ref->leaving = $request->input('reason_for_leaving');
         $ref->completed = 'Yes';
-//        $ref->re_employ = $request->input('re_employ');
+        $ref->re_employ = $request->input('re_employ');
         $ref->update();
 
 
