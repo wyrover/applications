@@ -208,11 +208,11 @@ class ApplicationSubmissionController extends Controller
         $ref->referee_email = $request->input('email_address');
         $ref->position = $request->input('position');
         $ref->leaving = $request->input('reason_for_leaving');
+        $ref->re_employ = $request->input('re_employ');
         $ref->completed = 'Yes';
         $ref->update();
 
-        $fields = Fields::create($request->except('_token','referee_id','first_name', 'middle_name', 'surname','name','phone','position','email_address','applicant_started','date_left','reason_for_leaving','code'));
-        //$settings = Settings::create($request->only('label', 'label2', 'label3', 'label4', 'label5', 'label6', 'label7', 'label8', 'label9', 'label10', 'company_id'));
+        $fields = Fields::create($request->except('_token','referee_id','first_name', 'middle_name', 'surname','name','phone','position','email_address','applicant_started','date_left','reason_for_leaving','code', 're_employ'));
         $settings = Settings::where('id', $ref->settings_id)->first();
 
         $settings->fields_id = $fields->id;
@@ -227,19 +227,17 @@ class ApplicationSubmissionController extends Controller
         $fields->references_id = $ref->id;
         $fields->update();
 
-        if (App::environment('production')) {
-            $segment = \Request::url();
-            $search = ['http://', 'https://', '.madesimpleltd', '.co.uk/', \Request::segment(1) .'/', \Request::segment(2).'/', \Request::segment(3)];
-            $replace = ['', '', '', '', '', '', ''];
-            $output = str_replace($search, $replace, $segment);
-            $company = Company::where('url', $output)->first();
+        $segment = \Request::url();
+        $search = ['http://', 'https://', '.madesimpleltd', '.co.uk/', \Request::segment(1) .'/', \Request::segment(2).'/', \Request::segment(3)];
+        $replace = ['', '', '', '', '', '', ''];
+        $output = str_replace($search, $replace, $segment);
+        $company = Company::where('url', $output)->first();
 
-            $ref->settings_id = $settings->id;
-            $ref->company_id = $company->id;
-            $ref->applications_id = $apps->id;
-            $ref->update();
+        $ref->settings_id = $settings->id;
+        $ref->company_id = $company->id;
+        $ref->applications_id = $apps->id;
+        $ref->update();
 
-        }
 
         flash()->success('Success', 'Thank you for submission');
         return redirect('/');
@@ -266,9 +264,10 @@ class ApplicationSubmissionController extends Controller
         $ref->position = $request->input('position');
         $ref->leaving = $request->input('reason_for_leaving');
         $ref->completedtwo = 'Yes';
+        $ref->re_employ = $request->input('re_employ');
         $ref->update();
 
-        $fields = Fields::create($request->except('_token','referee_id','first_name', 'middle_name', 'surname','name','phone','position','email_address','applicant_started','date_left','reason_for_leaving','code'));
+        $fields = Fields::create($request->except('_token','re_employ','referee_id','first_name', 'middle_name', 'surname','name','phone','position','email_address','applicant_started','date_left','reason_for_leaving','code'));
         //$settings = Settings::create($request->only('label', 'label2', 'label3', 'label4', 'label5', 'label6', 'label7', 'label8', 'label9', 'label10', 'company_id'));
         $settings = Settings::where('id', $ref->settings_id)->first();
 
@@ -283,19 +282,16 @@ class ApplicationSubmissionController extends Controller
         $fields->references_id = $ref->id;
         $fields->update();
 
-        if (App::environment('production')) {
-            $segment = \Request::url();
-            $search = ['http://', 'https://', '.madesimpleltd', '.co.uk/', \Request::segment(1) .'/', \Request::segment(2).'/', \Request::segment(3)];
-            $replace = ['', '', '', '', '', '', ''];
-            $output = str_replace($search, $replace, $segment);
-            $company = Company::where('url', $output)->first();
+        $segment = \Request::url();
+        $search = ['http://', 'https://', '.madesimpleltd', '.co.uk/', \Request::segment(1) .'/', \Request::segment(2).'/', \Request::segment(3)];
+        $replace = ['', '', '', '', '', '', ''];
+        $output = str_replace($search, $replace, $segment);
+        $company = Company::where('url', $output)->first();
 
-            $ref->settings_id = $settings->id;
-            $ref->company_id = $company->id;
-            $ref->applications_id = $apps->id;
-            $ref->update();
-
-        }
+        $ref->settings_id = $settings->id;
+        $ref->company_id = $company->id;
+        $ref->applications_id = $apps->id;
+        $ref->update();
 
         flash()->success('Success', 'Thank you for submission');
         return redirect('/');
