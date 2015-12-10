@@ -94,22 +94,17 @@
 <br />
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr>
+        <td><h3>Applicant Details</h3></td>
+    </tr>
+    <tr>
         <td align="left">
-            <h3>Personal Details</h3>
-            First Name: <strong>{!! $ref->application->first_name !!}</strong><br />
-            @if (! empty($ref->application->middle_name)) Middle Names: <strong>{!! $ref->application->middle_name !!}</strong> <br />@endif
-            Surname: <strong>{!! $ref->application->surname !!}</strong><br />
-            Address Line 1: <strong>{!! $ref->application->address_line1 !!}</strong><br />
-            Address Line 2: <strong>{!! $ref->application->address_line2 !!}</strong><br />
-            City: <strong>{!! $ref->application->city !!}</strong><br />
-            Postcode: <strong>{!! $ref->application->postcode !!}</strong><br />
-
+            First Name: <strong>{!! $profile->first_name !!}</strong>
         </td>
         <td>
-            Telephone: <strong>{!! $ref->application->telephone !!}</strong><br />
-            Mobile: <strong>{!! $ref->application->mobile !!}</strong><br />
-            Email: <strong>{!! $ref->application->email !!}</strong><br />
-            National Insurance Number: <strong>{!! $ref->application->ni_number !!}</strong><br />
+            @if (! empty($profile->middle_name)) Middle Names: <strong>{!! $profile->middle_name !!}</strong>@endif
+        </td>
+        <td>
+            Surname: <strong>{!! $profile->surname !!}</strong>
         </td>
     </tr>
 </table>
@@ -120,18 +115,19 @@
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr>
+        <td> <h3>Reference Details</h3></td>
+    </tr>
+    <tr>
         <td align="left">
-            <h3>Reference Details</h3>
             Name: @if(! empty($ref->referee_name)) <strong>{!! $ref->referee_name !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
-            Company Name: @if(! empty($ref->referee_company)) <strong>{!! $ref->referee_company !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
+            Company Name: @if(! empty($ref->referee_company )) <strong>{!! $ref->referee_company !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
             Email Address: @if(! empty($ref->referee_email )) <strong>{!! $ref->referee_email !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
 
         </td>
         <td>
-            <h4>First Referee</h4>
-            Relationship: @if(! empty( $ref->referee_relationship)) <strong>{!! $ref->referee_relationship !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
+            Relationship: @if(! empty( $ref->referee_relationship)) <strong>{!! $ref->referee_relationship!!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
             Is this your previous /current employer?: @if(! empty($ref->referee_current_employer)) <strong>{!! $ref->referee_current_employer !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
-            Can we contact this reference?: @if(! empty($ref->referee_contact)) <strong>{!! $ref->referee_contact!!}</strong> @else <span class="no-answer">No answer given</span> @endif
+            Can we contact this reference?: @if(! empty($ref->referee_contact)) <strong>{!! $ref->referee_contact !!}</strong> @else <span class="no-answer">No answer given</span> @endif
         </td>
     </tr>
 
@@ -167,6 +163,7 @@
         </td>
     </tr>
 </table>
+
 <small>IP address logged: {!! Request::ip() !!}</small>
 
 </body>
