@@ -52,7 +52,7 @@ class ReferencesController extends Controller
             $referee->referee_company = $request->input('company_name');
             $referee->referee_email = $request->input('email');
             $referee->reference_only = '1';
-            $referee->re_employ = $request->input('re_employ');
+            //$referee->re_employ = $request->input('re_employ');
             $referee->ip_address = $request->ip();
             $referee->save();
 
@@ -71,7 +71,7 @@ class ReferencesController extends Controller
             });
         }
 
-        if (! empty($request->input('emailtwo') && $request->input('contact2') == 'Yes')) {
+        if (! empty($request->input('email2') && $request->input('contact2') == 'Yes')) {
 
             $refereetwo = new References;
             $refereetwo->company_id = Auth::user()->company_id;
@@ -80,16 +80,16 @@ class ReferencesController extends Controller
             $refereetwo->code = str_random(40);
             $refereetwo->referee_name = $request->input('name2');
             $refereetwo->referee_company = $request->input('company_name2');
-            $refereetwo->referee_email = $request->input('emailtwo');
+            $refereetwo->referee_email = $request->input('email2');
             $refereetwo->referee_contact = $request->input('contact2');
             $refereetwo->completedtwo = 'No';
             $refereetwo->reference_only = '1';
-            $referee->re_employ2 = $request->input('re_employ2');
+            //$refereetwo->re_employ2 = $request->input('re_employ2');
             $refereetwo->ip_address = $request->ip();
             $refereetwo->save();
 
             $data = array(
-                'emailtwo' => $request->input('emailtwo'),
+                'emailtwo' => $request->input('email2'),
                 'name' => $request->input('name2'),
                 'worker' => $request->input('first_name') . ' ' . $request->input('surname'),
                 'company' => $cn->name,

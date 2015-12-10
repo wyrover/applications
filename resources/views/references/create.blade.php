@@ -117,7 +117,7 @@
         <div class="form-group">
             <div class="col-sm-3">Email</div>
             <div class="col-lg-7">
-                <input type="text" name="emailtwo" class="form-control" value="" autocomplete="off">
+                <input type="text" name="email2" class="form-control" value="" autocomplete="off">
             </div>
         </div>
 
