@@ -131,10 +131,7 @@
 
             @if(isset($ref->referee_contact2))
                 Can we contact this reference?: <strong>{!! $ref->referee_contact2 !!}</strong>
-            @else
-                <span class="no-answer">No answer given</span>
             @endif
-
 
         </td>
     </tr>
