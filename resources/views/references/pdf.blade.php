@@ -130,8 +130,6 @@
             {{--Can we contact this reference?: @if(! empty($ref->referee_contact)) <strong>{!! $ref->referee_contact !!}</strong> @else <span class="no-answer">No answer given</span> @endif--}}
             @if(isset($ref->referee_contact))
                 Can we contact this reference?: <strong>{!! $ref->referee_contact !!}</strong>
-            @else
-                <span class="no-answer">No answer given</span>
             @endif
 
             @if(isset($ref->referee_contact2))
