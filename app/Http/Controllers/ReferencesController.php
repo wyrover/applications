@@ -84,7 +84,6 @@ class ReferencesController extends Controller
             $refereetwo->referee_contact = $request->input('contact2');
             $refereetwo->completedtwo = 'No';
             $refereetwo->reference_only = '1';
-            //$refereetwo->re_employ2 = $request->input('re_employ2');
             $refereetwo->ip_address = $request->ip();
             $refereetwo->save();
 
@@ -102,6 +101,7 @@ class ReferencesController extends Controller
                     ->subject('You have been selected to provide a reference');
             });
         }
+
         flash()->success('Success','Reference request has been sent');
         return redirect('/references');
     }

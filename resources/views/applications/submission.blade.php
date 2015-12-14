@@ -519,6 +519,7 @@
                             <div class="col-sm-4">Is this your previous /current employer?</div>
                             <div class="col-lg-7">
                                 <select name="referee_current_employer" class="form-control">
+                                    <option selected>Please Select</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                 </select>
@@ -528,6 +529,7 @@
                             <div class="col-sm-4">Can we contact this reference?</div>
                             <div class="col-lg-7">
                                 <select name="referee_contact" class="form-control">
+                                    <option selected>Please Select</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                 </select>
