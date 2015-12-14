@@ -72,11 +72,6 @@ class ApplicationSubmissionController extends Controller
         $ref->settings_id = $request->input('settings_id');
         $ref->save();
 
-        $application->reference_id = $ref->id;
-        $application->company_id = $ref->company_id;
-        $application->code = $ref->code;
-        $application->app_only = 'true';
-        $application->update();
 
 //        $settings = new Settings;
 //        $settings->company_id = $ref->company_id;
@@ -133,11 +128,6 @@ class ApplicationSubmissionController extends Controller
             $reftwo->settings_id = $request->input('settings_id');
             $reftwo->save();
 
-            $application->reference_two_id = $reftwo->id;
-            $application->company_id = $request->input('company_id');
-            $application->code_two = $reftwo->code;
-            $application->update();
-
             $data = array(
                 'worker'  => ucwords($application->first_name) .' '. ucwords($application->surname),
                 'company' => $ref->company->name,
@@ -155,6 +145,17 @@ class ApplicationSubmissionController extends Controller
         }
         $fields->application_id = $application->id;
         $fields->update();
+
+        $application->reference_id = $ref->id;
+        $application->company_id = $ref->company_id;
+        $application->code = $ref->code;
+        $application->app_only = 'true';
+
+        $application->reference_two_id = $reftwo->id;
+        $application->company_id = $request->input('company_id');
+        $application->code_two = $reftwo->code;
+        $application->update();
+
         flash()->success('Success', 'Thank you! Your submission has been successful and referees emailed.');
         return back();
     }

@@ -36,9 +36,6 @@
                 {!! Form::close() !!}
             </td>
             <td>
-                {{--// item->id is applications_id--}}
-                {{--// $item->reference()->first()->id is row id --}}
-
 
                 @foreach($item->reference as $referee)
                     @if ($referee->completed == 'Yes')
