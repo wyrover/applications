@@ -365,7 +365,7 @@
         <hr />
         I accept this statement: @if ($ref->application->accept_data_protection == 1) <strong>Yes</strong> @else <strong>No</strong> @endif<br /><br />
         Date: <strong>{!! date("d/m/y", strtotime($ref->application->created_at)) !!}</strong><br /><br />
-        Digital Signature: <strong style="border-bottom: 1px solid #a1a1a1;">{!! $ref->application->first_name !!}&nbsp;{!! $ref->application->surname !!}</strong>
+        Digital Signature: <strong style="border-bottom: 1px solid #a1a1a1;">{!! $ref->application->signed_by !!}</strong>
     </td>
 </tr>
 </table>
