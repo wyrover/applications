@@ -257,30 +257,30 @@ class ApplicationSubmissionController extends Controller
     public function refereeSubmittedTwo(Request $request)
     {
         $code = $request->segment(2);
-        $ref = References::where('id', $request->input('referee_id'))->first();
-        $ref->referee_name = $request->input('name');
-        $ref->referee_start_date = $request->input('applicant_started');
-        $ref->referee_end_date = $request->input('date_left');
-        $ref->referee_email = $request->input('email_address');
-        $ref->position = $request->input('position');
-        $ref->leaving = $request->input('reason_for_leaving');
-        $ref->completedtwo = 'Yes';
-        $ref->re_employ = $request->input('re_employ');
-        $ref->update();
+        $refTwo = References::where('id', $request->input('referee_id'))->first();
+        $refTwo->referee_name = $request->input('name');
+        $refTwo->referee_start_date = $request->input('applicant_started');
+        $refTwo->referee_end_date = $request->input('date_left');
+        $refTwo->referee_email = $request->input('email_address');
+        $refTwo->position = $request->input('position');
+        $refTwo->leaving = $request->input('reason_for_leaving');
+        $refTwo->completedtwo = 'Yes';
+        $refTwo->re_employ = $request->input('re_employ');
+        $refTwo->update();
 
         $fields = Fields::create($request->except('_token','re_employ','referee_id','first_name', 'middle_name', 'surname','name','phone','position','email_address','applicant_started','date_left','reason_for_leaving','code'));
         //$settings = Settings::create($request->only('label', 'label2', 'label3', 'label4', 'label5', 'label6', 'label7', 'label8', 'label9', 'label10', 'company_id'));
-        $settings = Settings::where('id', $ref->settings_id)->first();
+        $settings = Settings::where('id', $refTwo->settings_id)->first();
 
         $settings->fields_id = $fields->id;
         $settings->update();
 
         $apps = Applications::where('code', $code)->first();
-        $apps->reference_two_id = $ref->id;
+        $apps->reference_two_id = $refTwo->id;
         $apps->update();
 
         $fields->settings_id = $settings->id;
-        $fields->references_id = $ref->id;
+        $fields->references_id = $refTwo->id;
         $fields->update();
 
         $segment = \Request::url();
@@ -289,10 +289,10 @@ class ApplicationSubmissionController extends Controller
         $output = str_replace($search, $replace, $segment);
         $company = Company::where('url', $output)->first();
 
-        $ref->settings_id = $settings->id;
-        $ref->company_id = $company->id;
-        $ref->applications_id = $apps->id;
-        $ref->update();
+        $refTwo->settings_id = $settings->id;
+        $refTwo->company_id = $company->id;
+        $refTwo->applications_id = $apps->id;
+        $refTwo->update();
 
         flash()->success('Success', 'Thank you for submission');
         return redirect('/');
