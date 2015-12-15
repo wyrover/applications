@@ -85,7 +85,7 @@ class ApplicationSubmissionController extends Controller
         // Check if referee is contactable then
         $referee = $ref;
 
-        if (! empty($request->input('referee_email')) && $request->input('referee_contact') == 'Yes'){
+        if ($request->input('referee_contact') == 'Yes'){
             // Fire Event to send email to referee 1
             //event(new EmailRefereeOne($referee, $application));
             $data = array(
@@ -108,7 +108,7 @@ class ApplicationSubmissionController extends Controller
             $application->app_only = 'true';
             $application->update();
         }
-        if (! empty($request->input('referee_email2')) && $request->input('referee_contact2') == 'Yes'){
+        if ($request->input('referee_contact2') == 'Yes'){
 //            $applicationtwo = Applications::create($request->only(['first_name' , 'middle_name' , 'surname', 'address_line1', 'address_line2', 'city', 'postcode', 'telephone', 'visa_valid_to', 'mobile', 'email',
 //                'ni_number', 'driver', 'endorsements', 'vehicle_access', 'right_to_work', 'evidence_right_to_work', 'comments', 'education', 'employer_name', 'job_title', 'employer_start_date',
 //                'employer_end_date', 'employer_responsibilities', 'employer_name2', 'job_title2', 'employer_start_date2', 'employer_end_date2', 'employer_responsibilities2', 'health_info',
@@ -138,22 +138,20 @@ class ApplicationSubmissionController extends Controller
             $application->code_two = $reftwo->code;
             $application->update();
 
-            dd($reftwo->code);
-
-//            $data = array(
-//                'worker'  => ucwords($application->first_name) .' '. ucwords($application->surname),
-//                'company' => $ref->company->name,
-//                'email'   => $request->input('referee_email2'),
-//                'refereeName' => $reftwo->referee_name,
-//                'code'    => $reftwo->code
-//            );
-//            // Send the email
-//            Mail::send('emails/applications/submissiontwo', $data, function( $message ) use ($data)
-//            {
-//                $message->to($data['email'])
-//                    ->from(config('custom.noreplyemail'), 'Made Simple')
-//                    ->subject('Reference Request');
-//            });
+            $data = array(
+                'worker'  => ucwords($application->first_name) .' '. ucwords($application->surname),
+                'company' => $ref->company->name,
+                'email'   => $request->input('referee_email2'),
+                'refereeName' => $reftwo->referee_name,
+                'code'    => $reftwo->code
+            );
+            // Send the email
+            Mail::send('emails/applications/submissiontwo', $data, function( $message ) use ($data)
+            {
+                $message->to($data['email'])
+                    ->from(config('custom.noreplyemail'), 'Made Simple')
+                    ->subject('Reference Request');
+            });
 
         }
         $fields->application_id = $application->id;

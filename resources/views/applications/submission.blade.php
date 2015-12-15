@@ -588,7 +588,7 @@
                         <div class="form-group">
                             <div class="col-sm-4">Can we contact this reference?</div>
                             <div class="col-lg-7">
-                                <select name="referee_contact" class="form-control">
+                                <select name="referee_contact2" class="form-control">
                                     <option selected>Please Select</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
