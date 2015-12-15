@@ -127,7 +127,7 @@
         <td>
             Relationship: @if(! empty( $ref->referee_relationship)) <strong>{!! $ref->referee_relationship!!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
             Is this your previous /current employer?: @if(! empty($ref->referee_current_employer)) <strong>{!! $ref->referee_current_employer !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
-            Can we contact this reference?: @if(! empty($ref->referee_contact)) <strong>{!! $ref->referee_contact !!}</strong> @else <span class="no-answer">No answer given</span> @endif
+            Can we contact this reference?: @if(! empty($ref->referee_contact2)) <strong>{!! $ref->referee_contact2 !!}</strong> @else <span class="no-answer">No answer given</span> @endif
         </td>
     </tr>
 
