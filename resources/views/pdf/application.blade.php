@@ -317,7 +317,7 @@
             <h4>Second Referee</h4>
             Relationship: @if(! empty( $refTwo->referee_relationship)) <strong>{!! $refTwo->referee_relationship !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
             Is this your previous /current employer?: @if(! empty($refTwo->referee_current_employer)) <strong>{!! $refTwo->referee_current_employer !!}</strong> @else <span class="no-answer">No answer given</span> @endif<br />
-            Can we contact this reference?: @if(! empty($refTwo->referee_contact)) <strong>{!! $refTwo->referee_contact!!}</strong> @else <span class="no-answer">No answer given</span> @endif
+            Can we contact this reference?: @if(! empty($refTwo->referee_contact2)) <strong>{!! $refTwo->referee_contact2!!}</strong> @else <span class="no-answer">No answer given</span> @endif
         </td>
     </tr>
 
