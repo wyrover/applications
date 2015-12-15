@@ -133,25 +133,27 @@ class ApplicationSubmissionController extends Controller
             $reftwo->settings_id = $request->input('settings_id');
             $reftwo->save();
 
-            $data = array(
-                'worker'  => ucwords($application->first_name) .' '. ucwords($application->surname),
-                'company' => $ref->company->name,
-                'email'   => $request->input('referee_email2'),
-                'refereeName' => $reftwo->referee_name,
-                'code'    => $reftwo->code
-            );
-            // Send the email
-            Mail::send('emails/applications/submissiontwo', $data, function( $message ) use ($data)
-            {
-                $message->to($data['email'])
-                    ->from(config('custom.noreplyemail'), 'Made Simple')
-                    ->subject('Reference Request');
-            });
-
             $application->reference_two_id = $reftwo->id;
             $application->company_id = $request->input('company_id');
             $application->code_two = $reftwo->code;
             $application->update();
+
+            dd($reftwo->code);
+
+//            $data = array(
+//                'worker'  => ucwords($application->first_name) .' '. ucwords($application->surname),
+//                'company' => $ref->company->name,
+//                'email'   => $request->input('referee_email2'),
+//                'refereeName' => $reftwo->referee_name,
+//                'code'    => $reftwo->code
+//            );
+//            // Send the email
+//            Mail::send('emails/applications/submissiontwo', $data, function( $message ) use ($data)
+//            {
+//                $message->to($data['email'])
+//                    ->from(config('custom.noreplyemail'), 'Made Simple')
+//                    ->subject('Reference Request');
+//            });
 
         }
         $fields->application_id = $application->id;
