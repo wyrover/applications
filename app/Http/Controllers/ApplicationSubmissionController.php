@@ -93,7 +93,7 @@ class ApplicationSubmissionController extends Controller
                 'company' => $ref->company->name,
                 'email'   => $ref->referee_email,
                 'refereeName' => $ref->referee_name,
-                'code' => $application->code
+                'code' => $ref->code
             );
             // Send the email
             Mail::send('emails/applications/submission', $data, function( $message ) use ($data)
