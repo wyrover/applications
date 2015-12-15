@@ -193,11 +193,10 @@ class ApplicationSubmissionController extends Controller
     public function postReference(Request $request)
     {
         $applicant = Applications::where('code', $request->segment(2))->first();
-        dd($applicant->company_id);
-//        $settings = Settings::where('company_id', $applicant->company_id)->where('references_id', '=', 1)->get();
-//        $company = Company::where('id', $applicant->company_id)->first();
-//        $referee =  References::where('code', $request->segment(2))->first();
-//        return view('applications.submit', compact('company', 'applicant', 'settings', 'referee'));
+        $settings = Settings::where('company_id', $applicant->company_id)->where('references_id', '=', 1)->get();
+        $company = Company::where('id', $applicant->company_id)->first();
+        $referee =  References::where('code', $request->segment(2))->first();
+        return view('applications.submit', compact('company', 'applicant', 'settings', 'referee'));
     }
 
     public function refereeSubmitted(Request $request)
