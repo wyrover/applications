@@ -236,6 +236,18 @@
 <br />
 <hr />
 <br />
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td align="left">
+            <h3>Employment Gaps</h3>
+            <p>{!! nl2br($ref->application->employment_gaps) !!}</p>
+        </td>
+    </tr>
+</table>
+
+<br />
+<hr />
+<br />
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr>
