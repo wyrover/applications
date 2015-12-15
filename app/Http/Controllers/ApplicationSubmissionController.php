@@ -102,6 +102,11 @@ class ApplicationSubmissionController extends Controller
                     ->from(config('custom.noreplyemail'), 'Made Simple')
                     ->subject('Reference Request');
             });
+            $application->reference_id = $ref->id;
+            $application->company_id = $ref->company_id;
+            $application->code = $ref->code;
+            $application->app_only = 'true';
+            $application->update();
         }
         if (! empty($request->input('referee_email2')) && $request->input('referee_contact2') == 'Yes'){
 //            $applicationtwo = Applications::create($request->only(['first_name' , 'middle_name' , 'surname', 'address_line1', 'address_line2', 'city', 'postcode', 'telephone', 'visa_valid_to', 'mobile', 'email',
@@ -142,19 +147,15 @@ class ApplicationSubmissionController extends Controller
                     ->from(config('custom.noreplyemail'), 'Made Simple')
                     ->subject('Reference Request');
             });
+
+            $application->reference_two_id = $reftwo->id;
+            $application->company_id = $request->input('company_id');
+            $application->code_two = $reftwo->code;
+            $application->update();
+
         }
         $fields->application_id = $application->id;
         $fields->update();
-
-        $application->reference_id = $ref->id;
-        $application->company_id = $ref->company_id;
-        $application->code = $ref->code;
-        $application->app_only = 'true';
-
-        $application->reference_two_id = $reftwo->id;
-        $application->company_id = $request->input('company_id');
-        $application->code_two = $reftwo->code;
-        $application->update();
 
         flash()->success('Success', 'Thank you! Your submission has been successful and referees emailed.');
         return back();
