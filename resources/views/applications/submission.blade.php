@@ -59,7 +59,7 @@
                         </div>
 
                         <div class="form-group {{ $errors->has('surname') ? 'has-error' : '' }}">
-                            <div class="col-sm-4">Surname <span class="text-danger">*</span></div>
+                            <div class="col-sm-4">Last Name <span class="text-danger">*</span></div>
                             <div class="col-lg-7">
                                 <input type="text" name="surname" class="form-control" value="{!! old('surname') !!}">
                                 {!! $errors->first('surname', '<span class="help-block">:message</span>') !!}
@@ -234,8 +234,8 @@
                 <div class="panel-body">
 
                         <div class="form-group">
-                            <div class="col-sm-4">From GCSE or equivalent to degree level in chronological order
-                                Postgraduate education or study or any other professional qualifications</div>
+                            <div class="col-sm-4">In chronological order please list your qualifications including year of completion, full name of course / qualification and grade achieved
+                            </div>
                             <div class="col-lg-7">
                                 <textarea name="education" class="form-control" rows="6">{!! old('education') !!}</textarea>
                             </div>
@@ -247,7 +247,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Work Experience</div>
                 <div class="panel-body">
-                <p>Please give details of your last three jobs. Any relevant posts held before then may also be mentioned. Please begin with your present or most recent position and then work chronologically backwards, we need 5 years work history, if you have had any gaps then please indicate.</p><hr />
+                <p> please give details of your last 3 employments, you will need to provide 5 years checkable work history, including any gaps.</p><hr />
                     <div class="col-md-6">
                         <legend>Work Experience 1</legend>
                         <div class="form-group">
@@ -612,7 +612,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Data Protection Statement</div>
                 <div class="panel-body">
-                    <p>The information that you provide on this form and on any CV given will be used by us to provide you work finding services. In providing this service to you, you consent to your personal data being included on a computerised database and consent to us transferring your personal details to our clients. We may check the information collected, with third parties or with other information held by us. We may also use or pass to certain third parties information to prevent or detect crime, to protect public funds, or in other way permitted or required by law.</p>
+                    <p>The information that you give will be used by us to provide you suitable employment. . In providing this service to you, you consent to your personal data being included on a computerised database and consent to us transferring your personal details to our clients. We may check the information collected, with third parties or with other information held by us. We may also use or pass to certain third parties information to prevent or detect crime, to protect public funds, or in other way permitted or required by law.</p>
                     <hr />
                     <div class="form-group  {{ $errors->has('accept_data_protection') ? 'has-error' : '' }}">
                         <div class="col-sm-2">I accept this statement</div>

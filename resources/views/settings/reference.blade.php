@@ -1,6 +1,11 @@
 <hr />
 
 <h4>Reference Settings</h4>
+
+<div class="alert alert-info">
+    If box empty, this information will NOT appear on application form.
+</div>
+
 {!! Form::model($ref, ['method' => 'PUT', 'url' => ['settings/refs', $ref->id], 'class' => 'form-horizontal']) !!}
 
 <input type="hidden" name="company_id" value="{!! Auth::user()->company_id !!}">

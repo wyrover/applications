@@ -8,6 +8,10 @@
 @section('content')
 <p>You have the option to add up to 10 custom fields for your application &amp; reference forms.</p><br />
 
+<div class="alert alert-info">
+    If box empty, this information will NOT appear on application form.
+</div>
+
 <h4>Application Settings</h4>
 {!! Form::model($setting, ['method' => 'PUT', 'url' => ['settings', $setting->id], 'class' => 'form-horizontal']) !!}
 
