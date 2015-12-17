@@ -36,8 +36,9 @@ class DashboardController extends Controller
             $listOfNotificationIdsUserHasSeen = $user->notifications->lists('id');
             $notifications = DB::table('notifications')
                 ->whereNotIn('id', $listOfNotificationIdsUserHasSeen)->get();
+            dd($notifications);
 
-            return view('dashboard', compact('notifications'));
+            //return view('dashboard', compact('notifications'));
         }
         if (Auth::check() && Auth::user()->role == 'Admin') {
             $accounts = User::where('role', '!=', 'Admin')->paginate(10);
