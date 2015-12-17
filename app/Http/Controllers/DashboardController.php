@@ -40,4 +40,19 @@ class DashboardController extends Controller
         }
         return true;
     }
+
+    public function updateNotifications(Request $request)
+    {
+        $id = Auth::id();
+        $input = $request->all();
+        Notification::find($input['banner_id'])->users()->attach(User::find($id));
+        DB::table('notification_user')
+            ->where('user_id', $id)
+            ->update(['read' => 1]);
+
+
+        return redirect()->back();
+    }
+
+
 }

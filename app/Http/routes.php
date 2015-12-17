@@ -14,6 +14,8 @@ if (App::environment('production')) {
             return view('auth/login');
         });
 
+        Route::post('updateNotifications', 'DashboardController@updateNotifications');
+
         /* Reference Submission */
         get('application/{code}/submitReference', 'ApplicationSubmissionController@postReference');
         post('application/{code}/submitReference', 'ApplicationSubmissionController@refereeSubmitted');
