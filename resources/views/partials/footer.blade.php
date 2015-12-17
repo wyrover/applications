@@ -77,4 +77,30 @@
     });
 </script>
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.del-banner-btn').click(function () {
+            var banner_id = $(this).data('banner-id');
+            var user_id = $(this).data('user-id');
+            var notify = $(this).data('notify-id')
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                method: 'POST',
+                url: '/updateNotifications',
+                data: {
+                    'banner_id' : banner_id,
+                    'user_id' : user_id,
+                    'notify' : notify
+                }
+            });
+            $('.notify').remove();
+        });
+    });
+</script>
+
 @yield('endjs')
