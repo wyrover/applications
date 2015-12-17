@@ -31,7 +31,11 @@ class DashboardController extends Controller
 
             //$user = Auth::user();
             //$listOfNotificationIdsUserHasSeen = $user->notifications->lists('id');
-            $notifications = Notifications::all();
+           // $notifications = Notifications::all();
+            $user = Auth::user();
+            $listOfNotificationIdsUserHasSeen = $user->notifications->lists('id');
+            $notifications = DB::table('notifications')
+                ->whereNotIn('id', $listOfNotificationIdsUserHasSeen)->get();
 
             return view('dashboard', compact('notifications'));
         }
