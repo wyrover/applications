@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Notifications;
+use App\NotificationUser;
 use App\User;
 use App\Company;
 use Illuminate\Http\Request;
@@ -52,10 +53,13 @@ class DashboardController extends Controller
         $id = Auth::id();
         $input = $request->all();
         Notifications::find($input['banner_id'])->users()->attach(User::find($id));
-        DB::table('notification_user')
-            ->where('user_id', $id)
-            ->update(['read' => 1]);
-
+//        DB::table('notification_user')
+//            ->where('user_id', $id)
+//            ->update(['read' => 1]);
+        $nu = NotificationUser::where('user_id', $id)->first();
+        $nu->read = 1;
+        $nu->update();
+        
         return redirect()->back();
     }
 
