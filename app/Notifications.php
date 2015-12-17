@@ -17,6 +17,6 @@ class Notifications extends Model
 
     public function read()
     {
-        return $this->hasMany('App\NotificationUser', 'notifications_id');
+        return $this->hasMany('App\NotificationUser', 'notification_id');
     }
 }
