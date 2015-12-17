@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class NotificationUser extends Model
 {
-    public $table = 'notification_user';
+    public $table = 'notifications_user';
 
     public $guarded = ['id'];
 

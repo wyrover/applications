@@ -55,7 +55,7 @@ class DashboardController extends Controller
         DB::table('notification_user')
             ->where('user_id', $id)
             ->update(['read' => 1]);
-        
+
         return redirect()->back();
     }
 
