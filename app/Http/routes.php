@@ -16,7 +16,7 @@ if (App::environment('production')) {
             return view('auth/login');
         });
 
-        Route::any('updateNotifications', 'DashboardController@updateNotifications');
+        Route::post('updateNotifications', 'DashboardController@updateNotifications');
 
         /* Reference Submission */
         get('application/{code}/submitReference', 'ApplicationSubmissionController@postReference');
