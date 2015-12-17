@@ -31,14 +31,14 @@ class DashboardController extends Controller
 
             //$user = Auth::user();
             //$listOfNotificationIdsUserHasSeen = $user->notifications->lists('id');
-           // $notifications = Notifications::all();
-            $user = Auth::user();
-            $listOfNotificationIdsUserHasSeen = $user->notifications->lists('id');
-            $notifications = DB::table('notifications')
-                ->whereNotIn('id', $listOfNotificationIdsUserHasSeen)->get();
-            dd($notifications);
+            $notifications = Notifications::all();
+//            $user = Auth::user();
+//            $listOfNotificationIdsUserHasSeen = $user->notifications->lists('id');
+//            $notifications = DB::table('notifications')
+//                ->whereNotIn('id', $listOfNotificationIdsUserHasSeen)->get();
+//            dd($notifications);
 
-            //return view('dashboard', compact('notifications'));
+            return view('dashboard', compact('notifications'));
         }
         if (Auth::check() && Auth::user()->role == 'Admin') {
             $accounts = User::where('role', '!=', 'Admin')->paginate(10);
