@@ -4,7 +4,7 @@
 use Illuminate\Support\Facades\App;
 
 get('/', function () {
-    return view('auth/login');
+    return 'Sorry, nothing here, you need to know your company URL <code>yourcompany.madesimpleapp.co.uk</code>';
 });
 
 // LIVE ENV
