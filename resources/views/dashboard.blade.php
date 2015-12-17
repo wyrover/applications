@@ -45,7 +45,7 @@
     <hr />
 
     @if (count($notifications))
-        @include('notifications.index')
+        @include('notifications')
     @else
         No new notifications
     @endif
