@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications;
 use App\User;
 use App\Company;
 use Illuminate\Http\Request;
@@ -26,7 +27,8 @@ class DashboardController extends Controller
         $company = Company::where('user_id', Auth::user()->id);
 
         if (Auth::check() && Auth::user()->role != 'Admin' || $company == $output){
-            return view('dashboard');
+            $notifications = Notifications::all();
+            return view('dashboard', compact('notifications'));
         }
         if (Auth::check() && Auth::user()->role == 'Admin') {
             $accounts = User::where('role', '!=', 'Admin')->paginate(10);

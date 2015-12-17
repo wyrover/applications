@@ -42,6 +42,14 @@
             <td>@if(! empty(Auth::user()->company->postcode)){!! Auth::user()->company->postcode !!} @endif</td>
         </tr>
     </table>
+    <hr />
+
+    @if (count($notifications))
+        @include('notifications.index')
+    @else
+        No new notifications
+    @endif
+
 </div>
 
 @endsection
