@@ -56,7 +56,7 @@ class DashboardController extends Controller
 //        DB::table('notification_user')
 //            ->where('user_id', $id)
 //            ->update(['read' => 1]);
-        $nu = NotificationUser::where('user_id', $id)->first();
+        $nu = NotificationUser::where('user_id', '=', Auth::user()->id)->first();
         $nu->read = 1;
         $nu->update();
 
