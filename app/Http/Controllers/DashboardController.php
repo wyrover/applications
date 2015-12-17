@@ -10,6 +10,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -45,12 +46,10 @@ class DashboardController extends Controller
     {
         $id = Auth::id();
         $input = $request->all();
-        Notification::find($input['banner_id'])->users()->attach(User::find($id));
+        Notifications::find($input['banner_id'])->users()->attach(User::find($id));
         DB::table('notification_user')
             ->where('user_id', $id)
             ->update(['read' => 1]);
-
-
         return redirect()->back();
     }
 
