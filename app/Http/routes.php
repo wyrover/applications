@@ -10,7 +10,7 @@ if (App::environment('production')) {
 
     Route::post('updateNotifications', 'DashboardController@updateNotifications');
 
-    
+
     /* Domain Routes */
     Route::group(['domain' => '{account}.madesimpleltd.co.uk'], function () {
 
