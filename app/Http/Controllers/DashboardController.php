@@ -59,7 +59,7 @@ class DashboardController extends Controller
         $nu = NotificationUser::where('user_id', $id)->first();
         $nu->read = 1;
         $nu->update();
-        
+
         return redirect()->back();
     }
 
