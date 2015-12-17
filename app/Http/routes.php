@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\App;
 
 // LIVE ENV
 if (App::environment('production')) {
+
+    Route::post('updateNotifications', 'DashboardController@updateNotifications');
+
+    
     /* Domain Routes */
     Route::group(['domain' => '{account}.madesimpleltd.co.uk'], function () {
 
@@ -15,8 +19,6 @@ if (App::environment('production')) {
             //dd(url('/application/submitReference'));
             return view('auth/login');
         });
-
-        Route::post('updateNotifications', 'DashboardController@updateNotifications');
 
         /* Reference Submission */
         get('application/{code}/submitReference', 'ApplicationSubmissionController@postReference');
