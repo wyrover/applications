@@ -28,10 +28,9 @@ class DashboardController extends Controller
 
         if (Auth::check() && Auth::user()->role != 'Admin' || $company == $output){
 
-            $user = Auth::user();
-            $listOfNotificationIdsUserHasSeen = $user->notifications->lists('id');
-            $notifications = DB::table('notifications')
-                ->whereNotIn('id', $listOfNotificationIdsUserHasSeen)->get();
+            //$user = Auth::user();
+            //$listOfNotificationIdsUserHasSeen = $user->notifications->lists('id');
+            $notifications = Notifications::all();
 
             return view('dashboard', compact('notifications'));
         }
