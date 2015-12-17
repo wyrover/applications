@@ -45,6 +45,7 @@
     <hr />
 
     @if (count($notifications))
+        <h5>Notifications</h5>
         @include('notifications')
     @else
         No new notifications
