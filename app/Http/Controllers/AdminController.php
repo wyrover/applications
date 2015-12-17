@@ -126,4 +126,14 @@ class AdminController extends Controller
         flash()->info('Account Deleted', 'Account successfully removed');
         return redirect('dashboard');
     }
+
+    public function notification()
+    {
+        return view('notifications.index');
+    }
+
+    public function storeNotification(Request $request)
+    {
+
+    }
 }
