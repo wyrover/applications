@@ -3,7 +3,9 @@
 
 use Illuminate\Support\Facades\App;
 
-
+get('/', function () {
+    return view('auth/login');
+});
 
 // LIVE ENV
 if (App::environment('production')) {
