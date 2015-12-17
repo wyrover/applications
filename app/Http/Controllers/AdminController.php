@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+use App\Notifications;
 use App\ReferenceFields;
 use App\Settings;
 use App\User;
@@ -134,7 +135,7 @@ class AdminController extends Controller
 
     public function storeNotification(Request $request)
     {
-        Notification::create($request->all());
+        Notifications::create($request->all());
 
         flash()->success('Success', 'Notification successfully saved. All users will be notified.');
         return back();
