@@ -134,6 +134,9 @@ class AdminController extends Controller
 
     public function storeNotification(Request $request)
     {
+        Notification::create($request->all());
 
+        flash()->success('Success', 'Notification successfully saved. All users will be notified.');
+        return back();
     }
 }
