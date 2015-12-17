@@ -3,6 +3,10 @@
 
 use Illuminate\Support\Facades\App;
 
+
+Route::any('updateNotifications', 'DashboardController@updateNotifications');
+
+
 // LIVE ENV
 if (App::environment('production')) {
     /* Domain Routes */
@@ -14,7 +18,6 @@ if (App::environment('production')) {
             return view('auth/login');
         });
 
-        Route::post('updateNotifications', 'DashboardController@updateNotifications');
 
         /* Reference Submission */
         get('application/{code}/submitReference', 'ApplicationSubmissionController@postReference');
