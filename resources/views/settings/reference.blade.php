@@ -3,7 +3,7 @@
 <h4>Reference Settings</h4>
 
 <div class="alert alert-info">
-    If box empty, this information will NOT appear on application form.
+    if the boxes are left empty, this information will NOT appear on the application form
 </div>
 
 {!! Form::model($ref, ['method' => 'PUT', 'url' => ['settings/refs', $ref->id], 'class' => 'form-horizontal']) !!}

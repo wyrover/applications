@@ -29,7 +29,7 @@
 <div class="container content">
     <div class="row">
     <div class="col-lg-11 col-md-10 col-sm-11 col-xs-5">
-         <p>Please fill out this application as accurately as possible make sure to fill as many boxes as you can.<br />
+         <p>Please fill out this application form as accurately as possible ensuring that you complete as many boxes as you can.<br />
             Fields marked with <span class="text-danger">*</span> are required.
          </p>
         {!! Form::open(['url' => 'application', 'class' => 'form-horizontal']) !!}
@@ -247,7 +247,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Work Experience</div>
                 <div class="panel-body">
-                <p> please give details of your last 3 employments, you will need to provide 5 years checkable work history, including any gaps.</p><hr />
+                <p>Please give details of your last 3 employments, you will need to provide 5 years checkable work history, including any gaps.</p><hr />
                     <div class="col-md-6">
                         <legend>Work Experience 1</legend>
                         <div class="form-group">
@@ -279,7 +279,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-sm-4">Description of duties and responsibilities and reason for leaving
+                            <div class="col-sm-4">Description of duties and responsibilities including reason for leaving
                             </div>
                             <div class="col-lg-7">
                                 <textarea name="employer_responsibilities" class="form-control" rows="3">{!! old('employer_responsibilities') !!}</textarea>
@@ -316,7 +316,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-sm-4">Description of duties and responsibilities and reason for leaving
+                            <div class="col-sm-4">Description of duties and responsibilities including reason for leaving
                             </div>
                             <div class="col-lg-7">
                                 <textarea name="employer_responsibilities3" class="form-control" rows="3">{!! old('employer_responsibilities3') !!}</textarea>
@@ -355,7 +355,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-sm-4">Description of duties and responsibilities and reason for leaving
+                            <div class="col-sm-4">Description of duties and responsibilities including reason for leaving
                             </div>
                             <div class="col-lg-7">
                                 <textarea name="employer_responsibilities2" class="form-control" rows="3">{!! old('employer_responsibilities2') !!}</textarea>

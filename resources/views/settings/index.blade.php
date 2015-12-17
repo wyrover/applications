@@ -9,7 +9,7 @@
 <p>You have the option to add up to 10 custom fields for your application &amp; reference forms.</p><br />
 
 <div class="alert alert-info">
-    If box empty, this information will NOT appear on application form.
+    if the boxes are left empty, this information will NOT appear on the application form
 </div>
 
 <h4>Application Settings</h4>
