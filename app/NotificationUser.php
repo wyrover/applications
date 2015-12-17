@@ -10,8 +10,8 @@ class NotificationUser extends Model
 
     public $guarded = ['id'];
 
-    public function notifications()
-    {
-        return $this->belongsToMany('App\Notifications');
-    }
+//    public function notifications()
+//    {
+//        return $this->belongsToMany('App\Notifications');
+//    }
 }
