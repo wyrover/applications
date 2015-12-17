@@ -12,7 +12,7 @@ if (App::environment('production')) {
 
 
     /* Domain Routes */
-    Route::group(['domain' => '{account}.madesimpleltd.co.uk'], function () {
+    Route::group(['domain' => '{account}.madesimpleapp.co.uk'], function () {
 
         /* Redirect to login */
         get('/', function () {

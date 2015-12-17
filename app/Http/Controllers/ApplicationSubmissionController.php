@@ -29,7 +29,7 @@ class ApplicationSubmissionController extends Controller
     public function create()
     {
         $segment = \Request::url();
-        $search = ['http://', 'https://', '.madesimpleltd', '.co.uk', '/application'];
+        $search = ['http://', 'https://', '.madesimpleapp', '.co.uk', '/application'];
         $replace = ['', '', '', '', ''];
         $output = str_replace($search, $replace, $segment);
         $company = Company::where('url', $output)->first();
@@ -177,7 +177,7 @@ class ApplicationSubmissionController extends Controller
         }
         if (App::environment('production')) {
             $segment = \Request::url();
-            $search = ['http://', 'https://', '.madesimpleltd', '.co.uk', '/reference', '/'.\Request::segment(2)];
+            $search = ['http://', 'https://', '.madesimpleapp', '.co.uk', '/reference', '/'.\Request::segment(2)];
             $replace = ['','','','','',''];
             $output = str_replace($search, $replace, $segment);
             $company = Company::where('url', $output)->first();
@@ -229,7 +229,7 @@ class ApplicationSubmissionController extends Controller
         $fields->update();
 
         $segment = \Request::url();
-        $search = ['http://', 'https://', '.madesimpleltd', '.co.uk/', \Request::segment(1) .'/', \Request::segment(2).'/', \Request::segment(3)];
+        $search = ['http://', 'https://', '.madesimpleapp', '.co.uk/', \Request::segment(1) .'/', \Request::segment(2).'/', \Request::segment(3)];
         $replace = ['', '', '', '', '', '', ''];
         $output = str_replace($search, $replace, $segment);
         $company = Company::where('url', $output)->first();
@@ -284,7 +284,7 @@ class ApplicationSubmissionController extends Controller
         $fields->update();
 
         $segment = \Request::url();
-        $search = ['http://', 'https://', '.madesimpleltd', '.co.uk/', \Request::segment(1) .'/', \Request::segment(2).'/', \Request::segment(3)];
+        $search = ['http://', 'https://', '.madesimpleapp', '.co.uk/', \Request::segment(1) .'/', \Request::segment(2).'/', \Request::segment(3)];
         $replace = ['', '', '', '', '', '', ''];
         $output = str_replace($search, $replace, $segment);
         $company = Company::where('url', $output)->first();

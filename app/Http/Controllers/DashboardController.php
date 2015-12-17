@@ -23,7 +23,7 @@ class DashboardController extends Controller
     public function index()
     {
         $segment = \Request::url();
-        $search = ['http://', 'https://', '.madesimpleltd', '.co.uk', '/' . \Request::segment(1)];
+        $search = ['http://', 'https://', '.madesimpleapp', '.co.uk', '/' . \Request::segment(1)];
         $replace = ['', '', '', '', ''];
         $output = str_replace($search, $replace, $segment);
         $company = Company::where('user_id', Auth::user()->id);
