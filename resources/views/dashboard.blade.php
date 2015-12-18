@@ -43,17 +43,25 @@
         </tr>
     </table>
 </div>
-<br />
-<hr />
-<br />
-<div class="col-md-11 col-sm-10 col-xs-9">
-    @if (count($notifications))
-        <h5>Notifications</h5>
-        @include('notifications')
-    @else
-        No new notifications
-    @endif
+
+
+// new box
+// refs not working
+// font
+// support email
+
+<div class="panel panel-default">
+  <div class="panel-heading"></div>
+  <div class="panel-body">
+      @if (count($notifications))
+          <h5>Notifications</h5>
+          @include('notifications')
+      @else
+          No new notifications
+      @endif
+  </div>
 </div>
+
 
 
 
