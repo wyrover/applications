@@ -145,8 +145,8 @@ footer a:hover, footer a:focus {
     padding-right: 20px;
 }
 .nav-side-menu li:hover {
-    border-left: 3px solid #d19b3d;
-    background-color: #dbdbdb;
+    border-left: 3px solid #017084;
+    background-color: #018FAB;
     color: #fff!important;
     -webkit-transition: all 1s ease;
     -moz-transition: all 1s ease;
