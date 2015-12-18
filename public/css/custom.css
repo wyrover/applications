@@ -53,6 +53,7 @@ footer a:hover, footer a:focus {
 .brand {
     border-bottom: 1px solid #bcbcbc;
     padding: 5px 0px 8px 0px;
+    background-color: transparent!important;
 }
 .nav-side-menu {
     overflow: auto;
@@ -66,7 +67,7 @@ footer a:hover, footer a:focus {
     color: #fff;
 }
 .nav-side-menu .brand {
-    background-color: transparent;
+    background-color: transparent!important;
     line-height: 50px;
     display: block;
     text-align: center;
