@@ -31,6 +31,10 @@
         </div>
     </div>
 
+    @if (Request::is('dashboard'))
+        @yield('dboard')
+    @endif
+
 </div>
 @include('partials/footer')
 
