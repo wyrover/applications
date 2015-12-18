@@ -476,7 +476,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Reference Details</div>
                 <div class="panel-body">
-                    <p>Please give details of two referees, one of whom must be your current or most recent employer or, if this is an application for your first job, your school teacher or higher or further education lecturer. Neither referee should be a relative.</p><hr />
+                    <p>Please give details of two referees, one of whom must be your current or most recent employer or, if this is an application for your first job, your school teacher or higher or further education lecturer. Referee should be someone that has known you for a minimum of 2 years and should not be a relative.</p><hr />
                     <div class="col-md-6">
                         <legend>First Referee</legend>
                         <div class="form-group">
