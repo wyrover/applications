@@ -22,7 +22,6 @@
 @include('partials/nav')
 
 <div class="container content">
-    @if(!Request::is('dashboard'))
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="panel panel-default">
             <div class="panel-heading">@yield('title')</div>
@@ -31,11 +30,7 @@
             </div>
         </div>
     </div>
-    @endif
 
-    @if (Request::is('dashboard'))
-        @yield('dboard')
-    @endif
 </div>
 @include('partials/footer')
 

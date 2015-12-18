@@ -44,6 +44,7 @@
     </table>
 </div>
 
+@if (\Request::is('dashboard'))
 
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="panel panel-default">
@@ -58,6 +59,8 @@
         </div>
     </div>
 </div>
+
+@endif
 
 
 
