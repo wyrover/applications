@@ -67,7 +67,7 @@ footer a:hover, footer a:focus {
     color: #fff;
 }
 .nav-side-menu .brand {
-    background-color: transparent!important;
+    background-color: #fff!important;
     line-height: 50px;
     display: block;
     text-align: center;
