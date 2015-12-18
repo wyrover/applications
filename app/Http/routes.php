@@ -78,7 +78,7 @@ if (App::environment('production')) {
         get('admin/account/{id}/edit', 'AdminController@edit');
         get('admin/account/{id}/delete', 'AdminController@delete');
         Route::any('admin/account/update/{id}', 'AdminController@update');
-
+        get('admin/dashboard', 'AdminController@dashboard');
         get('admin/notifications', 'AdminController@notification');
         post('admin/notifications', 'AdminController@storeNotification');
 

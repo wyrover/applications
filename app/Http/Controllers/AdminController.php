@@ -138,4 +138,9 @@ class AdminController extends Controller
         flash()->success('Success', 'Notification successfully saved. All users will be notified.');
         return back();
     }
+
+    public function dashboard()
+    {
+        return view('admin.dashboard');
+    }
 }
