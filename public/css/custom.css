@@ -110,12 +110,12 @@ footer a:hover, footer a:focus {
     background-color: #dbdbdb;
     border: none;
     line-height: 28px;
-    border-bottom: 1px solid #bcbcbc;
+    border-bottom: 1px solid #017084;
     margin-left: 0px;
 }
 .nav-side-menu ul .sub-menu li:hover,
 .nav-side-menu li .sub-menu li:hover {
-    background-color: #dbdbdb;
+    background-color: #017084;
     color: #fff;
 }
 .nav-side-menu ul .sub-menu li:before,
