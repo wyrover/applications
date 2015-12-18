@@ -146,7 +146,7 @@ footer a:hover, footer a:focus {
 }
 .nav-side-menu li:hover {
     border-left: 3px solid #017084;
-    background-color: #018FAB;
+    background-color: #017084;
     color: #fff!important;
     -webkit-transition: all 1s ease;
     -moz-transition: all 1s ease;
