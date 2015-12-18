@@ -44,10 +44,9 @@
     </table>
 </div>
 
-// refs not working
 
 <div class="panel panel-default">
-  <div class="panel-heading"></div>
+  <div class="panel-heading">Notifications</div>
   <div class="panel-body">
       @if (count($notifications))
           <h5>Notifications</h5>
