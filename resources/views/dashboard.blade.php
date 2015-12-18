@@ -44,11 +44,7 @@
     </table>
 </div>
 
-
-// new box
 // refs not working
-// font
-// support email
 
 <div class="panel panel-default">
   <div class="panel-heading"></div>

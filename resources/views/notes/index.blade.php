@@ -27,7 +27,7 @@
             @foreach($notes as $note)
                 <tr>
                     <td>{!! $note->content !!}</td>
-                    <td>{!! date('d/m/y', strtotime($note->created_at)) !!}&nbsp;&nbsp;by&nbsp;&nbsp;{!! $note->created_by !!}</td>
+                    <td>{!! date('d/m/y', strtotime($note->created_at)) !!}&nbsp;&nbsp;by&nbsp;&nbsp;{!! Auth::user()->company !!}</td>
                     <td></td>
                     <td><a href="/applications/notes/{!! $note->id !!}/delete" onclick="return confirm('Are you sure you want to remove this?')"><i class="fa fa-times"></i></a></td>
                 </tr>

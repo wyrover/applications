@@ -67,7 +67,7 @@ class ReferencesController extends Controller
             // Send the email
             Mail::send('emails/references/request', $data, function ($message) use ($data) {
                 $message->to($data['email'])
-                    ->from('noreply@madesimpleltd.co.uk')
+                    ->from('noreply@madesimpleapp.co.uk')
                     ->subject('You have been selected to provide a reference');
             });
         }
@@ -98,7 +98,7 @@ class ReferencesController extends Controller
             // Send the email
             Mail::send('emails/references/request2', $data, function ($message) use ($data) {
                 $message->to($data['emailtwo'])
-                    ->from('noreply@madesimpleltd.co.uk')
+                    ->from('noreply@madesimpleapp.co.uk')
                     ->subject('You have been selected to provide a reference');
             });
         }
@@ -131,7 +131,7 @@ class ReferencesController extends Controller
     {
         $code = $request->segment(2);
         $segment = \Request::url();
-        $search = ['http://', 'https://', '.madesimpleltd', '.co.uk/', \Request::segment(1) .'/', \Request::segment(2).'/', \Request::segment(3)];
+        $search = ['http://', 'https://', '.madesimpleapp', '.co.uk/', \Request::segment(1) .'/', \Request::segment(2).'/', \Request::segment(3)];
         $replace = ['', '', '', '', '', '', ''];
         $output = str_replace($search, $replace, $segment);
         $company = Company::where('url', $output)->first();
