@@ -120,7 +120,6 @@ footer a:hover, footer a:focus {
 }
 .nav-side-menu ul .sub-menu li:before,
 .nav-side-menu li .sub-menu li:before {
-    font-family: FontAwesome;
     content: "\f105";
     display: inline-block;
     padding-left: 10px;
@@ -129,12 +128,12 @@ footer a:hover, footer a:focus {
 }
 .nav-side-menu li {
     padding-left: 0px;
-    border-left: 3px solid #bcbcbc;
-    border-bottom: 1px solid #bcbcbc;
+    border-left: 3px solid #017084;
+    border-bottom: 1px solid #017084;
 }
 .nav-side-menu li a {
     text-decoration: none;
-    color: #101010;
+    color: #fff;
 }
 .nav-side-menu li a:hover {
     text-decoration: none;
