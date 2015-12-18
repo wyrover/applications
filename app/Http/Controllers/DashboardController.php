@@ -33,7 +33,7 @@ class DashboardController extends Controller
             $user = Auth::user();
             $listOfNotificationIdsUserHasSeen = $user->notifications->lists('id');
             $notifications = DB::table('notifications')
-                ->whereNotIn('id', $listOfNotificationIdsUserHasSeen)->get();
+                ->whereNotIn('id', $listOfNotificationIdsUserHasSeen)->orderBy('created_at', 'DESC')->get();
 
             return view('dashboard', compact('notifications'));
         }

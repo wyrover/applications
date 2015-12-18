@@ -33,7 +33,7 @@ class ApplicationSubmissionController extends Controller
         $replace = ['', '', '', '', ''];
         $output = str_replace($search, $replace, $segment);
         $company = Company::where('url', $output)->first();
-        
+
         $field = Settings::where('company_id', '=', $company->id)->where('application_id','=', 1)->first();
 
         return view('applications.submission', compact('company', 'field'));
